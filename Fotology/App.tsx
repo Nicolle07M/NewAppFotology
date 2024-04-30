@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   },
   overlay: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(255, 200, 150, 0.3)', // Color naranja semitransparente
+    backgroundColor: 'rgba(200, 120, 0, 0.3)', // Color naranja semitransparente
   },
   logoContainer: {
     position: 'absolute',
