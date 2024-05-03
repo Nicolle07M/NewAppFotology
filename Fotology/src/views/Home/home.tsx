@@ -13,7 +13,7 @@ export const  HomeScreen = () => {
   return (
     <View style={styles.container}>
       <LinearGradient
-        colors={['orange', 'black']}
+        colors={['#FFB800', '#000000']}
         style={styles.gradient}
       >
         <ImageBackground
