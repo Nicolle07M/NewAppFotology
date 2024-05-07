@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
   },
   label2: {
     fontSize: 20,
-    marginBottom: 60,
+    marginBottom: 40,
     alignItems: 'center',
     fontWeight: 'bold',
     
