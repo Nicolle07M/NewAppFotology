@@ -9,11 +9,11 @@ export const HomeScreen = () => {
   const navigation = useNavigation();
 
   const handleLoginPress = () => {
-    navigation.navigate('LoginForm');
+    navigation.navigate('LoginFormScreen');
   };
 
   const handleRegisterPress = () => {
-    navigation.navigate('Register');
+    navigation.navigate('RegisterScreen');
   };
 
   return (
