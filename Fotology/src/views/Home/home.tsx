@@ -3,13 +3,18 @@ import { StyleSheet, ImageBackground, Text, View, Image, TouchableOpacity } from
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 
-export const  HomeScreen = () => {
+export const HomeScreen = () => {
 
-    const navigation = useNavigation();
+  const navigation = useNavigation();
 
   const handleLoginPress = () => {
     navigation.navigate('LoginForm');
   };
+
+  const handleRegisterPress = () => {
+    navigation.navigate('Register');
+  };
+
   return (
     <View style={styles.container}>
       <LinearGradient
@@ -34,7 +39,7 @@ export const  HomeScreen = () => {
           </TouchableOpacity>
           <View style={styles.registerContainer}>
             <Text style={styles.registerText}>¿No tienes cuenta?</Text>
-            <TouchableOpacity style={styles.registerButton} onPress={() => alert('Registrarse')}>
+            <TouchableOpacity style={styles.registerButton} onPress={handleRegisterPress}>
               <Text style={styles.registerButtonText}>Regístrate</Text>
             </TouchableOpacity>
           </View>
