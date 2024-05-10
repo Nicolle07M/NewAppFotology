@@ -2,9 +2,9 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { HomeScreen } from './src/views/Home/home';
-import LoginFormScreen from './src/views/Home/LoginFormScreen';
 import RegisterScreen from './src/views/Register/register';
 import WelcomeScreen from './src/views/Fotografo/Welcome';
+import LoginFormScreen from './src/views/Home/LoginFormScreen';
 
 const Stack = createNativeStackNavigator();
 

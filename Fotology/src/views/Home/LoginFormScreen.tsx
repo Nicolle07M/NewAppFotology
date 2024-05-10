@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ImageBackground, Image } from 'react-native';
-import { Ionicons } from '@expo/vector-icons'; // Importa el icono de Ionicons
 import styles from './LoginStyles';
 
 const LoginFormScreen = ({ navigation }) => {
@@ -24,7 +23,6 @@ const LoginFormScreen = ({ navigation }) => {
         <View style={styles.formContainer}>
           <Text style={styles.label2}>Bienvenido a Fotology</Text>
           <View style={styles.inputContainer}>
-            <Ionicons name="mail-outline" size={24} color="gray" style={styles.icon} />
             <TextInput
               style={styles.input}
               value={email}
@@ -33,7 +31,6 @@ const LoginFormScreen = ({ navigation }) => {
             />
           </View>
           <View style={styles.inputContainer}>
-            <Ionicons name="lock-closed-outline" size={24} color="gray" style={styles.icon} />
             <TextInput
               style={styles.input}
               value={password}

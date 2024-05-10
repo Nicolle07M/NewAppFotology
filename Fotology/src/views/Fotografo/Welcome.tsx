@@ -1,12 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet, ImageBackground, ScrollView } from 'react-native';
-import {useFonts} from 'expo-font';
+
 
 const WelcomeScreen = () => {
-    const [fontsLoaded] = useFonts({
-        Freeman: require("../../../assets/fonts/Freeman-Regular.ttf"),
-        Archivo: require("../../../assets/fonts/Archivo-VariableFonnt2.ttf")
-    })
+    
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.backgroundContainer}>
@@ -143,7 +140,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginVertical: 10,
     marginHorizontal: 40, 
-    fontFamily: 'Archivo',
+
   },
   description2: {
     textAlign: 'justify',
@@ -151,7 +148,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     marginHorizontal: 40,
     marginTop: 30,
-    fontFamily: 'Archivo',
+
   },
   description3: {
     textAlign: 'justify',
@@ -159,7 +156,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     marginHorizontal: 40,
     marginTop: 0,
-    fontFamily: 'Archivo',
+
   },
   orangeLine: {
     width: '80%',
