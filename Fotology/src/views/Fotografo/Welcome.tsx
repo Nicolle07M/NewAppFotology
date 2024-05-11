@@ -1,11 +1,17 @@
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground, ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { View, Text, StyleSheet, ImageBackground, ScrollView, TouchableOpacity} from 'react-native';
 import styles from './WelcomeStyle';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 
 const WelcomeScreen = () => {
-    
+  const navigation = useNavigation();
+
+  const navigateToContactoScreen = () => {
+    navigation.navigate('ContactoScreen');
+  };  
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.backgroundContainer}>
@@ -89,7 +95,13 @@ const WelcomeScreen = () => {
       <Text style={styles.description3}>
         ¡Gracias por ser parte de nuestra comunidad de fotógrafos! Estamos aquí para apoyarte en tu viaje fotográfico.
       </Text>
+      <TouchableOpacity onPress={navigateToContactoScreen} style={styles.button}>
+        <Text style={styles.buttonText}>Contacto</Text>
+      </TouchableOpacity>
+
     </ScrollView>
+
+
   );
 };
 

@@ -80,6 +80,23 @@ const WelcomeStyles = StyleSheet.create({
       marginVertical: 10,
       color: 'orange',
     },
+
+    button: {
+      backgroundColor: '#007bff', // Cambia el color de fondo según tu preferencia
+      borderRadius: 5,
+      paddingVertical: 10,
+      paddingHorizontal: 20,
+      marginTop: 20, // Puedes ajustar el espaciado superior según sea necesario
+      alignSelf: 'center', // Centra el botón horizontalmente
+    },
+  
+    buttonText: {
+      color: 'white', // Color del texto del botón
+      fontSize: 16, // Tamaño del texto del botón
+      fontWeight: 'bold', // Puedes ajustar el grosor del texto según sea necesario
+    },
+
+    
     
   });
 
