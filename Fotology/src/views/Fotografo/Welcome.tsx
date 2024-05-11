@@ -15,6 +15,13 @@ const WelcomeScreen = () => {
   const navigatePerfilScreen = () => {
     navigation.navigate('PerfilScreen');
   };  
+  const navigatePortafolioScreen = () => {
+    navigation.navigate('PortafolioScreen');
+  };  
+  const navigateCategoriasScreen = () => {
+    navigation.navigate('CategoriasScreen');
+  };  
+
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -82,7 +89,12 @@ const WelcomeScreen = () => {
       <TouchableOpacity onPress={navigatePerfilScreen} style={styles.button}>
         <Text style={styles.buttonText}>Perfil</Text>
       </TouchableOpacity>
-
+      <TouchableOpacity onPress={navigatePortafolioScreen} style={styles.button}>
+        <Text style={styles.buttonText}>Portafolio</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={navigateCategoriasScreen} style={styles.button}>
+        <Text style={styles.buttonText}>Categorias</Text>
+      </TouchableOpacity>
     </ScrollView>
 
 
