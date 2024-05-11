@@ -12,6 +12,10 @@ const WelcomeScreen = () => {
     navigation.navigate('ContactoScreen');
   };  
 
+  const navigatePerfilScreen = () => {
+    navigation.navigate('PerfilScreen');
+  };  
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.backgroundContainer}>
@@ -97,6 +101,10 @@ const WelcomeScreen = () => {
       </Text>
       <TouchableOpacity onPress={navigateToContactoScreen} style={styles.button}>
         <Text style={styles.buttonText}>Contacto</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={navigatePerfilScreen} style={styles.button}>
+        <Text style={styles.buttonText}>Perfil</Text>
       </TouchableOpacity>
 
     </ScrollView>

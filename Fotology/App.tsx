@@ -7,6 +7,7 @@ import WelcomeScreen from './src/views/Fotografo/Welcome';
 import LoginFormScreen from './src/views/Home/LoginFormScreen';
 import 'react-native-gesture-handler';
 import ContactoScreen from './src/views/Fotografo/Contacto';
+import PerfilScreen from './src/views/Fotografo/Perfil';
 
 export type RootStackParamList = {
   HomeScreen: undefined;
@@ -14,6 +15,7 @@ export type RootStackParamList = {
   RegisterScreen: undefined;
   WelcomeScreen: undefined;
  ContactoScreen: undefined;
+ PerfilScreen: undefined;
 
 };
 
@@ -32,6 +34,7 @@ const App = () => {
         <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
         <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
         <Stack.Screen name="ContactoScreen" component={ContactoScreen} />
+        <Stack.Screen name="PerfilScreen" component={PerfilScreen} />
 
       </Stack.Navigator>
     </NavigationContainer>
