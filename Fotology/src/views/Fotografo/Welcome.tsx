@@ -54,19 +54,6 @@ const WelcomeScreen = () => {
         De igual manera también tenemos una sección en la cual se dan a conocer los fotógrafos que han sido destacados durante el mes.
       </Text>
       <View style={styles.orangeLine} />
-
-      <Text style={styles.title2}>Contacto</Text>
-      <Text style={styles.description}>
-        ¿Necesitas contactarnos? Estamos aquí para ayudarte. Puedes comunicarte con nosotros de las siguientes maneras:
-      </Text>
-      <Text style={styles.description}>
-        Correo electrónico: correo@tusitio.com
-      </Text>
-      <Text style={styles.description}>
-        Teléfono: +1234567890
-      </Text>
-      <View style={styles.orangeLine} />
-
       <Text style={styles.title2}>Preguntas Frecuentes</Text>
       <Text style={styles.description}>
         ¿Cómo subir mis propias fotos?
@@ -79,17 +66,6 @@ const WelcomeScreen = () => {
 
       <Text style={styles.description}>
         ¡Listo! Tu foto estará disponible para que otros la vean.
-      </Text>
-
-      <Text style={styles.description}>
-        ¿Cómo eliminar mi cuenta?
-        Inicia sesión en tu cuenta
-        Ve a tu configuración de cuenta.
-        Busca la opción "Eliminar cuenta".
-        Confirma tu decisión.
-      </Text>
-      <Text style={styles.description}>
-        Tu cuenta se eliminará permanentemente.
       </Text>
 
       <View style={styles.orangeLine} />
