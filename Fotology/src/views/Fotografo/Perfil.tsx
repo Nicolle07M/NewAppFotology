@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { MaterialIcons } from '@expo/vector-icons';
 import { StyleSheet, View, Image, TextInput, TouchableOpacity, Text, Alert, KeyboardAvoidingView, Platform, Keyboard, Dimensions ,ScrollView} from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
-import styles from './PerfilStyle';
+import styles from './GlobalStyles/PerfilStyle';
 
 
 const { height } = Dimensions.get('window');

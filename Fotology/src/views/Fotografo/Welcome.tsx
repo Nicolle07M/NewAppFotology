@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { View, Text, StyleSheet, ImageBackground, ScrollView, TouchableOpacity} from 'react-native';
-import styles from './WelcomeStyle';
+import styles from './GlobalStyles/WelcomeStyle';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 

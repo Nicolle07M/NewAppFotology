@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StatusBar, StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
-import styles from './ContactoStyles';
+import styles from './GlobalStyles/ContactoStyles';
 
 export const ContactoScreen = () => {
   const [mensajeEnviado, setMensajeEnviado] = useState(false);
