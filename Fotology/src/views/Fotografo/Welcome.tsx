@@ -15,8 +15,12 @@ const WelcomeScreen = () => {
   const navigatePerfilScreen = () => {
     navigation.navigate('PerfilScreen');
   };  
+  const navigateWelcomeScreen = () => {
+    navigation.navigate('WelcomeScreen');
+  };
 
   return (
+    
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.backgroundContainer}>
         <ImageBackground
@@ -29,6 +33,20 @@ const WelcomeScreen = () => {
               <Text style={styles.text}>¡Bienvenido!</Text>
               <Text style={styles.text2}>Fotology</Text>
             </View>
+          </View>
+          {/* Header */}
+          <View style={styles.header}>
+          <TouchableOpacity onPress={navigateWelcomeScreen}>
+              <Text style={styles.headerButton}>Home</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={navigateToContactoScreen}>
+              <Text style={styles.headerButton}>Contacto</Text>
+            </TouchableOpacity>
+            
+            <TouchableOpacity onPress={navigatePerfilScreen}>
+              <Text style={styles.headerButton}>Perfil</Text>
+            </TouchableOpacity>
           </View>
         </ImageBackground>
       </View>
@@ -75,13 +93,6 @@ const WelcomeScreen = () => {
       <Text style={styles.description3}>
         ¡Gracias por ser parte de nuestra comunidad de fotógrafos! Estamos aquí para apoyarte en tu viaje fotográfico.
       </Text>
-      <TouchableOpacity onPress={navigateToContactoScreen} style={styles.button}>
-        <Text style={styles.buttonText}>Contacto</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity onPress={navigatePerfilScreen} style={styles.button}>
-        <Text style={styles.buttonText}>Perfil</Text>
-      </TouchableOpacity>
 
     </ScrollView>
 
