@@ -12,6 +12,19 @@ const WelcomeStyles = StyleSheet.create({
       overflow: 'hidden',
       marginTop: 20, // Ajusta el margen superior aquí
     },
+    header: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      paddingHorizontal: 20,
+      paddingVertical: 12,
+      backgroundColor: '#FFF',
+      borderBottomWidth: 1,
+      borderBottomColor: '#DDD',
+    },
+    headerButton: {
+      fontSize: 16,
+      color: 'black',
+    },
     backgroundImage: {
       width: '100%',
       aspectRatio: 2,

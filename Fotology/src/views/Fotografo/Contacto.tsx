@@ -1,11 +1,25 @@
 import React, { useState } from 'react';
 import { StatusBar, StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
 import styles from './GlobalStyles/ContactoStyles';
+import { useNavigation } from '@react-navigation/native'; // Importar useNavigation
 
 export const ContactoScreen = () => {
   const [mensajeEnviado, setMensajeEnviado] = useState(false);
   const [editMode, setEditMode] = useState(false);
   const [backgroundImageUri, setBackgroundImageUri] = useState(require('../../../assets/background.png'));
+
+
+    const navigation = useNavigation();
+  
+    const navigateToContactoScreen = () => {
+      navigation.navigate('ContactoScreen');
+    };
+    const navigatePerfilScreen = () => {
+      navigation.navigate('PerfilScreen');
+    };
+    const navigateWelcomeScreen = () => {
+      navigation.navigate('WelcomeScreen');
+    };
 
   const handleEnviarMensaje = () => {
     setMensajeEnviado(true);
@@ -16,12 +30,28 @@ export const ContactoScreen = () => {
 
   return (
     <View style={styles.container}>
+      
       <View style={styles.backgroundContainer}>
+        {/* Header */}
+      <View style={styles.header}>
+          <TouchableOpacity onPress={navigateWelcomeScreen}>
+              <Text style={styles.headerButton}>Home</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={navigateToContactoScreen}>
+              <Text style={styles.headerButton}>Contacto</Text>
+            </TouchableOpacity>
+            
+            <TouchableOpacity onPress={navigatePerfilScreen}>
+              <Text style={styles.headerButton}>Perfil</Text>
+            </TouchableOpacity>
+          </View>
         <Image
           source={backgroundImageUri}
           style={styles.backgroundImage}
         />
       </View>
+      
       <Text style={styles.title}>PONERSE EN CONTACTO</Text>
       <View style={styles.iconContainer}>
         <Image source={require('../../../assets/phone_icon.png')} style={styles.icon} />
