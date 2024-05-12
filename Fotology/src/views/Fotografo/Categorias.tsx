@@ -1,105 +1,60 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, TextInput, Alert } from 'react-native';
-import { Ionicons } from '@expo/vector-icons'; // Importa el icono de Ionicons
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View, TouchableOpacity, ViewStyle } from 'react-native';
+import { Dimensions } from 'react-native';
+import CategoriasStyles from './GlobalStyles/CategoriasStyles';
 
-const RatingScreen = () => {
-  const [rating, setRating] = useState(0);
-  const [comment, setComment] = useState('');
+const windowWidth = Dimensions.get('window').width;
+const headerHeight = 100;
+const headerWidth = windowWidth;
 
-  const handleRating = (value) => {
-    setRating(value);
+export const CategoriasScreen = () => {
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
+  const handleCategoryButtonPress = (text: string) => {
+    console.log(`Botón de ${text} presionado`);
+    setSelectedCategory(text);
   };
 
-  const handleSubmit = () => {
-    if (rating === 0) {
-      Alert.alert('Error', 'Por favor, selecciona una calificación.');
-    } else {
-      // Aquí puedes enviar la calificación y el comentario a la base de datos
-      console.log('Calificación:', rating);
-      console.log('Comentario:', comment);
-      // También puedes reiniciar los estados después de enviar la calificación si es necesario
-      setRating(0);
-      setComment('');
-      Alert.alert('Éxito', '¡Tu calificación ha sido enviada!');
-    }
-  };
-
+  const categories = [
+    'Paisajes',
+    'Retratos',
+    'Moda',
+    'Alimentos',
+    'Viajes',
+    'Eventos',
+  ];
+  
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Calificar Fotógrafo</Text>
-      <View style={styles.ratingContainer}>
-        <TouchableOpacity style={[styles.ratingButton, rating >= 1 && styles.selected]} onPress={() => handleRating(1)}>
-          <Ionicons name="star" size={24} color={rating >= 1 ? '#FFD700' : '#ccc'} />
-        </TouchableOpacity>
-        <TouchableOpacity style={[styles.ratingButton, rating >= 2 && styles.selected]} onPress={() => handleRating(2)}>
-          <Ionicons name="star" size={24} color={rating >= 2 ? '#FFD700' : '#ccc'} />
-        </TouchableOpacity>
-        <TouchableOpacity style={[styles.ratingButton, rating >= 3 && styles.selected]} onPress={() => handleRating(3)}>
-          <Ionicons name="star" size={24} color={rating >= 3 ? '#FFD700' : '#ccc'} />
-        </TouchableOpacity>
-        <TouchableOpacity style={[styles.ratingButton, rating >= 4 && styles.selected]} onPress={() => handleRating(4)}>
-          <Ionicons name="star" size={24} color={rating >= 4 ? '#FFD700' : '#ccc'} />
-        </TouchableOpacity>
-        <TouchableOpacity style={[styles.ratingButton, rating >= 5 && styles.selected]} onPress={() => handleRating(5)}>
-          <Ionicons name="star" size={24} color={rating >= 5 ? '#FFD700' : '#ccc'} />
-        </TouchableOpacity>
+    <View style={CategoriasStyles.container}>
+      <StatusBar style="auto" />
+      <View style={[CategoriasStyles.header, { height: headerHeight, width: headerWidth }]}>
+        <Text style={CategoriasStyles.headerText}>Portafolio</Text>
       </View>
-      <TextInput
-        style={styles.commentInput}
-        value={comment}
-        onChangeText={setComment}
-        placeholder="Escribe un comentario (opcional)"
-        multiline
-      />
-      <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
-        <Text style={styles.submitButtonText}>Enviar Calificación</Text>
-      </TouchableOpacity>
+      <View style={CategoriasStyles.content}>
+        {/* Mostrar la lista siempre */}
+        <View style={CategoriasStyles.listContainer}>
+          {categories.map((category, index) => (
+            <View key={index} style={CategoriasStyles.listItemContainer}>
+              <Text style={CategoriasStyles.listItem}>
+                {category.split('').join(' ')}
+              </Text>
+              <TouchableOpacity onPress={() => handleCategoryButtonPress(category)}>
+                <View style={[CategoriasStyles.categoryButton, selectedCategory === category && CategoriasStyles.categoryButtonSelected]}>
+                  {selectedCategory === category && <Text style={CategoriasStyles.checkmark}>✓</Text>}
+                </View>
+              </TouchableOpacity>
+            </View>
+          ))}
+        </View>
+        {selectedCategory && (
+          <TouchableOpacity style={CategoriasStyles.bottomButton} onPress={() => setSelectedCategory(null)}>
+            <Text style={CategoriasStyles.bottomButtonText}>Confirmar selección</Text>
+          </TouchableOpacity>
+        )}
+      </View>
     </View>
   );
-};
+}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  ratingContainer: {
-    flexDirection: 'row',
-    marginBottom: 20,
-  },
-  ratingButton: {
-    marginRight: 10,
-  },
-  selected: {
-    opacity: 1,
-  },
-  commentInput: {
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 5,
-    padding: 10,
-    marginBottom: 20,
-    width: '100%',
-    minHeight: 100,
-  },
-  submitButton: {
-    backgroundColor: '#FFD700',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 5,
-  },
-  submitButtonText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#333',
-  },
-});
-
-export default RatingScreen;
+export default CategoriasScreen;

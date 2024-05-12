@@ -10,6 +10,19 @@ const ContactoStyles = StyleSheet.create({
       paddingTop: 50,
       paddingHorizontal: 20,
     },
+    header: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      paddingHorizontal: 20,
+      paddingVertical: 12,
+      backgroundColor: '#FFF',
+      borderBottomWidth: 1,
+      borderBottomColor: '#DDD',
+    },
+    headerButton: {
+      fontSize: 16,
+      color: 'black',
+    },
     title: {
       fontSize: 24,
       fontWeight: 'bold',

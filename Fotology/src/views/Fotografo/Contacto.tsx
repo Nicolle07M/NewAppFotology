@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StatusBar, StyleSheet, Text, View, Image, TextInput, TouchableOpacity, Alert } from 'react-native';
-import styles from './ContactoStyles';
+import styles from './GlobalStyles/ContactoStyles';
 
 export const ContactoScreen = () => {
   const [mensajeEnviado, setMensajeEnviado] = useState(false);
@@ -17,11 +17,7 @@ export const ContactoScreen = () => {
     setMensajeEnviado(true);
     setTimeout(() => {
       setMensajeEnviado(false);
-      // Restablecer los campos de entrada a una cadena vacía después de 3 segundos
-      setNombre('');
-      setGmail('');
-      setMensaje('');
-    }, 1000); // Ocultar el mensaje después de 3 segundos
+    }, 3000); // Ocultar el mensaje después de 3 segundos
   };
 
   return (

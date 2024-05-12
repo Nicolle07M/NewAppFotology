@@ -8,6 +8,19 @@ const PerfilStyle = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
     },
+    header: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      paddingHorizontal: 20,
+      paddingVertical: 12,
+      backgroundColor: '#FFF',
+      borderBottomWidth: 1,
+      borderBottomColor: '#DDD',
+    },
+    headerButton: {
+      fontSize: 16,
+      color: 'black',
+    },
     optionsButton: { // los 3 puntos que sirven para editar 
       position: 'absolute',
       top: 40,
