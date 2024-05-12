@@ -90,6 +90,12 @@ const ContactoStyles = StyleSheet.create({
     visibleText: {
       opacity: 1, // Opacidad para hacer el texto visible pero no tan prominente
     },
+
+    errorText: {
+      color: 'red',
+      fontSize: 16,
+      marginTop: 5,
+    },
     textcajas: {
       left: 10, // Ajusta este valor según sea necesario para mover el texto hacia la derecha
       top: 10, // Ajusta este valor para mover el texto hacia arriba o abajo entre mayor el numero ira mas abajo
