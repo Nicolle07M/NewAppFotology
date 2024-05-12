@@ -60,7 +60,7 @@ export const ContactoScreen = () => {
         <Image source={require('../../../assets/phone_icon.png')} style={styles.icon} />
       </View>
       <Text style={styles.subtitle}>NO SEAS TÍMIDO</Text>
-      <Text style={styles.text}>Hola, aquí puedes poner tu texto.</Text>
+      <Text style={styles.text}>Hola</Text>
 
       <View style={styles.inputContainer}>
         <View style={styles.inputGroup}>
