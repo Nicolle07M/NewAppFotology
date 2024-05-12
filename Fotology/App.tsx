@@ -10,6 +10,7 @@ import ContactoScreen from './src/views/Fotografo/Contacto';
 import PerfilScreen from './src/views/Fotografo/Perfil';
 import PortafolioScreen from './src/views/Fotografo/Portafolio';
 import CategoriasScreen from './src/views/Fotografo/Categorias';
+import CalificacionScreen from './src/views/Fotografo/Calificacion';
 
 export type RootStackParamList = {
   HomeScreen: undefined;
@@ -20,6 +21,7 @@ export type RootStackParamList = {
  PerfilScreen: undefined;
 PortafolioScreen : undefined;
 CategoriasScreen: undefined
+CalificacionScreen: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -40,7 +42,7 @@ const App = () => {
         <Stack.Screen name="PerfilScreen" component={PerfilScreen} />
         <Stack.Screen name="PortafolioScreen" component={PortafolioScreen} />
         <Stack.Screen name="CategoriasScreen" component={CategoriasScreen} />
-      
+        <Stack.Screen name="CalificacionScreen" component={CalificacionScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -19,12 +19,17 @@ const WelcomeScreen = () => {
   const navigatePortafolioScreen = () => {
     navigation.navigate('PortafolioScreen');
   };  
+  const navigateCategoriasScreen = () => {
+    navigation.navigate('CategoriasScreen');
+  };  
 
 
   const navigateWelcomeScreen = () => {
     navigation.navigate('WelcomeScreen');
   };
-
+  const navigateCalificacionScreen = () => {
+    navigation.navigate('CalificacionScreen');
+  };
 
   return (
     
@@ -101,15 +106,11 @@ const WelcomeScreen = () => {
         ¡Gracias por ser parte de nuestra comunidad de fotógrafos! Estamos aquí para apoyarte en tu viaje fotográfico.
       </Text>
 
-      <TouchableOpacity onPress={navigateToContactoScreen} style={styles.button}>
-        <Text style={styles.buttonText}>Contacto</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity onPress={navigatePerfilScreen} style={styles.button}>
-        <Text style={styles.buttonText}>Perfil</Text>
-      </TouchableOpacity>
       <TouchableOpacity onPress={navigatePortafolioScreen} style={styles.button}>
         <Text style={styles.buttonText}>Portafolio</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={navigateCalificacionScreen} style={styles.button}>
+        <Text style={styles.buttonText}>Calificacion</Text>
       </TouchableOpacity>
 
     </ScrollView>

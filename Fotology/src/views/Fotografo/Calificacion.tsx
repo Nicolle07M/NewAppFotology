@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons'; // Importa el icono de Ionicons
 
-const RatingScreen = () => {
+const CalificacionScreen = () => {
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState('');
 
@@ -102,4 +102,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RatingScreen;
+export default CalificacionScreen;
