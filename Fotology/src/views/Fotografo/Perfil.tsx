@@ -10,7 +10,16 @@ const { height } = Dimensions.get('window');
 export const PerfilScreen = () => {
   const navigation = useNavigation();
 
-  const [isEditing, setIsEditing] = useState(false); // Nuevo estado para controlar el modo de edición
+  const navigateToContactoScreen = () => {
+    navigation.navigate('ContactoScreen');
+  };
+
+  const navigatePerfilScreen = () => {
+    navigation.navigate('PerfilScreen');
+  };
+  const navigateWelcomeScreen = () => {
+    navigation.navigate('WelcomeScreen');
+  };
 
   const [description, setDescription] = useState('Descripción');
   const [editMode, setEditMode] = useState(false);
@@ -49,19 +58,16 @@ export const PerfilScreen = () => {
 
   const toggleEditMode = () => {
     setEditMode(!editMode);
-    setIsEditing(!isEditing); // Cambiar el estado de edición general
   };
 
   const saveDescription = () => {
     console.log('Descripción guardada:', description);
     setEditMode(false);
-    setIsEditing(false); // Finalizar la edición
   };
 
   const savePhoneNumber = () => {
     console.log('Número de celular guardado:', phoneNumber);
     setEditMode(false);
-    setIsEditing(false); // Finalizar la edición
   };
 
   const selectBackgroundImage = async () => {
@@ -81,8 +87,6 @@ export const PerfilScreen = () => {
   };
 
   const selectProfileImage = async () => {
-    if (!isEditing) return; // Evitar la selección de imagen si no está en modo de edición
-
     let permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
     if (permissionResult.granted === false) {
       Alert.alert('Permisos insuficientes', 'Se necesita permiso para acceder a la galería de imágenes');
@@ -118,17 +122,24 @@ export const PerfilScreen = () => {
 
         <View style={styles.backgroundContainer}>
           {/* Header */}
-          <View style={styles.header}>
-            {!isEditing && ( // Mostrar el botón de edición solo si no está editando
-              <TouchableOpacity style={styles.editButton} onPress={toggleEditMode}>
-                <MaterialIcons name="edit" size={24} color="black" />
-              </TouchableOpacity>
-            )}
-          </View>
+      <View style={styles.header}>
+      <TouchableOpacity onPress={navigateWelcomeScreen}>
+              <Text style={styles.headerButton}>Home</Text>
+            </TouchableOpacity>
+
+        <TouchableOpacity onPress={navigateToContactoScreen}>
+          <Text style={styles.headerButton}>Contacto</Text>
+        </TouchableOpacity>
+       
+        <TouchableOpacity onPress={navigatePerfilScreen}>
+          <Text style={styles.headerButton}>Perfil</Text>
+        </TouchableOpacity>
+      </View>
           <Image
             source={backgroundImageUri}
             style={styles.backgroundImage}
           />
+          
         </View>
         
         <TouchableOpacity style={styles.profileContainer} onPress={selectProfileImage}>
@@ -137,33 +148,29 @@ export const PerfilScreen = () => {
             style={styles.profileImage}
           />
           <View style={styles.profileNameContainer}>
+
             <Text style={styles.profileName}>{personName}</Text>
           </View>
         </TouchableOpacity>
-        {!isEditing && ( // Evitar la visualización del botón de opciones cuando no está editando
-          <TouchableOpacity style={styles.optionsButton} onPress={toggleEditMode}>
-            <MaterialIcons name="more-vert" size={24} color="white" />
-          </TouchableOpacity>
-        )}
+        <TouchableOpacity style={styles.optionsButton} onPress={toggleEditMode}>
+          <MaterialIcons name="more-vert" size={24} color="white" />
+        </TouchableOpacity>
         <View style={styles.form}>
           <ScrollView>
             <Text style={styles.formTitle}>Perfil</Text>
             <View style={styles.inputContainer}>
-         {isEditing && ( // Mostrar el espacio del nombre solo si está en modo de edición
-            <Image
-            source={{ uri: "https://i.pinimg.com/236x/eb/26/db/eb26db4e1e95322eca0e636d5187cc31.jpg" }}
-            style={styles.socialIcon}
-            />
-  )}
-            <TextInput
-            style={styles.input}
-            placeholder="Nombre"
-            value={formPersonName}
-            onChangeText={handleFormPersonNameChange}
-            editable={editMode}
-            />
+              <Image
+                source={{ uri: "https://i.pinimg.com/236x/eb/26/db/eb26db4e1e95322eca0e636d5187cc31.jpg" }}
+                style={styles.socialIcon}
+              />
+              <TextInput
+                style={styles.input}
+                placeholder="Nombre"
+                value={formPersonName}
+                onChangeText={handleFormPersonNameChange}
+                editable={editMode}
+              />
             </View>
-
             <View style={styles.inputContainer}>
               <Image
                 source={{ uri: "https://i.pinimg.com/236x/4d/00/8b/4d008b130bfc3d54968c88e9cf93c53b.jpg" }}
@@ -237,6 +244,7 @@ export const PerfilScreen = () => {
               </TouchableOpacity>
             )}
           </ScrollView>
+
         </View>
       </KeyboardAvoidingView>
     </View>
