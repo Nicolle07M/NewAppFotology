@@ -109,6 +109,16 @@ const ContactoStyles = StyleSheet.create({
       fontSize: 16,
       marginTop: 5,
     },
+
+    whiteRectangle: {
+      backgroundColor: 'white',
+      height: 50, // Ajusta la altura según sea necesario
+      position: 'absolute',
+      bottom: 0,
+      left: 0,
+      right: 0,
+    },
+    
     textcajas: {
       left: 10, // Ajusta este valor según sea necesario para mover el texto hacia la derecha
       top: 10, // Ajusta este valor para mover el texto hacia arriba o abajo entre mayor el numero ira mas abajo

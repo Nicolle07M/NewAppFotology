@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { StatusBar, StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
 import styles from './GlobalStyles/ContactoStyles';

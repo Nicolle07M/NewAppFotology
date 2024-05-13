@@ -102,6 +102,16 @@ const PerfilStyle = StyleSheet.create({
       fontWeight: 'bold',
     },
     
+      editButton: {
+        position: 'absolute',
+        top: 20,
+        right: 20,
+        backgroundColor: 'transparent',
+        padding: 10,
+        borderRadius: 5,
+      },
+      // Otros estilos globales...
+    
     socialIcon: { //iconos
       width: 25,
       height: 25,
