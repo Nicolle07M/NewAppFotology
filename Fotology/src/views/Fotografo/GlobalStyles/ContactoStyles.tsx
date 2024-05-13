@@ -9,6 +9,7 @@ const ContactoStyles = StyleSheet.create({
       alignItems: 'center',
       paddingTop: 50,
       paddingHorizontal: 20,
+      marginTop: 0, // Ajusta el margen superior aquí
     },
     header: {
       flexDirection: 'row',
@@ -18,6 +19,8 @@ const ContactoStyles = StyleSheet.create({
       backgroundColor: '#FFF',
       borderBottomWidth: 1,
       borderBottomColor: '#DDD',
+      marginTop: 0,
+
     },
     headerButton: {
       fontSize: 16,
@@ -27,7 +30,8 @@ const ContactoStyles = StyleSheet.create({
       fontSize: 24,
       fontWeight: 'bold',
       color: 'orange',
-      marginBottom: 20,
+      marginBottom: 20, //arriba
+      marginTop: 40, //abajo
     },
     iconContainer: {
       flexDirection: 'row',

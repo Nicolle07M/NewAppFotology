@@ -5,6 +5,7 @@ const CalificacionStyles = StyleSheet.create({
       padding: 20,
       alignItems: 'center',
       justifyContent: 'center',
+      
     },
     title: {
       fontSize: 24,

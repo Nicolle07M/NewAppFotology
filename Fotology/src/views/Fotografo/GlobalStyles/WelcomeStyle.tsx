@@ -10,7 +10,7 @@ const WelcomeStyles = StyleSheet.create({
       width: '100%',
       alignItems: 'center',
       overflow: 'hidden',
-      marginTop: 20, // Ajusta el margen superior aquí
+      marginTop: 0, // Ajusta el margen superior aquí
     },
     header: {
       flexDirection: 'row',
@@ -20,6 +20,7 @@ const WelcomeStyles = StyleSheet.create({
       backgroundColor: '#FFF',
       borderBottomWidth: 1,
       borderBottomColor: '#DDD',
+      marginBottom: 50,
     },
     headerButton: {
       fontSize: 16,

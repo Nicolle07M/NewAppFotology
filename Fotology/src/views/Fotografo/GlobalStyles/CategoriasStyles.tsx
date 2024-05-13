@@ -7,6 +7,7 @@ const CategoriasStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
     paddingTop: 30,
+    
   },
   header: {
     backgroundColor: 'orange',
