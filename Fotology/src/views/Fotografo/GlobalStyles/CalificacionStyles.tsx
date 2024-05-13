@@ -41,7 +41,7 @@ const CalificacionStyles = StyleSheet.create({
     },
     overlay: {
       ...StyleSheet.absoluteFillObject,
-      backgroundColor: 'rgba(200, 120, 0, 0.3)', // Color naranja semitransparente
+      backgroundColor: 'rgba(255, 192, 203, 0.3)', 
       justifyContent: 'center',
       alignItems: 'center',
     },
@@ -97,7 +97,7 @@ const CalificacionStyles = StyleSheet.create({
       backgroundColor: 'white', // Color de fondo blanco
       borderRadius: 8,
       marginBottom: 10,
-      width: '80%',
+      width: '87%',
     },
     fotoContainer: {
       marginRight: 10,
