@@ -1,19 +1,27 @@
 import React, { useState } from 'react';
-import { StatusBar, StyleSheet, Text, View, Image, TextInput, TouchableOpacity, Alert } from 'react-native';
+import { StatusBar, StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
 import styles from './GlobalStyles/ContactoStyles';
+import { useNavigation } from '@react-navigation/native'; // Importar useNavigation
 
 export const ContactoScreen = () => {
   const [mensajeEnviado, setMensajeEnviado] = useState(false);
-  const [nombre, setNombre] = useState('');
-  const [gmail, setGmail] = useState('');
-  const [mensaje, setMensaje] = useState('');
+  const [editMode, setEditMode] = useState(false);
+  const [backgroundImageUri, setBackgroundImageUri] = useState(require('../../../assets/background.png'));
 
-  const handleEnviarMensaje = () => {
-    if (!nombre.trim() || !gmail.trim() || !mensaje.trim()) {
-      Alert.alert('Campos requeridos', 'Todos los campos son requeridos.');
-      return;
-    }
 
+    const navigation = useNavigation();
+
+    const navigateToContactoScreen = () => {
+      navigation.navigate('ContactoScreen');
+    };
+    const navigatePerfilScreen = () => {
+      navigation.navigate('PerfilScreen');
+    };
+    const navigateWelcomeScreen = () => {
+      navigation.navigate('WelcomeScreen');
+    };
+
+const handleEnviarMensaje = () => {
     setMensajeEnviado(true);
     setTimeout(() => {
       setMensajeEnviado(false);
@@ -22,41 +30,53 @@ export const ContactoScreen = () => {
 
   return (
     <View style={styles.container}>
+
       <View style={styles.backgroundContainer}>
+        {/* Header */}
+      <View style={styles.header}>
+          <TouchableOpacity onPress={navigateWelcomeScreen}>
+              <Text style={styles.headerButton}>Home</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={navigateToContactoScreen}>
+              <Text style={styles.headerButton}>Contacto</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={navigatePerfilScreen}>
+              <Text style={styles.headerButton}>Perfil</Text>
+            </TouchableOpacity>
+          </View>
         <Image
-          source={require('../../../assets/background.png')}
+          source={backgroundImageUri}
           style={styles.backgroundImage}
         />
       </View>
+
       <Text style={styles.title}>PONERSE EN CONTACTO</Text>
       <View style={styles.iconContainer}>
-        {[...Array(4)].map((_, index) => (
-          <Image key={index} source={require('../../../assets/phone_icon.png')} style={styles.icon} />
-        ))}
+        <Image source={require('../../../assets/phone_icon.png')} style={styles.icon} />
+        <Image source={require('../../../assets/phone_icon.png')} style={styles.icon} />
+        <Image source={require('../../../assets/phone_icon.png')} style={styles.icon} />
+        <Image source={require('../../../assets/phone_icon.png')} style={styles.icon} />
       </View>
       <Text style={styles.subtitle}>NO SEAS TÍMIDO</Text>
       <Text style={styles.text}>Hola, aquí puedes poner tu texto.</Text>
-
       <View style={styles.inputContainer}>
         <View style={styles.inputGroup}>
           <TextInput
             style={styles.input}
             placeholder=""
             placeholderTextColor="black"
-            value={nombre}
-            onChangeText={setNombre}
           />
-           <Text style={[styles.label, styles.visibleText, styles.textcajas]}>Nombre</Text>
+          <Text style={[styles.label, styles.visibleText, styles.textcajas]}>Nombre</Text>
         </View>
         <View style={styles.inputGroup}>
           <TextInput
             style={styles.input}
             placeholder=""
             placeholderTextColor="black"
-            value={gmail}
-            onChangeText={setGmail}
           />
-           <Text style={[styles.label, styles.visibleText, styles.textcajas]}>Gmail</Text>
+          <Text style={[styles.label, styles.visibleText, styles.textcajas]}>Gmail</Text>
         </View>
         <View style={styles.inputGroup}>
           <TextInput
@@ -66,24 +86,20 @@ export const ContactoScreen = () => {
             numberOfLines={4}
             placeholderTextColor="black"
             textAlignVertical="top"
-            value={mensaje}
-            onChangeText={setMensaje}
           />
-           <Text style={[styles.label, styles.visibleText, styles.textcajas]}>Mensaje</Text>
+          <Text style={[styles.label, styles.visibleText, styles.textcajas]}>Mensaje</Text>
         </View>
       </View>
-
       <TouchableOpacity onPress={handleEnviarMensaje} style={styles.button}>
         <Text style={styles.buttonText}>Enviar mensaje</Text>
       </TouchableOpacity>
-
       {mensajeEnviado && (
         <Text style={styles.confirmationMessage}>
           Su respuesta ha sido enviada. Será respondida máximo en 3 días hábiles.
         </Text>
       )}
+      
     </View>
   );
 }
-
 export default ContactoScreen;

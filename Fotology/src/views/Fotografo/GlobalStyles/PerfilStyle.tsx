@@ -17,10 +17,6 @@ const PerfilStyle = StyleSheet.create({
       borderBottomWidth: 1,
       borderBottomColor: '#DDD',
     },
-    headerButton: {
-      fontSize: 16,
-      color: 'black',
-    },
     optionsButton: { // los 3 puntos que sirven para editar 
       position: 'absolute',
       top: 40,

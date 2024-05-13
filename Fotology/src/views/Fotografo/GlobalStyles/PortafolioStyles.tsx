@@ -15,6 +15,11 @@ const PortafolioStyles= StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
+   
+    headerButton: {
+      fontSize: 16,
+      color: 'black',
+    },
     headerText: {
       fontFamily: 'Homenaje',
       fontSize: 30,

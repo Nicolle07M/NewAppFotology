@@ -113,16 +113,9 @@ export const PerfilScreen = () => {
 
   return (
     <View style={{ flex: 1 }}>
-      <KeyboardAvoidingView
-        style={styles.container}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}  // Adjust behavior based on platform
-        keyboardVerticalOffset={Platform.OS === 'ios' ? 64 : 0} // You may need to adjust this value
-        enabled
-      >
-
-        <View style={styles.backgroundContainer}>
-          {/* Header */}
-      <View style={styles.header}>
+       
+       {/* Header */}
+       <View style={styles.header}>
       <TouchableOpacity onPress={navigateWelcomeScreen}>
               <Text style={styles.headerButton}>Home</Text>
             </TouchableOpacity>
@@ -135,26 +128,34 @@ export const PerfilScreen = () => {
           <Text style={styles.headerButton}>Perfil</Text>
         </TouchableOpacity>
       </View>
+
+      <KeyboardAvoidingView
+        style={styles.container}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}  // Adjust behavior based on platform
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 64 : 0} // You may need to adjust this value
+      >
+
+        <View style={styles.backgroundContainer}>
           <Image
             source={backgroundImageUri}
             style={styles.backgroundImage}
           />
-          
         </View>
-        
+          
         <TouchableOpacity style={styles.profileContainer} onPress={selectProfileImage}>
           <Image
             source={profileImageUri}
             style={styles.profileImage}
-          />
+          />  
           <View style={styles.profileNameContainer}>
-
             <Text style={styles.profileName}>{personName}</Text>
           </View>
         </TouchableOpacity>
+
         <TouchableOpacity style={styles.optionsButton} onPress={toggleEditMode}>
           <MaterialIcons name="more-vert" size={24} color="white" />
         </TouchableOpacity>
+
         <View style={styles.form}>
           <ScrollView>
             <Text style={styles.formTitle}>Perfil</Text>

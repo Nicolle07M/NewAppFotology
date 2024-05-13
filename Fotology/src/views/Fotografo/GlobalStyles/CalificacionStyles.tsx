@@ -41,6 +41,7 @@ const CalificacionStyles = StyleSheet.create({
       fontWeight: 'bold',
       color: '#333',
     },
+    
   });
 export default CalificacionStyles;
   
