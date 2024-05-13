@@ -17,6 +17,7 @@ const PerfilStyle = StyleSheet.create({
       backgroundColor: '#FFF',
       borderBottomWidth: 1,
       borderBottomColor: '#DDD',
+      
       marginTop: 0, // Ajusta el margen superior aquí
     },
     headerButton: {

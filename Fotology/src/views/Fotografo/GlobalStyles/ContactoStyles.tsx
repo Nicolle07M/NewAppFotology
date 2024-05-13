@@ -19,8 +19,6 @@ const ContactoStyles = StyleSheet.create({
       backgroundColor: '#FFF',
       borderBottomWidth: 1,
       borderBottomColor: '#DDD',
-      marginTop: 0,
-
     },
     headerButton: {
       fontSize: 16,

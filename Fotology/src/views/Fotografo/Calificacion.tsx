@@ -1,60 +1,225 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, TextInput, Alert } from 'react-native';
-import { Ionicons } from '@expo/vector-icons'; // Importa el icono de Ionicons
+import { View, Text, StyleSheet, TouchableOpacity, Image, Alert, ScrollView, ImageBackground } from 'react-native';
 import styles from './GlobalStyles/CalificacionStyles'
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { Ionicons } from '@expo/vector-icons'; // Importa el icono de Ionicons
+
 const CalificacionScreen = () => {
-  const [rating, setRating] = useState(0);
-  const [comment, setComment] = useState('');
 
-  const handleRating = (value) => {
-    setRating(value);
+  const navigation = useNavigation(); // Obtener el objeto de navegación
+  
+  const navigateToContactoScreen = () => {
+    navigation.navigate('ContactoScreen');
+  };  
+
+  const navigatePerfilScreen = () => {
+    navigation.navigate('PerfilScreen');
+  };  
+
+  const navigatePortafolioScreen = () => {
+    navigation.navigate('PortafolioScreen');
+  };  
+  const navigateWelcomeScreen = () => {
+    navigation.navigate('WelcomeScreen');
+  };
+  const navigateCalificacionScreen = () => {
+    navigation.navigate('CalificacionScreen');
   };
 
-  const handleSubmit = () => {
-    if (rating === 0) {
-      Alert.alert('Error', 'Por favor, selecciona una calificación.');
-    } else {
-      // Aquí puedes enviar la calificación y el comentario a la base de datos
-      console.log('Calificación:', rating);
-      console.log('Comentario:', comment);
-      // También puedes reiniciar los estados después de enviar la calificación si es necesario
-      setRating(0);
-      setComment('');
-      Alert.alert('Éxito', '¡Tu calificación ha sido enviada!');
-    }
-  };
+
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Calificar Fotógrafo</Text>
-      <View style={styles.ratingContainer}>
-        <TouchableOpacity style={[styles.ratingButton, rating >= 1 && styles.selected]} onPress={() => handleRating(1)}>
-          <Ionicons name="star" size={24} color={rating >= 1 ? '#FFD700' : '#ccc'} />
-        </TouchableOpacity>
-        <TouchableOpacity style={[styles.ratingButton, rating >= 2 && styles.selected]} onPress={() => handleRating(2)}>
-          <Ionicons name="star" size={24} color={rating >= 2 ? '#FFD700' : '#ccc'} />
-        </TouchableOpacity>
-        <TouchableOpacity style={[styles.ratingButton, rating >= 3 && styles.selected]} onPress={() => handleRating(3)}>
-          <Ionicons name="star" size={24} color={rating >= 3 ? '#FFD700' : '#ccc'} />
-        </TouchableOpacity>
-        <TouchableOpacity style={[styles.ratingButton, rating >= 4 && styles.selected]} onPress={() => handleRating(4)}>
-          <Ionicons name="star" size={24} color={rating >= 4 ? '#FFD700' : '#ccc'} />
-        </TouchableOpacity>
-        <TouchableOpacity style={[styles.ratingButton, rating >= 5 && styles.selected]} onPress={() => handleRating(5)}>
-          <Ionicons name="star" size={24} color={rating >= 5 ? '#FFD700' : '#ccc'} />
-        </TouchableOpacity>
+    
+   
+    <ScrollView contentContainerStyle={styles.container}>
+    <View style={styles.backgroundContainer}>
+      <ImageBackground
+        source={require('../../../assets/Fondo1.jpg')}
+        style={styles.backgroundImage}
+        blurRadius={3}
+      >
+        <View style={styles.overlay}>
+          <View style={styles.textContainer}>
+            <Text style={styles.text}>Fotógrafo</Text>
+            <Text style={styles.text2}>Estas son tus calificaciones</Text>
+          </View>
+        </View>
+        {/* Header */}
+        <View style={styles.header}>
+        <TouchableOpacity onPress={navigateWelcomeScreen}>
+            <Text style={styles.headerButton}>Home</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress= {navigatePortafolioScreen}>
+            <Text style={styles.headerButton}>Portafolio</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={navigateCalificacionScreen}>
+            <Text style={styles.headerButton}>Calificación</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={navigateToContactoScreen}>
+            <Text style={styles.headerButton}>Contacto</Text>
+          </TouchableOpacity>
+          
+          <TouchableOpacity onPress={navigatePerfilScreen}>
+            <Text style={styles.headerButton}>Perfil</Text>
+          </TouchableOpacity>
+        </View>
+      </ImageBackground>
       </View>
-      <TextInput
-        style={styles.commentInput}
-        value={comment}
-        onChangeText={setComment}
-        placeholder="Escribe un comentario (opcional)"
-        multiline
-      />
-      <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
-        <Text style={styles.submitButtonText}>Enviar Calificación</Text>
-      </TouchableOpacity>
+    
+      <View style={styles.container}>
+      <View style={styles.comentarioContainer}>
+        <View style={styles.fotoContainer}>
+         <Image source={require('../../../assets/nat.jpg')} style={styles.foto}/> 
+          <View style={styles.foto}></View>
+        </View>
+        <View style={styles.infoContainer}>
+          <Text style={styles.username}>natsn_19</Text>
+          <View style={styles.ratingContainer}>
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+          </View>
+          <Text style={styles.comentario}>
+            Increíble tu trabajo, me encantó mucho. Muy recomendado, gracias por captar los mejores momentos de mi vida.
+          </Text>
+          <Text style={styles.tiempo}>Hace 3 minutos</Text>
+        </View>
+      </View>
     </View>
+    <View style={styles.container}>
+      <View style={styles.comentarioContainer}>
+        <View style={styles.fotoContainer}>
+         <Image source={require('../../../assets/nicolle.jpg')} style={styles.foto}/> 
+          <View style={styles.foto}></View>
+        </View>
+        <View style={styles.infoContainer}>
+          <Text style={styles.username}>nicolle07</Text>
+          <View style={styles.ratingContainer}>
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+          </View>
+          <Text style={styles.comentario}>
+          El servicio fue aceptable. Las fotos estuvieron bien, pero esperaba un poco más de creatividad en la composición.
+          </Text>
+          <Text style={styles.tiempo}>Hace 47 minutos</Text>
+        </View>
+      </View>
+    </View>
+
+    <View style={styles.container}>
+      <View style={styles.comentarioContainer}>
+        <View style={styles.fotoContainer}>
+         <Image source={require('../../../assets/erik.jpg')} style={styles.foto}/> 
+          <View style={styles.foto}></View>
+        </View>
+        <View style={styles.infoContainer}>
+          <Text style={styles.username}>cerik09</Text>
+          <View style={styles.ratingContainer}>
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+          </View>
+          <Text style={styles.comentario}>
+          Una experiencia terrible. Las fotos fueron de muy mala calidad y el fotógrafo parecía desinteresado en mi evento. Definitivamente no lo recomendaría.
+          </Text>
+          <Text style={styles.tiempo}>Hace 10 horas</Text>
+        </View>
+      </View>
+    </View>
+
+    <View style={styles.container}>
+      <View style={styles.comentarioContainer}>
+        <View style={styles.fotoContainer}>
+         <Image source={require('../../../assets/mario.jpg')} style={styles.foto}/> 
+          <View style={styles.foto}></View>
+        </View>
+        <View style={styles.infoContainer}>
+          <Text style={styles.username}>mariopra</Text>
+          <View style={styles.ratingContainer}>
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+          </View>
+          <Text style={styles.comentario}>
+          No quedé muy satisfecho con el resultado. Las fotos no cumplían mis expectativas y la comunicación durante la sesión fue escasa.
+          </Text>
+          <Text style={styles.tiempo}>hace 20 horas</Text>
+        </View>
+      </View>
+    </View>
+
+    <View style={styles.container}>
+      <View style={styles.comentarioContainer}>
+        <View style={styles.fotoContainer}>
+         <Image source={require('../../../assets/camilo.jpg')} style={styles.foto}/> 
+          <View style={styles.foto}></View>
+        </View>
+        <View style={styles.infoContainer}>
+          <Text style={styles.username}>CamiloRgz8</Text>
+          <View style={styles.ratingContainer}>
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+          </View>
+          <Text style={styles.comentario}>
+          Muy buen servicio en general. Las fotos quedaron geniales, aunque hubo algunos pequeños detalles que podrían mejorar.
+          </Text>
+          <Text style={styles.tiempo}>Hace 5 días</Text>
+        </View>
+      </View>
+    </View>
+
+    <View style={styles.container}>
+      <View style={styles.comentarioContainer}>
+        <View style={styles.fotoContainer}>
+         <Image source={require('../../../assets/aleja.jpg')} style={styles.foto}/> 
+          <View style={styles.foto}></View>
+        </View>
+        <View style={styles.infoContainer}>
+          <Text style={styles.username}>aleja5962</Text>
+          <View style={styles.ratingContainer}>
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+          </View>
+          <Text style={styles.comentario}>
+          ¡Increíble trabajo! Me encantaron las fotos, definitivamente volveré a contratarte para futuros eventos.
+          </Text>
+          <Text style={styles.tiempo}>Hace 2 meses</Text>
+        </View>
+      </View>
+    </View>
+
+    
+  </ScrollView>
+
+
+    
   );
 };
 
