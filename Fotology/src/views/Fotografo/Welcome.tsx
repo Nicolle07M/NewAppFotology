@@ -52,6 +52,14 @@ const WelcomeScreen = () => {
               <Text style={styles.headerButton}>Home</Text>
             </TouchableOpacity>
 
+            <TouchableOpacity onPress= {navigatePortafolioScreen}>
+              <Text style={styles.headerButton}>Portafolio</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={navigateCalificacionScreen}>
+              <Text style={styles.headerButton}>Calificación</Text>
+            </TouchableOpacity>
+
             <TouchableOpacity onPress={navigateToContactoScreen}>
               <Text style={styles.headerButton}>Contacto</Text>
             </TouchableOpacity>
@@ -105,14 +113,6 @@ const WelcomeScreen = () => {
       <Text style={styles.description3}>
         ¡Gracias por ser parte de nuestra comunidad de fotógrafos! Estamos aquí para apoyarte en tu viaje fotográfico.
       </Text>
-
-      <TouchableOpacity onPress={navigatePortafolioScreen} style={styles.button}>
-        <Text style={styles.buttonText}>Portafolio</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={navigateCalificacionScreen} style={styles.button}>
-        <Text style={styles.buttonText}>Calificacion</Text>
-      </TouchableOpacity>
-
     </ScrollView>
 
 

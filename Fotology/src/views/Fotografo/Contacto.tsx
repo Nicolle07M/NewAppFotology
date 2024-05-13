@@ -14,13 +14,22 @@ export const ContactoScreen = () => {
 
     const navigateToContactoScreen = () => {
       navigation.navigate('ContactoScreen');
-    };
+    };  
+  
     const navigatePerfilScreen = () => {
       navigation.navigate('PerfilScreen');
-    };
+    };  
+  
+    const navigatePortafolioScreen = () => {
+      navigation.navigate('PortafolioScreen');
+    };  
     const navigateWelcomeScreen = () => {
       navigation.navigate('WelcomeScreen');
     };
+    const navigateCalificacionScreen = () => {
+      navigation.navigate('CalificacionScreen');
+    };
+  
 
 const handleEnviarMensaje = () => {
     setMensajeEnviado(true);
@@ -35,14 +44,22 @@ const handleEnviarMensaje = () => {
       <View style={styles.backgroundContainer}>
         {/* Header */}
       <View style={styles.header}>
-          <TouchableOpacity onPress={navigateWelcomeScreen}>
+      <TouchableOpacity onPress={navigateWelcomeScreen}>
               <Text style={styles.headerButton}>Home</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress= {navigatePortafolioScreen}>
+              <Text style={styles.headerButton}>Portafolio</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={navigateCalificacionScreen}>
+              <Text style={styles.headerButton}>Calificación</Text>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={navigateToContactoScreen}>
               <Text style={styles.headerButton}>Contacto</Text>
             </TouchableOpacity>
-
+            
             <TouchableOpacity onPress={navigatePerfilScreen}>
               <Text style={styles.headerButton}>Perfil</Text>
             </TouchableOpacity>

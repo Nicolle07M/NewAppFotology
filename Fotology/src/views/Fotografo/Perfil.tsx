@@ -12,15 +12,21 @@ export const PerfilScreen = () => {
 
   const navigateToContactoScreen = () => {
     navigation.navigate('ContactoScreen');
-  };
+  };  
 
   const navigatePerfilScreen = () => {
     navigation.navigate('PerfilScreen');
-  };
+  };  
+
+  const navigatePortafolioScreen = () => {
+    navigation.navigate('PortafolioScreen');
+  };  
   const navigateWelcomeScreen = () => {
     navigation.navigate('WelcomeScreen');
   };
-
+  const navigateCalificacionScreen = () => {
+    navigation.navigate('CalificacionScreen');
+  };
   const [description, setDescription] = useState('Descripción');
   const [editMode, setEditMode] = useState(false);
   const [backgroundImageUri, setBackgroundImageUri] = useState(require('../../../assets/background.png'));
@@ -127,13 +133,21 @@ export const PerfilScreen = () => {
               <Text style={styles.headerButton}>Home</Text>
             </TouchableOpacity>
 
-        <TouchableOpacity onPress={navigateToContactoScreen}>
-          <Text style={styles.headerButton}>Contacto</Text>
-        </TouchableOpacity>
-       
-        <TouchableOpacity onPress={navigatePerfilScreen}>
-          <Text style={styles.headerButton}>Perfil</Text>
-        </TouchableOpacity>
+            <TouchableOpacity onPress= {navigatePortafolioScreen}>
+              <Text style={styles.headerButton}>Portafolio</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={navigateCalificacionScreen}>
+              <Text style={styles.headerButton}>Calificación</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={navigateToContactoScreen}>
+              <Text style={styles.headerButton}>Contacto</Text>
+            </TouchableOpacity>
+            
+            <TouchableOpacity onPress={navigatePerfilScreen}>
+              <Text style={styles.headerButton}>Perfil</Text>
+            </TouchableOpacity>
       </View>
           <Image
             source={backgroundImageUri}

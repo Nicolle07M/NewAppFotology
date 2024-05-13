@@ -9,6 +9,17 @@ export const PortafolioScreen = () => {
 
   const navigateCategoria = () => {
     navigation.navigate('CategoriasScreen');
+    
+    const navigateToContactoScreen = () => {
+      navigation.navigate('ContactoScreen');
+    };
+  
+    const navigatePerfilScreen = () => {
+      navigation.navigate('PerfilScreen');
+    };
+    const navigateWelcomeScreen = () => {
+      navigation.navigate('WelcomeScreen');
+    };
   };  
 
   return (
