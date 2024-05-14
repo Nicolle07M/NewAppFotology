@@ -1,13 +1,20 @@
-
 import React, { useState } from 'react';
+import { Alert } from 'react-native';
+
+// Luego, puedes usar Alert para mostrar un diálogo personalizado
+Alert.alert('Título', 'Mensaje de alerta aquí');
+
 import { StatusBar, Linking , Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
 import styles from './GlobalStyles/ContactoStyles';
 import { useNavigation } from '@react-navigation/native'; // Importar useNavigation
 
 export const ContactoScreen = () => {
+  // Estados para manejar los valores de los campos de entrada y el mensaje de confirmación
   const [mensajeEnviado, setMensajeEnviado] = useState(false);
-  const [editMode, setEditMode] = useState(false);
-  const [backgroundImageUri, setBackgroundImageUri] = useState(require('../../../assets/Fondo2.jpg'));
+  const [nombre, setNombre] = useState('');
+  const [email, setEmail] = useState('');
+  const [mensaje, setMensaje] = useState('');
+  const [backgroundImageUri, setBackgroundImageUri] = useState(require('../../../assets/background.png'));
 
 
     const navigation = useNavigation();
@@ -47,13 +54,35 @@ export const ContactoScreen = () => {
     };
 
 
-const handleEnviarMensaje = () => {
-    setMensajeEnviado(true);
-    setTimeout(() => {
-      setMensajeEnviado(false);
-    }, 3000); // Ocultar el mensaje después de 3 segundos
-  };
+    const handleEnviarMensaje = () => {
+      // Verificar si algún campo está vacío
+      if (!nombre || !email || !mensaje) {
+        // Mostrar una alerta en el formulario
+        Alert.alert('Error', 'Todos los campos son requeridos.');
+        // Imprimir un mensaje en la terminal
+        console.error('Error: Todos los campos son requeridos.');
+        return;
+      }
 
+       // Muestra los valores del formulario en la terminal
+  console.log('Nombre:', nombre);
+  console.log('Email:', email);
+  console.log('Mensaje:', mensaje);
+    
+      // Mostrar el mensaje de confirmación
+      setMensajeEnviado(true);
+      setTimeout(() => {
+        // Ocultar el mensaje de confirmación después de 3 segundos
+        setMensajeEnviado(false);
+      }, 3000);
+    
+      // Resetea el formulario
+      setNombre('');
+      setEmail('');
+      setMensaje('');
+    };
+    
+    
   return (
     <View style={styles.container}>
 
@@ -112,7 +141,10 @@ const handleEnviarMensaje = () => {
           <TextInput
             style={styles.input}
             placeholder=""
-            placeholderTextColor="pink"
+
+            placeholderTextColor="black"
+            value={nombre}
+            onChangeText={setNombre}
           />
           <Text style={[styles.label, styles.visibleText, styles.textcajas]}>Nombre</Text>
         </View>
@@ -121,6 +153,8 @@ const handleEnviarMensaje = () => {
             style={styles.input}
             placeholder=""
             placeholderTextColor="black"
+            value={email}
+            onChangeText={setEmail}
           />
           <Text style={[styles.label, styles.visibleText, styles.textcajas]}>Gmail</Text>
         </View>
@@ -132,6 +166,8 @@ const handleEnviarMensaje = () => {
             numberOfLines={4}
             placeholderTextColor="black"
             textAlignVertical="top"
+            value={mensaje}
+            onChangeText={setMensaje}
           />
           <Text style={[styles.label, styles.visibleText, styles.textcajas]}>Mensaje</Text>
         </View>

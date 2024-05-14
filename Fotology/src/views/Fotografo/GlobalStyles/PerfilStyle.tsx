@@ -25,13 +25,14 @@ const PerfilStyle = StyleSheet.create({
     },
     optionsButton: { // los 3 puntos que sirven para editar 
       position: 'absolute',
-      top: 40,
+      top: 70, //bajar o subir el editar 
       right: 20,
+      fontWeight: '900',
       zIndex: 1,
     },
     profileContainer: { // imagen 
       position: 'absolute',
-      top: 50,
+      top: 130, // bajar o subir el circulo 
       left: 100,
       alignItems: 'center',
     },
@@ -59,7 +60,7 @@ const PerfilStyle = StyleSheet.create({
     },
     form: { // contenedor 
       width: '80%',
-      height: '55%',
+      height: '45%',
       backgroundColor: 'white',
       padding: 20,
       borderTopLeftRadius: 40,
@@ -67,7 +68,7 @@ const PerfilStyle = StyleSheet.create({
       borderBottomLeftRadius: 40,
       borderBottomRightRadius: 40,
       position: 'absolute',
-      bottom: 50,
+      bottom: 100, // subir o bajar el contenedor
     },
     formTitle: {
       fontSize: 20, // perfil 
@@ -124,6 +125,10 @@ const PerfilStyle = StyleSheet.create({
       marginRight: 15,
       marginLeft: 30,
     },
+      editText: {
+        color: 'white',
+        fontSize: 18,
+      },
   });
 
   export default PerfilStyle;

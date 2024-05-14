@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { MaterialIcons } from '@expo/vector-icons';
 import { StyleSheet, View, Image, TextInput, TouchableOpacity, Text, Alert, KeyboardAvoidingView, Platform, Keyboard, Dimensions, ScrollView } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
-import { useNavigation } from '@react-navigation/native'; // Importar useNavigation
+import { useNavigation } from '@react-navigation/native'; 
 import styles from './GlobalStyles/PerfilStyle';
 
 const { height } = Dimensions.get('window');
@@ -12,21 +11,24 @@ export const PerfilScreen = () => {
 
   const navigateToContactoScreen = () => {
     navigation.navigate('ContactoScreen');
-  };  
+  };
 
   const navigatePerfilScreen = () => {
     navigation.navigate('PerfilScreen');
-  };  
+  };
 
   const navigatePortafolioScreen = () => {
     navigation.navigate('PortafolioScreen');
-  };  
+  };
+
   const navigateWelcomeScreen = () => {
     navigation.navigate('WelcomeScreen');
   };
+
   const navigateCalificacionScreen = () => {
     navigation.navigate('CalificacionScreen');
   };
+
   const [description, setDescription] = useState('Descripción');
   const [editMode, setEditMode] = useState(false);
   const [backgroundImageUri, setBackgroundImageUri] = useState(require('../../../assets/Fondo1.jpg'));
@@ -66,74 +68,68 @@ export const PerfilScreen = () => {
     setEditMode(!editMode);
   };
 
-  const saveDescription = () => {
-    console.log('Descripción guardada:', description);
-    setEditMode(false);
+  const validatePhoneNumber = (number: string) => {
+    const phoneRegex = /^[0-9]{10}$/;
+    return phoneRegex.test(number);
   };
 
-  const savePhoneNumber = () => {
-    console.log('Número de celular guardado:', phoneNumber);
-    setEditMode(false);
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
   };
 
-  const selectBackgroundImage = async () => {
-    let permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
-    if (permissionResult.granted === false) {
-      Alert.alert('Permisos insuficientes', 'Se necesita permiso para acceder a la galería de imágenes');
+  const saveProfile = () => {
+    if (!formPersonName.trim() || !description.trim() || !phoneNumber.trim() || !email.trim()) {
+      Alert.alert('Error', 'Todos los campos son obligatorios.');
       return;
     }
-
-    let pickerResult = await ImagePicker.launchImageLibraryAsync();
-    if (!pickerResult.canceled) {
-      const selectedImageUri = pickerResult.assets[0].uri;
-      setBackgroundImageUri({ uri: selectedImageUri });
-    } else {
-      console.log('Selección de imagen cancelada');
-    }
-  };
-
-  const selectProfileImage = async () => {
-    let permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
-    if (permissionResult.granted === false) {
-      Alert.alert('Permisos insuficientes', 'Se necesita permiso para acceder a la galería de imágenes');
+    if (!validatePhoneNumber(phoneNumber)) {
+      Alert.alert('Error', 'Número de teléfono no válido. Debe tener 10 dígitos.');
       return;
     }
-
-    let pickerResult = await ImagePicker.launchImageLibraryAsync();
-    if (!pickerResult.canceled) {
-      const selectedImageUri = pickerResult.assets[0].uri;
-      setProfileImageUri({ uri: selectedImageUri });
-    } else {
-      console.log('Selección de imagen cancelada');
+    if (!validateEmail(email)) {
+      Alert.alert('Error', 'Correo electrónico no válido.');
+      return;
     }
-  };
+    console.log('Perfil guardado:');
+    console.log('Nombre:', formPersonName);
+    console.log('Descripción:', description);
+    console.log('Número de celular:', phoneNumber);
+    console.log('Correo electrónico:', email);
+    console.log('Instagram:', instagram);
+    console.log('Twitter:', twitter);
 
-  const handleFormPersonNameChange = (newName: string) => {
-    setFormPersonName(newName);
-    setPersonName(newName);
-  };
+    // Actualizar el estado que controla el nombre mostrado en la interfaz
+    setPersonName(formPersonName);
+    
+    setEditMode(false);
+};
 
-  const handleEmailChange = (newEmail: string) => {
-    setEmail(newEmail);
-  };
+  const handleFormPersonNameChange = (text: string) => {
+    setFormPersonName(text);
+  }
+
+  const handleEmailChange = (text: string) => {
+    setEmail(text);
+  }
+
+  
 
   return (
     <View style={{ flex: 1 }}>
       <KeyboardAvoidingView
         style={styles.container}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}  // Adjust behavior based on platform
-        keyboardVerticalOffset={Platform.OS === 'ios' ? 64 : 0} // You may need to adjust this value
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 64 : 0}
         enabled
       >
-
         <View style={styles.backgroundContainer}>
-          {/* Header */}
-      <View style={styles.header}>
-      <TouchableOpacity onPress={navigateWelcomeScreen}>
+          <View style={styles.header}>
+            <TouchableOpacity onPress={navigateWelcomeScreen}>
               <Text style={styles.headerButton}>Home</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress= {navigatePortafolioScreen}>
+            <TouchableOpacity onPress={navigatePortafolioScreen}>
               <Text style={styles.headerButton}>Portafolio</Text>
             </TouchableOpacity>
 
@@ -144,52 +140,63 @@ export const PerfilScreen = () => {
             <TouchableOpacity onPress={navigateToContactoScreen}>
               <Text style={styles.headerButton}>Contacto</Text>
             </TouchableOpacity>
-            
+
             <TouchableOpacity onPress={navigatePerfilScreen}>
               <Text style={styles.headerButton}>Perfil</Text>
             </TouchableOpacity>
-      </View>
+          </View>
           <Image
             source={backgroundImageUri}
             style={styles.backgroundImage}
           />
-          
         </View>
-        
-        <TouchableOpacity style={styles.profileContainer} onPress={selectProfileImage}>
+
+        <TouchableOpacity 
+          style={styles.profileContainer} 
+          onPress={editMode ? setProfileImageUri : () => {}} 
+          activeOpacity={editMode ? 0.7 : 1}
+        >
           <Image
             source={profileImageUri}
             style={styles.profileImage}
           />
           <View style={styles.profileNameContainer}>
-
             <Text style={styles.profileName}>{personName}</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.optionsButton} onPress={toggleEditMode}>
-          <MaterialIcons name="more-vert" size={24} color="white" />
+
+        <TouchableOpacity 
+          style={styles.optionsButton} 
+          onPress={toggleEditMode}
+        >
+          <Text style={styles.editText}>Editar</Text>
         </TouchableOpacity>
+
         <View style={styles.form}>
           <ScrollView>
             <Text style={styles.formTitle}>Perfil</Text>
+
+            {editMode && (
+              <View style={styles.inputContainer}>
+                <Image
+                  source={require('../../../assets/usuario.png')}
+                  style={styles.socialIcon}
+                />
+                <TextInput
+                  style={styles.input}
+                  placeholder="Nombre"
+                  value={formPersonName}
+                  onChangeText={handleFormPersonNameChange}
+                  editable={editMode}
+                />
+              </View>
+            )}
+
             <View style={styles.inputContainer}>
-            <Image
-              source={require('../../../assets/usuario.png')}
-              style={styles.socialIcon}
-            />
-              <TextInput
-                style={styles.input}
-                placeholder="Nombre"
-                value={formPersonName}
-                onChangeText={handleFormPersonNameChange}
-                editable={editMode}
+              <Image
+                source={require('../../../assets/editar.png')}
+                style={styles.socialIcon}
               />
-            </View>
-            <View style={styles.inputContainer}>
-            <Image
-              source={require('../../../assets/editar.png')}
-              style={styles.socialIcon}
-            />
               <TextInput
                 style={styles.input}
                 placeholder="Descripción"
@@ -200,23 +207,24 @@ export const PerfilScreen = () => {
               />
             </View>
             <View style={styles.inputContainer}>
-            <Image
-              source={require('../../../assets/telefono.png')}
-              style={styles.socialIcon}
-            />
+              <Image
+                source={require('../../../assets/telefono.png')}
+                style={styles.socialIcon}
+              />
               <TextInput
                 style={styles.input}
                 placeholder="Teléfono"
                 value={phoneNumber}
                 onChangeText={setPhoneNumber}
                 editable={editMode}
+                keyboardType="phone-pad"
               />
             </View>
             <View style={styles.inputContainer}>
-            <Image
-              source={require('../../../assets/mensaje.png')}
-              style={styles.socialIcon}
-            />
+              <Image
+                source={require('../../../assets/mensaje.png')}
+                style={styles.socialIcon}
+              />
               <TextInput
                 style={styles.input}
                 placeholder="Correo Electrónico"
@@ -227,10 +235,10 @@ export const PerfilScreen = () => {
               />
             </View>
             <View style={styles.inputContainer}>
-            <Image
-              source={require('../../../assets/instagram.png')}
-              style={styles.socialIcon}
-            />
+              <Image
+                source={require('../../../assets/instagram.png')}
+                style={styles.socialIcon}
+              />
               <TextInput
                 style={styles.input}
                 placeholder="Instagram"
@@ -240,10 +248,10 @@ export const PerfilScreen = () => {
               />
             </View>
             <View style={styles.inputContainer}>
-            <Image
-              source={require('../../../assets/twtter.png')}
-              style={styles.socialIcon}
-            />
+              <Image
+                source={require('../../../assets/twtter.png')}
+                style={styles.socialIcon}
+              />
               <TextInput
                 style={styles.input}
                 placeholder="Twitter"
@@ -253,12 +261,11 @@ export const PerfilScreen = () => {
               />
             </View>
             {editMode && (
-              <TouchableOpacity style={styles.saveButton} onPress={savePhoneNumber}>
+              <TouchableOpacity style={styles.saveButton} onPress={saveProfile}>
                 <Text style={styles.saveButtonText}>Guardar</Text>
               </TouchableOpacity>
             )}
           </ScrollView>
-
         </View>
       </KeyboardAvoidingView>
     </View>
