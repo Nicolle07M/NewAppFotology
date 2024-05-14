@@ -8,7 +8,7 @@ export default function ListaCatScreen() {
   const navigation = useNavigation();
 
   const handleCrearCategoria = (categoria) => {
-    navigation.navigate('CategoriasScreen', { categoria });
+    navigation.navigate('PortafolioScreen', { categoria });
   };
 
 
