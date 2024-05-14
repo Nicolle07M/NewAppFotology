@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { MaterialIcons } from '@expo/vector-icons';
 import { StyleSheet, View, Image, TextInput, TouchableOpacity, Text, Alert, KeyboardAvoidingView, Platform, Keyboard, Dimensions, ScrollView } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { useNavigation } from '@react-navigation/native'; // Importar useNavigation
@@ -128,12 +127,21 @@ export const PerfilScreen = () => {
 
         <View style={styles.backgroundContainer}>
           {/* Header */}
-      <View style={styles.header}>
-      <TouchableOpacity onPress={navigateWelcomeScreen}>
+          <View style={styles.header}>
+            <TouchableOpacity onPress={navigateWelcomeScreen}>
               <Text style={styles.headerButton}>Home</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress= {navigatePortafolioScreen}>
+            <TouchableOpacity 
+           style={editMode ? { display: 'none' } : styles.optionsButton} 
+           onPress={() => {
+           toggleEditMode(); // Cambiar al modo de edición
+            }}
+            >
+            <Text style={styles.editText}>Editar</Text>
+             </TouchableOpacity>
+             
+            <TouchableOpacity onPress={navigatePortafolioScreen}>
               <Text style={styles.headerButton}>Portafolio</Text>
             </TouchableOpacity>
 
@@ -144,47 +152,55 @@ export const PerfilScreen = () => {
             <TouchableOpacity onPress={navigateToContactoScreen}>
               <Text style={styles.headerButton}>Contacto</Text>
             </TouchableOpacity>
-            
+
             <TouchableOpacity onPress={navigatePerfilScreen}>
               <Text style={styles.headerButton}>Perfil</Text>
             </TouchableOpacity>
-      </View>
+          </View>
           <Image
             source={backgroundImageUri}
             style={styles.backgroundImage}
           />
-          
         </View>
         
-        <TouchableOpacity style={styles.profileContainer} onPress={selectProfileImage}>
+        <TouchableOpacity 
+          style={styles.profileContainer} 
+          onPress={editMode ? selectProfileImage : () => {}} // Cambiar null por una función vacía
+          activeOpacity={editMode ? 0.7 : 1}
+        >
           <Image
             source={profileImageUri}
             style={styles.profileImage}
           />
           <View style={styles.profileNameContainer}>
-
             <Text style={styles.profileName}>{personName}</Text>
           </View>
         </TouchableOpacity>
+        
         <TouchableOpacity style={styles.optionsButton} onPress={toggleEditMode}>
-          <MaterialIcons name="more-vert" size={24} color="white" />
+          <Text style={styles.editText}>Editar</Text>
         </TouchableOpacity>
+        
         <View style={styles.form}>
           <ScrollView>
             <Text style={styles.formTitle}>Perfil</Text>
-            <View style={styles.inputContainer}>
-              <Image
-                source={{ uri: "https://i.pinimg.com/236x/eb/26/db/eb26db4e1e95322eca0e636d5187cc31.jpg" }}
-                style={styles.socialIcon}
-              />
-              <TextInput
-                style={styles.input}
-                placeholder="Nombre"
-                value={formPersonName}
-                onChangeText={handleFormPersonNameChange}
-                editable={editMode}
-              />
-            </View>
+
+            {editMode && (
+              <View style={styles.inputContainer}>
+                <Image
+                  source={{ uri: "https://i.pinimg.com/236x/eb/26/db/eb26db4e1e95322eca0e636d5187cc31.jpg" }}
+                  style={styles.socialIcon}
+                />
+                <TextInput
+                  style={styles.input}
+                  placeholder="Nombre"
+                  value={formPersonName}
+                  onChangeText={handleFormPersonNameChange}
+                  editable={editMode}
+                />
+              </View>
+            )}
+            
             <View style={styles.inputContainer}>
               <Image
                 source={{ uri: "https://i.pinimg.com/236x/4d/00/8b/4d008b130bfc3d54968c88e9cf93c53b.jpg" }}
@@ -258,7 +274,6 @@ export const PerfilScreen = () => {
               </TouchableOpacity>
             )}
           </ScrollView>
-
         </View>
       </KeyboardAvoidingView>
     </View>
