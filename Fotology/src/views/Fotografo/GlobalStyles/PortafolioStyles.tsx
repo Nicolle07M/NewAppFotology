@@ -2,91 +2,86 @@ import { StyleSheet } from "react-native";
 
 const PortafolioStyles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: 'white',
-    alignItems: 'center',
+    flexGrow: 1,
     justifyContent: 'center',
-    paddingTop: 30,
+    alignItems: 'center',
   },
-  header2: {
+  backgroundContainer: {
+    flex: 1,
+    width: '100%',
+    alignItems: 'center',
+    overflow: 'hidden',
+    marginTop: 0, // Ajusta el margen superior aquí
+  },
+  header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center', // Alinea los elementos verticalmente en el centro
     paddingHorizontal: 20,
     paddingVertical: 12,
-    backgroundColor: 'black',
+    backgroundColor: '#FFF',
     borderBottomWidth: 1,
-    color: 'black',
-    marginTop: -35,
+    borderBottomColor: '#DDD',
+    marginBottom: 50,
   },
   headerButton: {
     fontSize: 16,
     color: 'black',
-    textAlign: 'center', // Alinea el texto en el centro horizontalmente
-    flex: 1, // Ajusta el tamaño del botón automáticamente
   },
-  header: {
-    backgroundColor: 'orange',
+  backgroundImage: {
     width: '100%',
-    paddingVertical: 30,
-    alignItems: 'center',
+    aspectRatio: 2,
+    borderTopLeftRadius: 0,
+    borderTopRightRadius: 0,
+    borderBottomLeftRadius: 100,
+    borderBottomRightRadius: 100,
+    overflow: 'hidden',
+  },
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(200, 120, 0, 0.3)', // Color naranja semitransparente
     justifyContent: 'center',
-    flexDirection: 'row',
-    paddingHorizontal: 20,
+    alignItems: 'center',
+  },
+  textContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  text: {
+    fontSize: 50,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#fff',
+  },
+  text2: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#fff',
   },
   headerText: {
     fontSize: 30,
     color: 'white',
-    flex: 1,
-    textAlign: 'center',
-  },
-  headerButton: {
-    fontSize: 20,
-    color: 'white',
-    marginHorizontal: 10,
-  },
-  middleText: {
-    fontSize: 24,
-    color: 'black',
-    paddingHorizontal: 45,
-    marginTop: 100,
-    textAlign: 'justify',
   },
   content: {
-    flex: 1, 
     width: '100%',
     alignItems: 'center',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     marginTop: 20,
-    marginBottom: 20,
   },
-  customButton: {
-    backgroundColor: 'orange',
-    paddingVertical: 12,
-    paddingHorizontal: 110,
-    borderRadius: 25,
-    marginBottom: 20, // Añadido para espaciar los botones
-  },
-  customButtonText: {
+  textBelowInput: {
     fontSize: 20,
-    color: 'black',
+    color: 'gray',
   },
-  bottomButtonContainer: {
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    paddingBottom: 60,
+  bottomButton: {
+    backgroundColor: 'orange',
+    paddingVertical: 15,
+    paddingHorizontal: 30,
+    borderRadius: 10,
+    marginTop: 460,
   },
-  imageContainer: {
-    marginTop: 90,
-    width: 500, // Ajusta el tamaño según tu necesidad
-    height: 300, // Ajusta el tamaño según tu necesidad
-    borderRadius: 150, // La mitad del tamaño de la imagen
-    overflow: 'hidden',
-  },
-  image: {
-    width: '100%',
-    height: '100%',
+  bottomButtonText: {
+    color: 'white',
+    fontSize: 18,
   },
 });
 

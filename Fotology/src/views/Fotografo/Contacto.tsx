@@ -106,13 +106,13 @@ const handleEnviarMensaje = () => {
           </TouchableOpacity>
         </View>
       <Text style={styles.subtitle}>NO SEAS TÍMIDO</Text>
-      <Text style={styles.text}>No dudes en ponerte en contacto con nosotros.</Text>
+      <Text style={styles.text}>Si tienes alguna sugerencia de la app escribenos.</Text>
       <View style={styles.inputContainer}>
         <View style={styles.inputGroup}>
           <TextInput
             style={styles.input}
             placeholder=""
-            placeholderTextColor="black"
+            placeholderTextColor="pink"
           />
           <Text style={[styles.label, styles.visibleText, styles.textcajas]}>Nombre</Text>
         </View>

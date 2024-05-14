@@ -36,6 +36,7 @@ const CategoriasScreen = () => {
           <Text style={CategoriasStyles.bottomButtonText}>Crear categoría</Text>
         </TouchableOpacity>
       </View>
+      
     </View>
   );
 }

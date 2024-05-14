@@ -33,7 +33,7 @@ const CategoriasStyles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 30,
     borderRadius: 10,
-    marginTop: 600,
+    marginTop: 460,
   },
   bottomButtonText: {
     color: 'white',

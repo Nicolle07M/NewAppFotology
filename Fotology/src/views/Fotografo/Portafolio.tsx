@@ -1,31 +1,27 @@
 import React from 'react';
+import { Dimensions, View, Text, StyleSheet, ImageBackground, ScrollView, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { StatusBar, Image } from 'react-native';
-import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 import PortafolioStyles from './GlobalStyles/PortafolioStyles';
+import { NavigationContainer } from '@react-navigation/native';
 
-export const PortafolioScreen = () => {
+const windowWidth = Dimensions.get('window').width;
+const headerHeight = 100;
+const headerWidth = windowWidth;
+
+const PortafolioScreen = () => {
   const navigation = useNavigation();
 
-  const navigateToCategoriasScreen = () => {
-    navigation.navigate('CategoriasScreen' as never);
-  };
   const navigateToContactoScreen = () => {
     navigation.navigate('ContactoScreen' as never);
-  };  
+  };
 
   const navigatePerfilScreen = () => {
     navigation.navigate('PerfilScreen' as never);
-  };  
+  };
 
   const navigatePortafolioScreen = () => {
     navigation.navigate('PortafolioScreen' as never);
-  };  
-  const navigateCategoriasScreen = () => {
-    navigation.navigate('CategoriasScreen' as never);
-  };  
-
-
+  };
   const navigateWelcomeScreen = () => {
     navigation.navigate('WelcomeScreen' as never);
   };
@@ -33,15 +29,31 @@ export const PortafolioScreen = () => {
     navigation.navigate('CalificacionScreen' as never);
   };
 
+  const handleBottomButtonPress = () => {
+    navigation.navigate('ListaCatScreen' as never);
+  };
+
   return (
-    <View style={PortafolioStyles.container}>
-      {/* Header */}
-      <View style={PortafolioStyles.header2}>
-          <TouchableOpacity onPress={navigateWelcomeScreen}>
+    <ScrollView contentContainerStyle={PortafolioStyles.container}>
+      <View style={PortafolioStyles.backgroundContainer}>
+        <ImageBackground
+          source={require('../../../assets/Fondo1.jpg')}
+          style={PortafolioStyles.backgroundImage}
+          blurRadius={3}
+        >
+          <View style={PortafolioStyles.overlay}>
+            <View style={PortafolioStyles.textContainer}>
+              <Text style={PortafolioStyles.text}>Categorias</Text>
+              <Text style={PortafolioStyles.text2}>¡Crea tus categorias y publica!</Text>
+            </View>
+          </View>
+          {/* Header */}
+          <View style={PortafolioStyles.header}>
+            <TouchableOpacity onPress={navigateWelcomeScreen}>
               <Text style={PortafolioStyles.headerButton}>Home</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress= {navigatePortafolioScreen}>
+            <TouchableOpacity onPress={navigatePortafolioScreen}>
               <Text style={PortafolioStyles.headerButton}>Portafolio</Text>
             </TouchableOpacity>
 
@@ -52,39 +64,26 @@ export const PortafolioScreen = () => {
             <TouchableOpacity onPress={navigateToContactoScreen}>
               <Text style={PortafolioStyles.headerButton}>Contacto</Text>
             </TouchableOpacity>
-            
+
             <TouchableOpacity onPress={navigatePerfilScreen}>
               <Text style={PortafolioStyles.headerButton}>Perfil</Text>
             </TouchableOpacity>
           </View>
-     
-      <View style={PortafolioStyles.header}>
-        <Text style={PortafolioStyles.headerText}>Portafolio</Text>
-        
-      </View>
-      
-      <Text style={PortafolioStyles.middleText}>Bienvenido, en Fotology celebramos la magia de la fotografía. Somos una plataforma dedicada a conectar talentosos fotógrafos con apasionados del arte visual como tú. Explora, descubre y sumérgete en un mundo de imágenes cautivadoras que te pueden gustar. ¡Tu viaje fotográfico comienza aquí!</Text>
-      <View style={PortafolioStyles.content}>
-        {/* Tu contenido aquí */}
-        <View style={PortafolioStyles.imageContainer}>
-          
-          <Image
-            source={require('../../../assets/background.png')} // Corregir la ruta de la imagen aquí
-            style={PortafolioStyles.image}
-          />
-          
+        </ImageBackground>
+        <View style={PortafolioStyles.content}>
+          <Text style={PortafolioStyles.textBelowInput}>Aquí verás tus categorías</Text>
+          <TouchableOpacity style={PortafolioStyles.bottomButton} onPress={handleBottomButtonPress}>
+            <Text style={PortafolioStyles.bottomButtonText}>Crear categoría</Text>
+          </TouchableOpacity>
         </View>
       </View>
-      <View style={PortafolioStyles.bottomButtonContainer}>
-        <TouchableOpacity
-          style={PortafolioStyles.customButton}
-          onPress={navigateToCategoriasScreen}
-        >
-          <Text style={PortafolioStyles.customButtonText}>Ver categorías</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+
+      {/* Contenido de Categorias */}
+      
+        
+      
+    </ScrollView>
   );
-}
+};
 
 export default PortafolioScreen;
