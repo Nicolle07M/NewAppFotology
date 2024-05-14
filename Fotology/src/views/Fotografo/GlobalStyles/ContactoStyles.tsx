@@ -1,15 +1,33 @@
 import { StyleSheet } from "react-native";
 
 const ContactoStyles = StyleSheet.create({
-    
-  
   container: {
+    flex: 1,
+    backgroundColor: 'black',
+    alignItems: 'center',
+    paddingTop: 60,
+    paddingHorizontal: 20,
+    marginTop: 0, // Ajusta el margen superior aquí
+  },
+    container2: {
       flex: 1,
-      backgroundColor: 'black',
+      backgroundColor: 'rgba(0, 0, 0, 0)',
       alignItems: 'center',
-      paddingTop: 50,
+      justifyContent: 'center',
       paddingHorizontal: 20,
-      marginTop: 0, // Ajusta el margen superior aquí
+      position: 'relative', // Establece la posición relativa para que los elementos absolutos se posicionen dentro de este contenedor
+    },
+    bigTitle: {
+      color: 'rgba(255, 255, 255, 0.5)',
+      fontSize: 56,
+      fontWeight: '900',
+      top: -120, // Ajusta la posición del texto más grande
+    },
+    smallTitle: {
+      fontWeight: 'bold', 
+      zIndex: 1,
+      fontSize: 22,
+      top: -65, // Ajusta la posición del texto más pequeño
     },
     header: {
       flexDirection: 'row',
@@ -18,7 +36,9 @@ const ContactoStyles = StyleSheet.create({
       paddingVertical: 12,
       backgroundColor: '#FFF',
       borderBottomWidth: 1,
-      borderBottomColor: '#DDD',
+      borderBottomColor: '#FFF',
+      marginTop: 0,
+
     },
     headerButton: {
       fontSize: 16,
@@ -28,8 +48,8 @@ const ContactoStyles = StyleSheet.create({
       fontSize: 24,
       fontWeight: 'bold',
       color: 'orange',
-      marginBottom: 20, //arriba
-      marginTop: 40, //abajo
+      marginBottom: 20,
+      marginTop: 40,
     },
     iconContainer: {
       flexDirection: 'row',

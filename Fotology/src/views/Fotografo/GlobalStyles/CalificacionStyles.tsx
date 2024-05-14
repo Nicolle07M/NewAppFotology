@@ -41,7 +41,7 @@ const CalificacionStyles = StyleSheet.create({
     },
     overlay: {
       ...StyleSheet.absoluteFillObject,
-      backgroundColor: 'rgba(255, 192, 203, 0.3)', 
+      backgroundColor: 'rgba(200, 120, 0, 0.3)', 
       justifyContent: 'center',
       alignItems: 'center',
     },
