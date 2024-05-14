@@ -16,17 +16,19 @@ const RegisterStyles = StyleSheet.create({
       backgroundColor: 'rgba(200, 120, 0, 0.3)', // Color naranja semitransparente
       height: '100%',
     },
-    logo: {
-      width: 160,
-      height: 160,
-      marginBottom: 50,
+    iconContainer: {
+      borderWidth: 2,
+      borderColor: 'orange',
+      borderRadius: 60, // La mitad del tamaño del icono para que sea un círculo
+      padding: 10,
+      marginBottom: 18,
     },
     formContainer: {
       width: '80%', 
       backgroundColor: '#F5F5F5', 
       borderRadius: 20,
       paddingHorizontal: 50,
-      paddingVertical: 75,
+      paddingVertical: 50,
       alignItems: 'center',
     },
     label2: {
@@ -70,6 +72,20 @@ const RegisterStyles = StyleSheet.create({
       fontSize: 20,
       fontWeight: 'bold',
       textAlign: 'center',
+    },
+    imageContainer: {
+      alignItems: 'center',
+      marginBottom: 20,
+    },
+    profileImage: {
+      width: 100,
+      height: 100,
+      borderRadius: 50,
+    },
+    profileImagePlaceholder: {
+      fontSize: 16,
+      color: 'white',
+      textDecorationLine: 'underline',
     },
   });
 

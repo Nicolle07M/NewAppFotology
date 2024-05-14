@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ImageBackground, Image } from 'react-native';
 import styles from './RegisterStyle';
+import { FontAwesome } from '@expo/vector-icons'; 
 
 const RegisterScreen = ({ navigation }) => {
   const [email, setEmail] = React.useState('');
@@ -17,13 +18,19 @@ const RegisterScreen = ({ navigation }) => {
     console.log('Address:', adress);
   };
 
+  
+
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../../../assets/Fondo1.jpg')} style={styles.backgroundImage} blurRadius={2}>
         <View style={styles.overlay} />
-        <Image source={require('../../../assets/LOGOA.png')} style={styles.logo} />
         <View style={styles.formContainer}>
           <Text style={styles.label2}>Regístrate aquí!</Text>
+          <View>
+          <TouchableOpacity onPress={handleRegister} style={styles.iconContainer}>
+        <FontAwesome name="user-circle" size={90} color="orange" />
+      </TouchableOpacity>
+          </View>
           <View style={styles.inputContainer}>
             <TextInput
               style={styles.input}
