@@ -98,8 +98,12 @@ export const PerfilScreen = () => {
     console.log('Correo electrónico:', email);
     console.log('Instagram:', instagram);
     console.log('Twitter:', twitter);
+
+    // Actualizar el estado que controla el nombre mostrado en la interfaz
+    setPersonName(formPersonName);
+    
     setEditMode(false);
-  };
+};
 
   const handleFormPersonNameChange = (text: string) => {
     setFormPersonName(text);
@@ -108,6 +112,8 @@ export const PerfilScreen = () => {
   const handleEmailChange = (text: string) => {
     setEmail(text);
   }
+
+  
 
   return (
     <View style={{ flex: 1 }}>
