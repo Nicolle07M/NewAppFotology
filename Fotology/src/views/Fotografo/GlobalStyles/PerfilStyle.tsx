@@ -32,7 +32,7 @@ const PerfilStyle = StyleSheet.create({
     },
     profileContainer: { // imagen 
       position: 'absolute',
-      top: 130, // bajar o subir el circulo 
+      top: 70, // bajar o subir el circulo 
       left: 100,
       alignItems: 'center',
     },
@@ -60,7 +60,7 @@ const PerfilStyle = StyleSheet.create({
     },
     form: { // contenedor 
       width: '80%',
-      height: '45%',
+      height: '50%',
       backgroundColor: 'white',
       padding: 20,
       borderTopLeftRadius: 40,
@@ -68,7 +68,7 @@ const PerfilStyle = StyleSheet.create({
       borderBottomLeftRadius: 40,
       borderBottomRightRadius: 40,
       position: 'absolute',
-      bottom: 100, // subir o bajar el contenedor
+      bottom: 50, // subir o bajar el contenedor
     },
     formTitle: {
       fontSize: 20, // perfil 

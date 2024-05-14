@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Alert } from 'react-native';
 
-// Luego, puedes usar Alert para mostrar un diálogo personalizado
-Alert.alert('Título', 'Mensaje de alerta aquí');
 
 import { StatusBar, Linking , Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
 import styles from './GlobalStyles/ContactoStyles';
@@ -14,7 +12,7 @@ export const ContactoScreen = () => {
   const [nombre, setNombre] = useState('');
   const [email, setEmail] = useState('');
   const [mensaje, setMensaje] = useState('');
-  const [backgroundImageUri, setBackgroundImageUri] = useState(require('../../../assets/background.png'));
+  const [backgroundImageUri, setBackgroundImageUri] = useState(require('../../../assets/Fondo2.jpg'));
 
 
     const navigation = useNavigation();
