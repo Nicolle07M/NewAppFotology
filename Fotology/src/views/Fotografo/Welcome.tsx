@@ -1,9 +1,10 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { View, Text, StyleSheet, ImageBackground, ScrollView, TouchableOpacity} from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, ScrollView, TouchableOpacity, Image} from 'react-native';
 import styles from './GlobalStyles/WelcomeStyle';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
+import { Ionicons } from '@expo/vector-icons';
 
 const WelcomeScreen = () => {
   const navigation = useNavigation();
@@ -34,6 +35,8 @@ const WelcomeScreen = () => {
   return (
     
     <ScrollView contentContainerStyle={styles.container}>
+      
+
       <View style={styles.backgroundContainer}>
         <ImageBackground
           source={require('../../../assets/Fondo1.jpg')}
@@ -69,13 +72,89 @@ const WelcomeScreen = () => {
             </TouchableOpacity>
           </View>
         </ImageBackground>
-      </View>
-
-      <Text style={styles.description2}>
-        Con nuestro aplicativo esperamos ayudar a fotógrafos emergentes, dándoles una opción de publicidad, haciendo conocer su perfil y sus proyectos, puesto que sabemos que la tarea del inicio en cualquier ámbito no es fácil y de igual manera el arte de la fotografía no es muy apoyado.
+        <Text style={styles.description2}>
+        Fotografos destacados del mes
       </Text>
       <View style={styles.orangeLine} />
-
+      </View>
+      <View style={styles.container}>
+      <View style={styles.comentarioContainer}>
+        <View style={styles.fotoContainer}>
+         <Image source={require('../../../assets/aleja.jpg')} style={styles.foto}/> 
+          <View style={styles.foto}><Text style={styles.username}>Camila S.</Text></View>
+        </View>    
+        <View style={styles.infoContainer}>
+          <View style={styles.ratingContainer}>
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={25} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={25} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={25} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={25} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={25} color={'#FFD700'} />
+          </View>
+          <Text style={styles.comentario}>
+          ¡Absolutamente impresionante! Cada imagen que captura esta fotógrafa es una obra maestra. Su habilidad para jugar con la luz y la composición es simplemente asombrosa. No puedo dejar de admirar su talento.
+          </Text>
+          <Text style={styles.tiempo}>Top 1</Text>
+        </View>
+      </View>
+    </View>
+    <View style={styles.container}>
+      <View style={styles.comentarioContainer}>
+        <View style={styles.fotoContainer}>
+         <Image source={require('../../../assets/aleja.jpg')} style={styles.foto}/> 
+          <View style={styles.foto}><Text style={styles.username}>Andres C.</Text></View>
+        </View>    
+        <View style={styles.infoContainer}>
+          <View style={styles.ratingContainer}>
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={25} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={25} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={25} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={25} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={25} color={'#FFD700'} />
+          </View>
+          <Text style={styles.comentario}>
+          Este fotógrafo redefine constantemente los límites de la creatividad. Sus fotos son una mezcla perfecta de innovación y emoción. Cada imagen cuenta una historia única y te sumerge en un mundo de belleza y asombro.
+          </Text>
+          <Text style={styles.tiempo}>Top 2</Text>
+        </View>
+      </View>
+    </View>
+    <View style={styles.container}>
+      <View style={styles.comentarioContainer}>
+        <View style={styles.fotoContainer}>
+         <Image source={require('../../../assets/aleja.jpg')} style={styles.foto}/> 
+          <View style={styles.foto}><Text style={styles.username}>Made R.</Text></View>
+        </View>    
+        <View style={styles.infoContainer}>
+          <View style={styles.ratingContainer}>
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={25} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={25} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={25} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={25} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={25} color={'#FFD700'} />
+          </View>
+          <Text style={styles.comentario}>
+          Las fotografías de esta artista urbano son verdaderamente inspiradoras. Con una mirada perspicaz, captura la esencia de la vida en la ciudad de una manera que te deja sin aliento. Su trabajo nos recuerda la belleza que se puede encontrar en lo cotidiano.
+          </Text> 
+          <Text style={styles.tiempo}>Top 3</Text>
+        </View>
+      </View>
+    </View>
       <Text style={styles.description}>
         Estamos aquí para brindarte la asistencia que necesitas para aprovechar al máximo nuestro sitio web de fotografía. Si tienes alguna pregunta o problema, ¡no dudes en ponerte en contacto con nosotros.
       </Text>
