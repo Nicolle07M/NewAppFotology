@@ -13,6 +13,7 @@ const CategoriasStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  
   headerText: {
     fontSize: 30,
     color: 'white',

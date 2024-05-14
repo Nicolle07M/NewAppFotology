@@ -8,6 +8,23 @@ const PortafolioStyles = StyleSheet.create({
     justifyContent: 'center',
     paddingTop: 30,
   },
+  header2: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center', // Alinea los elementos verticalmente en el centro
+    paddingHorizontal: 20,
+    paddingVertical: 12,
+    backgroundColor: 'black',
+    borderBottomWidth: 1,
+    color: 'black',
+    marginTop: -35,
+  },
+  headerButton: {
+    fontSize: 16,
+    color: 'black',
+    textAlign: 'center', // Alinea el texto en el centro horizontalmente
+    flex: 1, // Ajusta el tamaño del botón automáticamente
+  },
   header: {
     backgroundColor: 'orange',
     width: '100%',

@@ -25,6 +25,7 @@ const CategoriasScreen = () => {
 
   return (
     <View style={CategoriasStyles.container}>
+      
       <StatusBar style="auto" />
       <View style={[CategoriasStyles.header, { height: headerHeight, width: headerWidth }]}>
         <Text style={CategoriasStyles.headerText}>Portafolio</Text>
