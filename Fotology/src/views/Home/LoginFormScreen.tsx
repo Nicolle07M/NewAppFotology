@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ImageBackground, Image } from 'react-native';
 import styles from './LoginStyles';
+import { FontAwesome } from '@expo/vector-icons'; 
+
 
 const LoginFormScreen = ({ navigation }) => {
   const [email, setEmail] = React.useState('');
@@ -23,6 +25,7 @@ const LoginFormScreen = ({ navigation }) => {
         <View style={styles.formContainer}>
           <Text style={styles.label2}>Bienvenido a Fotology</Text>
           <View style={styles.inputContainer}>
+          <FontAwesome name="user-circle" size={26} color="orange" style={styles.icon} />
             <TextInput
               style={styles.input}
               value={email}
@@ -31,6 +34,7 @@ const LoginFormScreen = ({ navigation }) => {
             />
           </View>
           <View style={styles.inputContainer}>
+          <FontAwesome name="lock" size={26} color="orange" style={styles.icon} />
             <TextInput
               style={styles.input}
               value={password}
