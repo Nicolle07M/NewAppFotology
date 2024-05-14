@@ -11,17 +11,19 @@ const ContactoStyles = StyleSheet.create({
   },
     container2: {
       flex: 1,
-      backgroundColor: 'rgba(0, 0, 0, 0)',
-      alignItems: 'center',
-      justifyContent: 'center',
-      paddingHorizontal: 20,
-      position: 'relative', // Establece la posición relativa para que los elementos absolutos se posicionen dentro de este contenedor
-    },
+  backgroundColor: 'rgba(0, 0, 0, 0)',
+  alignItems: 'center',
+  justifyContent: 'center',
+  paddingHorizontal: 20,
+  position: 'relative', // Establece la posición relativa para que los elementos absolutos se posicionen dentro de este contenedor
+  marginBottom: -20, // Ajusta el margen inferior para reducir el espacio con el contenido que le sigue
+},
     bigTitle: {
       color: 'rgba(255, 255, 255, 0.5)',
       fontSize: 56,
       fontWeight: '900',
       top: -120, // Ajusta la posición del texto más grande
+      marginBottom: -200, // Reduzca el margen inferior aquí
     },
     smallTitle: {
       fontWeight: 'bold', 
@@ -52,12 +54,14 @@ const ContactoStyles = StyleSheet.create({
       marginTop: 40,
     },
     iconContainer: {
+      marginBottom: 2,
       flexDirection: 'row',
-      marginBottom: 20,
+     
     },
     icon: {
-      width: 32,
-      height: 32,
+      paddingVertical: -100,
+      width: 20,
+      height: 20,
       marginRight: 10,
     },
     subtitle: {
@@ -65,18 +69,20 @@ const ContactoStyles = StyleSheet.create({
       fontWeight: 'bold',
       color: 'white',
       marginTop: 20,
+      marginBottom: 10,
     },
     text: {
       fontSize: 16,
       color: 'white',
       textAlign: 'center',
-      marginBottom: 20,
+      marginBottom: 30,
     },
     inputContainer: {
       width: '90%',
+      marginBottom: 100,
     },
     inputGroup: {
-      marginBottom: 20,
+      marginBottom: 12,
       position: 'relative', // Para posicionar el texto dentro del cuadro de entrada
     },
     label: {
@@ -111,6 +117,7 @@ const ContactoStyles = StyleSheet.create({
       paddingVertical: 10,
       paddingHorizontal: 20,
       borderRadius: 5,
+      marginBottom: 100,
     },
     buttonText: {
       color: 'black',
@@ -118,7 +125,7 @@ const ContactoStyles = StyleSheet.create({
       textAlign: 'center',
     },
     confirmationMessage: {
-      marginTop: 20,
+      marginTop: -36,
       color: 'white',
       textAlign: 'center',
     },
