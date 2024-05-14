@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native'; // Importar useNavigat
 export const ContactoScreen = () => {
   const [mensajeEnviado, setMensajeEnviado] = useState(false);
   const [editMode, setEditMode] = useState(false);
-  const [backgroundImageUri, setBackgroundImageUri] = useState(require('../../../assets/background.png'));
+  const [backgroundImageUri, setBackgroundImageUri] = useState(require('../../../assets/Fondo2.jpg'));
 
 
     const navigation = useNavigation();
@@ -84,12 +84,14 @@ const handleEnviarMensaje = () => {
           source={backgroundImageUri}
           style={styles.backgroundImage}
         />
+       
       </View>
       <View style={styles.container2}>
   <Text style={styles.smallTitle}>PONERSE EN CONTACTO</Text>
   <Text style={styles.bigTitle}>CONTACTO</Text>
 </View>
 <View style={styles.iconContainer}>
+
           <TouchableOpacity onPress={handleFacebookPress}>
             <Image source={require('../../../assets/facebook.png')} style={styles.icon} />
           </TouchableOpacity>
@@ -104,7 +106,7 @@ const handleEnviarMensaje = () => {
           </TouchableOpacity>
         </View>
       <Text style={styles.subtitle}>NO SEAS TÍMIDO</Text>
-      <Text style={styles.text}>Hola, aquí puedes poner tu texto.</Text>
+      <Text style={styles.text}>No dudes en ponerte en contacto con nosotros.</Text>
       <View style={styles.inputContainer}>
         <View style={styles.inputGroup}>
           <TextInput

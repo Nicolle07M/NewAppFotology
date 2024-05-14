@@ -5,8 +5,25 @@ const PortafolioStyles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
     alignItems: 'center',
-    justifyContent: 'flex-start',
-    paddingTop: 30, 
+    justifyContent: 'center',
+    paddingTop: 30,
+  },
+  header2: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center', // Alinea los elementos verticalmente en el centro
+    paddingHorizontal: 20,
+    paddingVertical: 12,
+    backgroundColor: 'black',
+    borderBottomWidth: 1,
+    color: 'black',
+    marginTop: -35,
+  },
+  headerButton: {
+    fontSize: 16,
+    color: 'black',
+    textAlign: 'center', // Alinea el texto en el centro horizontalmente
+    flex: 1, // Ajusta el tamaño del botón automáticamente
   },
   header: {
     backgroundColor: 'orange',
@@ -14,45 +31,62 @@ const PortafolioStyles = StyleSheet.create({
     paddingVertical: 30,
     alignItems: 'center',
     justifyContent: 'center',
+    flexDirection: 'row',
+    paddingHorizontal: 20,
   },
   headerText: {
-    fontFamily: 'Homenaje',
     fontSize: 30,
     color: 'white',
-  },
-  header1: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingVertical: 12,
-    backgroundColor: '#FFF',
-    borderBottomWidth: 1,
-    borderBottomColor: '#DDD',
-    marginBottom: 20, // Añadido para separar el header de la sección de contenido
+    flex: 1,
+    textAlign: 'center',
   },
   headerButton: {
-    fontSize: 16,
+    fontSize: 20,
+    color: 'white',
+    marginHorizontal: 10,
+  },
+  middleText: {
+    fontSize: 24,
     color: 'black',
-    marginLeft: 10, // Añadido para separar los botones del header
+    paddingHorizontal: 45,
+    marginTop: 100,
+    textAlign: 'justify',
   },
   content: {
-    flex: 1, // Cambiado para que ocupe el espacio disponible
-    width: '100%', 
+    flex: 1, 
+    width: '100%',
     alignItems: 'center',
-    justifyContent: 'flex-start', 
+    justifyContent: 'flex-start',
     marginTop: 20,
+    marginBottom: 20,
   },
   customButton: {
-    backgroundColor: 'orange', 
+    backgroundColor: 'orange',
     paddingVertical: 12,
     paddingHorizontal: 110,
-    borderRadius: 25, 
-    marginBottom: 20, // Añadido para separar el botón del contenido debajo
+    borderRadius: 25,
+    marginBottom: 20, // Añadido para espaciar los botones
   },
   customButtonText: {
-    fontFamily: 'Homenaje', 
     fontSize: 20,
-    color: 'white', 
+    color: 'black',
+  },
+  bottomButtonContainer: {
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    paddingBottom: 60,
+  },
+  imageContainer: {
+    marginTop: 90,
+    width: 500, // Ajusta el tamaño según tu necesidad
+    height: 300, // Ajusta el tamaño según tu necesidad
+    borderRadius: 150, // La mitad del tamaño de la imagen
+    overflow: 'hidden',
+  },
+  image: {
+    width: '100%',
+    height: '100%',
   },
 });
 

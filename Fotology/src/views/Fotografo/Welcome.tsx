@@ -9,26 +9,26 @@ const WelcomeScreen = () => {
   const navigation = useNavigation();
 
   const navigateToContactoScreen = () => {
-    navigation.navigate('ContactoScreen');
+    navigation.navigate('ContactoScreen' as never);
   };  
 
   const navigatePerfilScreen = () => {
-    navigation.navigate('PerfilScreen');
+    navigation.navigate('PerfilScreen' as never);
   };  
 
   const navigatePortafolioScreen = () => {
-    navigation.navigate('PortafolioScreen');
+    navigation.navigate('PortafolioScreen' as never);
   };  
   const navigateCategoriasScreen = () => {
-    navigation.navigate('CategoriasScreen');
+    navigation.navigate('CategoriasScreen' as never);
   };  
 
 
   const navigateWelcomeScreen = () => {
-    navigation.navigate('WelcomeScreen');
+    navigation.navigate('WelcomeScreen' as never);
   };
   const navigateCalificacionScreen = () => {
-    navigation.navigate('CalificacionScreen');
+    navigation.navigate('CalificacionScreen' as never);
   };
 
   return (

@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TouchableOpacity, ViewStyle } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Dimensions } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import CategoriasStyles from './GlobalStyles/CategoriasStyles';
 
 const windowWidth = Dimensions.get('window').width;
 const headerHeight = 100;
 const headerWidth = windowWidth;
 
-export const CategoriasScreen = () => {
+const CategoriasScreen = () => {
+  const navigation = useNavigation();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   const handleCategoryButtonPress = (text: string) => {
@@ -16,42 +18,23 @@ export const CategoriasScreen = () => {
     setSelectedCategory(text);
   };
 
-  const categories = [
-    'Paisajes',
-    'Retratos',
-    'Moda',
-    'Alimentos',
-    'Viajes',
-    'Eventos',
-  ];
-  
+  const handleBottomButtonPress = () => {
+    // Maneja la lógica cuando se presiona el botón en la parte inferior de la pantalla
+    navigation.navigate('ListaCatScreen' as never);
+  };
+
   return (
     <View style={CategoriasStyles.container}>
+      
       <StatusBar style="auto" />
       <View style={[CategoriasStyles.header, { height: headerHeight, width: headerWidth }]}>
         <Text style={CategoriasStyles.headerText}>Portafolio</Text>
       </View>
       <View style={CategoriasStyles.content}>
-        {/* Mostrar la lista siempre */}
-        <View style={CategoriasStyles.listContainer}>
-          {categories.map((category, index) => (
-            <View key={index} style={CategoriasStyles.listItemContainer}>
-              <Text style={CategoriasStyles.listItem}>
-                {category.split('').join(' ')}
-              </Text>
-              <TouchableOpacity onPress={() => handleCategoryButtonPress(category)}>
-                <View style={[CategoriasStyles.categoryButton, selectedCategory === category && CategoriasStyles.categoryButtonSelected]}>
-                  {selectedCategory === category && <Text style={CategoriasStyles.checkmark}>✓</Text>}
-                </View>
-              </TouchableOpacity>
-            </View>
-          ))}
-        </View>
-        {selectedCategory && (
-          <TouchableOpacity style={CategoriasStyles.bottomButton} onPress={() => setSelectedCategory(null)}>
-            <Text style={CategoriasStyles.bottomButtonText}>Confirmar selección</Text>
-          </TouchableOpacity>
-        )}
+        <Text style={CategoriasStyles.textBelowInput}>Aquí verás tus categorías</Text>
+        <TouchableOpacity style={CategoriasStyles.bottomButton} onPress={handleBottomButtonPress}>
+          <Text style={CategoriasStyles.bottomButtonText}>Crear categoría</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
