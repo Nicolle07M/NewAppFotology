@@ -2,8 +2,16 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'; 
 import ListaCatStyles from './GlobalStyles/ListaCatStyles';
+import { useNavigation } from '@react-navigation/native';
 
 export default function ListaCatScreen() {
+  const navigation = useNavigation();
+
+  const handleCrearCategoria = (categoria) => {
+    navigation.navigate('CategoriasScreen', { categoria });
+  };
+
+
   return (
     <View style={ListaCatStyles.container}>
       <StatusBar style="auto" />
@@ -11,8 +19,8 @@ export default function ListaCatScreen() {
         <Text style={ListaCatStyles.headerText}>Portafolio</Text>
       </View>
       <View style={ListaCatStyles.content}>
-        <Text style={ListaCatStyles.customText}>Crear categoría</Text>
-        {/* Contenido de ListaCat */}
+        <Text style={ListaCatStyles.customText}>Selecciona la categoria!</Text>
+
         <View style={ListaCatStyles.imageContainer}>
           <View style={ListaCatStyles.imageWrapper}>
             <Image
@@ -22,13 +30,13 @@ export default function ListaCatScreen() {
           </View>
           <View style={ListaCatStyles.textButtonContainer}>
             <Text style={ListaCatStyles.secondaryText}>Paisajes</Text>
-            <TouchableOpacity style={ListaCatStyles.button} onPress={() => console.log('Botón presionado')}>
-              <Text style={ListaCatStyles.buttonText}>Abrir</Text>
+            <TouchableOpacity style={ListaCatStyles.button} onPress={() => handleCrearCategoria('Paisajes')}>
+              <Text style={ListaCatStyles.buttonText}>Crear</Text> 
             </TouchableOpacity>
           </View>
         </View>
 
-        {/* Nueva imagen, texto y botón */}
+
         <View style={ListaCatStyles.imageContainer}>
           <View style={ListaCatStyles.imageWrapper}>
             <Image
@@ -38,13 +46,13 @@ export default function ListaCatScreen() {
           </View>
           <View style={ListaCatStyles.textButtonContainer}>
             <Text style={ListaCatStyles.secondaryText}>Retrato</Text>
-            <TouchableOpacity style={ListaCatStyles.button} onPress={() => console.log('Nuevo botón presionado')}>
-              <Text style={ListaCatStyles.buttonText}>Abrir</Text>
+            <TouchableOpacity style={ListaCatStyles.button} onPress={() => handleCrearCategoria('Retratos')}>
+              <Text style={ListaCatStyles.buttonText}>Crear</Text> 
             </TouchableOpacity>
           </View>
         </View>
 
-        {/* Otra nueva imagen, texto y botón */}
+
         <View style={ListaCatStyles.imageContainer}>
           <View style={ListaCatStyles.imageWrapper}>
             <Image
@@ -54,13 +62,13 @@ export default function ListaCatScreen() {
           </View>
           <View style={ListaCatStyles.textButtonContainer}>
             <Text style={ListaCatStyles.secondaryText}>Moda</Text>
-            <TouchableOpacity style={ListaCatStyles.button} onPress={() => console.log('Otro botón presionado')}>
-              <Text style={ListaCatStyles.buttonText}>Abrir</Text>
+            <TouchableOpacity style={ListaCatStyles.button} onPress={() => handleCrearCategoria('Moda')}>
+              <Text style={ListaCatStyles.buttonText}>Crear</Text> 
             </TouchableOpacity>
           </View>
         </View>
 
-        {/* Otro bloque de imagen, texto y botón */}
+
         <View style={ListaCatStyles.imageContainer}>
           <View style={ListaCatStyles.imageWrapper}>
             <Image
@@ -70,13 +78,13 @@ export default function ListaCatScreen() {
           </View>
           <View style={ListaCatStyles.textButtonContainer}>
             <Text style={ListaCatStyles.secondaryText}>Alimentos</Text>
-            <TouchableOpacity style={ListaCatStyles.button} onPress={() => console.log('Nuevo botón presionado')}>
-              <Text style={ListaCatStyles.buttonText}>Abrir</Text>
+            <TouchableOpacity style={ListaCatStyles.button} onPress={() => handleCrearCategoria('Alimentos')}>
+              <Text style={ListaCatStyles.buttonText}>Crear</Text> 
             </TouchableOpacity>
           </View>
         </View>
 
-        {/* Agregar otro bloque de imagen, texto y botón */}
+
         <View style={ListaCatStyles.imageContainer}>
           <View style={ListaCatStyles.imageWrapper}>
             <Image
@@ -86,13 +94,13 @@ export default function ListaCatScreen() {
           </View>
           <View style={ListaCatStyles.textButtonContainer}>
             <Text style={ListaCatStyles.secondaryText}>Viajes</Text>
-            <TouchableOpacity style={ListaCatStyles.button} onPress={() => console.log('Nuevo botón presionado')}>
-              <Text style={ListaCatStyles.buttonText}>Abrir</Text>
+            <TouchableOpacity style={ListaCatStyles.button} onPress={() => handleCrearCategoria('Viajes')}>
+              <Text style={ListaCatStyles.buttonText}>Crear</Text> 
             </TouchableOpacity>
           </View>
         </View>
 
-        {/* Agregar otro bloque de imagen, texto y botón */}
+
         <View style={ListaCatStyles.imageContainer}>
           <View style={ListaCatStyles.imageWrapper}>
             <Image
@@ -102,8 +110,8 @@ export default function ListaCatScreen() {
           </View>
           <View style={ListaCatStyles.textButtonContainer}>
             <Text style={ListaCatStyles.secondaryText}>Eventos</Text>
-            <TouchableOpacity style={ListaCatStyles.button} onPress={() => console.log('Nuevo botón presionado')}>
-              <Text style={ListaCatStyles.buttonText}>Abrir</Text>
+            <TouchableOpacity style={ListaCatStyles.button} onPress={() => handleCrearCategoria('Eventos')}>
+              <Text style={ListaCatStyles.buttonText}>Crear</Text>
             </TouchableOpacity>
           </View>
         </View>
