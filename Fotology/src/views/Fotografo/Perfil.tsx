@@ -173,10 +173,10 @@ export const PerfilScreen = () => {
           <ScrollView>
             <Text style={styles.formTitle}>Perfil</Text>
             <View style={styles.inputContainer}>
-              <Image
-                source={{ uri: "https://i.pinimg.com/236x/eb/26/db/eb26db4e1e95322eca0e636d5187cc31.jpg" }}
-                style={styles.socialIcon}
-              />
+            <Image
+              source={require('../../../assets/usuario.png')}
+              style={styles.socialIcon}
+            />
               <TextInput
                 style={styles.input}
                 placeholder="Nombre"
@@ -186,10 +186,10 @@ export const PerfilScreen = () => {
               />
             </View>
             <View style={styles.inputContainer}>
-              <Image
-                source={{ uri: "https://i.pinimg.com/236x/4d/00/8b/4d008b130bfc3d54968c88e9cf93c53b.jpg" }}
-                style={styles.socialIcon}
-              />
+            <Image
+              source={require('../../../assets/editar.png')}
+              style={styles.socialIcon}
+            />
               <TextInput
                 style={styles.input}
                 placeholder="Descripción"
@@ -200,10 +200,10 @@ export const PerfilScreen = () => {
               />
             </View>
             <View style={styles.inputContainer}>
-              <Image
-                source={{ uri: "https://i.pinimg.com/236x/da/d2/9b/dad29b5b6763ed2b27421910b1b39748.jpg" }}
-                style={styles.socialIcon}
-              />
+            <Image
+              source={require('../../../assets/telefono.png')}
+              style={styles.socialIcon}
+            />
               <TextInput
                 style={styles.input}
                 placeholder="Teléfono"
@@ -213,10 +213,10 @@ export const PerfilScreen = () => {
               />
             </View>
             <View style={styles.inputContainer}>
-              <Image
-                source={{ uri: "https://i.pinimg.com/236x/f0/f6/58/f0f658ffaba2814e227003c9f1c004e9.jpg" }}
-                style={styles.socialIcon}
-              />
+            <Image
+              source={require('../../../assets/twtter.png')}
+              style={styles.socialIcon}
+            />
               <TextInput
                 style={styles.input}
                 placeholder="Correo Electrónico"
@@ -227,10 +227,10 @@ export const PerfilScreen = () => {
               />
             </View>
             <View style={styles.inputContainer}>
-              <Image
-                source={{ uri: "https://i.pinimg.com/236x/47/3b/be/473bbe699bf984150689eb586d448c0b.jpg" }}
-                style={styles.socialIcon}
-              />
+            <Image
+              source={require('../../../assets/twtter.png')}
+              style={styles.socialIcon}
+            />
               <TextInput
                 style={styles.input}
                 placeholder="Instagram"
@@ -240,10 +240,10 @@ export const PerfilScreen = () => {
               />
             </View>
             <View style={styles.inputContainer}>
-              <Image
-                source={{ uri: "https://www.flaticon.es/icono-gratis/viber_152851?related_id=226277&origin=search" }}
-                style={styles.socialIcon}
-              />
+            <Image
+              source={require('../../../assets/twtter.png')}
+              style={styles.socialIcon}
+            />
               <TextInput
                 style={styles.input}
                 placeholder="Twitter"
