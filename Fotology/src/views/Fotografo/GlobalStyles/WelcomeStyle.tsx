@@ -57,6 +57,54 @@ const WelcomeStyles = StyleSheet.create({
       textAlign: 'center',
       color: '#fff',
     },
+    ratingContainer: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    ratingButton: {
+      marginRight: 2,
+    },
+    comentarioContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      padding: 17,
+      backgroundColor: 'white', // Color de fondo blanco
+      borderRadius: 8,
+      marginBottom: 10,
+      width: '87%',
+    },
+    comentario: {
+      fontSize: 14,
+      marginBottom: 5,
+    },
+    fotoContainer: {
+      width: 100,
+      height: 100, // Ajusta la altura del contenedor si es necesario
+      justifyContent: 'center',
+      alignItems: 'center',
+      paddingTop: 70, 
+      marginBottom: 5, 
+    }, 
+    foto: {
+      width: 80,
+      height: 80,
+      borderRadius: 40,
+      marginTop: 4,
+    },
+    tiempo: {
+      fontSize: 12,
+      color: '#999', // Color de texto gris para el tiempo
+      alignSelf: 'flex-end',
+    },
+    infoContainer: {
+      flex: 1,
+    },
+    username: {
+      fontSize: 16,
+  fontWeight: 'bold',
+    },
     description: {
       textAlign: 'justify',
       fontSize: 16,
