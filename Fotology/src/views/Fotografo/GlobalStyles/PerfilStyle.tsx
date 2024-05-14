@@ -58,6 +58,11 @@ const PerfilStyle = StyleSheet.create({
     backgroundImage: {
       flex: 1,
     },
+    overlay: {
+      ...StyleSheet.absoluteFillObject,
+      backgroundColor: 'rgba(200, 120, 0, 0.3)', // Color naranja semitransparente
+      marginTop: 45
+    },
     form: { // contenedor 
       width: '80%',
       height: '50%',

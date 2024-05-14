@@ -146,11 +146,12 @@ export const PerfilScreen = () => {
             </TouchableOpacity>
           </View>
           <Image
-            source={backgroundImageUri}
+             source={require('../../../assets/Fondo1.jpg')}
+             blurRadius={5}
             style={styles.backgroundImage}
           />
         </View>
-
+        <View style={styles.overlay} />
         <TouchableOpacity 
           style={styles.profileContainer} 
           onPress={editMode ? setProfileImageUri : () => {}} 

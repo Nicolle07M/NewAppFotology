@@ -107,11 +107,13 @@ export const ContactoScreen = () => {
               <Text style={styles.headerButton}>Perfil</Text>
             </TouchableOpacity>
           </View>
+         
         <Image
-          source={backgroundImageUri}
+          source={require('../../../assets/Fondo1.jpg')}
+          blurRadius={5}
           style={styles.backgroundImage}
         />
-       
+         <View style={styles.overlay} />
       </View>
       <View style={styles.container2}>
   <Text style={styles.smallTitle}>PONERSE EN CONTACTO</Text>

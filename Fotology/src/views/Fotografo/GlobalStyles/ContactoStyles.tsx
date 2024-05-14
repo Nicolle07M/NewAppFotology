@@ -109,6 +109,11 @@ const ContactoStyles = StyleSheet.create({
      backgroundImage: { //se importa la imagen creo 
       flex: 1,
     },
+    overlay: {
+      ...StyleSheet.absoluteFillObject,
+      backgroundColor: 'rgba(200, 120, 0, 0.3)', // Color naranja semitransparente
+      marginTop: 45
+    },
     
     multilineInput: {
       height: 100, // Altura del cuadro de entrada de varias líneas
