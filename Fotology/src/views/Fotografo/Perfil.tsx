@@ -103,7 +103,7 @@ export const PerfilScreen = () => {
     setPersonName(formPersonName);
     
     setEditMode(false);
-};
+  };
 
   const handleFormPersonNameChange = (text: string) => {
     setFormPersonName(text);
@@ -113,7 +113,26 @@ export const PerfilScreen = () => {
     setEmail(text);
   }
 
-  
+  const pickImage = async () => {
+    if (editMode) {
+      const result = await ImagePicker.requestMediaLibraryPermissionsAsync();
+      if (result.granted === false) {
+        Alert.alert("Permiso denegado", "Se necesita el permiso para acceder a las imágenes.");
+        return;
+      }
+
+      let pickerResult = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        allowsEditing: true,
+        aspect: [1, 1],
+        quality: 1,
+      });
+
+      if (!pickerResult.canceled) {
+        setProfileImageUri({ uri: pickerResult.assets[0].uri });
+      }
+    }
+  };
 
   return (
     <View style={{ flex: 1 }}>
@@ -153,7 +172,7 @@ export const PerfilScreen = () => {
 
         <TouchableOpacity 
           style={styles.profileContainer} 
-          onPress={editMode ? setProfileImageUri : () => {}} 
+          onPress={pickImage} 
           activeOpacity={editMode ? 0.7 : 1}
         >
           <Image
