@@ -18,6 +18,7 @@ const ContactoStyles = StyleSheet.create({
   position: 'relative', // Establece la posición relativa para que los elementos absolutos se posicionen dentro de este contenedor
   marginBottom: -20, // Ajusta el margen inferior para reducir el espacio con el contenido que le sigue
 },
+
     bigTitle: {
       color: 'rgba(255, 255, 255, 0.5)',
       fontSize: 56,

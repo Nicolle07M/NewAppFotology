@@ -29,7 +29,7 @@ export const PerfilScreen = () => {
   };
   const [description, setDescription] = useState('Descripción');
   const [editMode, setEditMode] = useState(false);
-  const [backgroundImageUri, setBackgroundImageUri] = useState(require('../../../assets/background.png'));
+  const [backgroundImageUri, setBackgroundImageUri] = useState(require('../../../assets/Fondo1.jpg'));
   const [profileImageUri, setProfileImageUri] = useState(require('../../../assets/LOGOA.png'));
   const [personName, setPersonName] = useState('Nombre de la persona');
   const [phoneNumber, setPhoneNumber] = useState('123456789');
@@ -214,7 +214,7 @@ export const PerfilScreen = () => {
             </View>
             <View style={styles.inputContainer}>
             <Image
-              source={require('../../../assets/twtter.png')}
+              source={require('../../../assets/mensaje.png')}
               style={styles.socialIcon}
             />
               <TextInput
@@ -228,7 +228,7 @@ export const PerfilScreen = () => {
             </View>
             <View style={styles.inputContainer}>
             <Image
-              source={require('../../../assets/twtter.png')}
+              source={require('../../../assets/instagram.png')}
               style={styles.socialIcon}
             />
               <TextInput

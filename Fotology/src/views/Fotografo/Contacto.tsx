@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native'; // Importar useNavigat
 export const ContactoScreen = () => {
   const [mensajeEnviado, setMensajeEnviado] = useState(false);
   const [editMode, setEditMode] = useState(false);
-  const [backgroundImageUri, setBackgroundImageUri] = useState(require('../../../assets/background.png'));
+  const [backgroundImageUri, setBackgroundImageUri] = useState(require('../../../assets/Fondo2.jpg'));
 
 
     const navigation = useNavigation();
