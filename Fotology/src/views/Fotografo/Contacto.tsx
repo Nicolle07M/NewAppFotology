@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { StatusBar, StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
+import { StatusBar, Linking , Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
 import styles from './GlobalStyles/ContactoStyles';
 import { useNavigation } from '@react-navigation/native'; // Importar useNavigation
 
@@ -30,6 +30,22 @@ export const ContactoScreen = () => {
       navigation.navigate('CalificacionScreen');
     };
   
+    const handleFacebookPress = () => {
+      Linking.openURL('https://www.facebook.com/nataly.rincon.5205?mibextid=LQQJ4d'); // Cambia la URL a tu página de Facebook
+    };
+  
+    const handleGmailPress = () => {
+      Linking.openURL('https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=new'); // Cambia la URL a tu página de Gmail
+    };
+  
+    const handleInstagramPress = () => {
+      Linking.openURL('https://www.instagram.com/naatsn1?igsh=MTk0dW1lZzI0Y2JieQ%3D%3D&utm_source=qr'); // Cambia la URL a tu página de Instagram
+    };
+  
+    const handleTwitterPress = () => {
+      Linking.openURL('https://x.com/marioventura_?s=11'); // Cambia la URL a tu página de Twitter
+    };
+
 
 const handleEnviarMensaje = () => {
     setMensajeEnviado(true);
@@ -69,14 +85,24 @@ const handleEnviarMensaje = () => {
           style={styles.backgroundImage}
         />
       </View>
-
-      <Text style={styles.title}>PONERSE EN CONTACTO</Text>
-      <View style={styles.iconContainer}>
-        <Image source={require('../../../assets/phone_icon.png')} style={styles.icon} />
-        <Image source={require('../../../assets/phone_icon.png')} style={styles.icon} />
-        <Image source={require('../../../assets/phone_icon.png')} style={styles.icon} />
-        <Image source={require('../../../assets/phone_icon.png')} style={styles.icon} />
-      </View>
+      <View style={styles.container2}>
+  <Text style={styles.smallTitle}>PONERSE EN CONTACTO</Text>
+  <Text style={styles.bigTitle}>CONTACTO</Text>
+</View>
+<View style={styles.iconContainer}>
+          <TouchableOpacity onPress={handleFacebookPress}>
+            <Image source={require('../../../assets/facebook.png')} style={styles.icon} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleGmailPress}>
+            <Image source={require('../../../assets/gmail.png')} style={styles.icon} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleInstagramPress}>
+            <Image source={require('../../../assets/instagram.png')} style={styles.icon} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleTwitterPress}>
+            <Image source={require('../../../assets/twtter.png')} style={styles.icon} />
+          </TouchableOpacity>
+        </View>
       <Text style={styles.subtitle}>NO SEAS TÍMIDO</Text>
       <Text style={styles.text}>Hola, aquí puedes poner tu texto.</Text>
       <View style={styles.inputContainer}>
