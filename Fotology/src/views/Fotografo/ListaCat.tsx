@@ -16,7 +16,7 @@ export default function ListaCatScreen() {
     <View style={ListaCatStyles.container}>
       <StatusBar style="auto" />
       <View style={ListaCatStyles.header}>
-        <Text style={ListaCatStyles.headerText}>Portafolio</Text>
+        <Text style={ListaCatStyles.headerText}>Categorias</Text>
       </View>
       <View style={ListaCatStyles.content}>
         <Text style={ListaCatStyles.customText}>Selecciona la categoria!</Text>
