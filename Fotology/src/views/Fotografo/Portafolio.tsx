@@ -1,12 +1,9 @@
 import React from 'react';
-import { Dimensions, View, Text, StyleSheet, ImageBackground, ScrollView, TouchableOpacity } from 'react-native';
+import { Dimensions, View, Text, ImageBackground, ScrollView, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import PortafolioStyles from './GlobalStyles/PortafolioStyles';
-import { NavigationContainer } from '@react-navigation/native';
 
 const windowWidth = Dimensions.get('window').width;
-const headerHeight = 100;
-const headerWidth = windowWidth;
 
 const PortafolioScreen = () => {
   const navigation = useNavigation();
@@ -22,15 +19,17 @@ const PortafolioScreen = () => {
   const navigatePortafolioScreen = () => {
     navigation.navigate('PortafolioScreen' as never);
   };
+
   const navigateWelcomeScreen = () => {
     navigation.navigate('WelcomeScreen' as never);
   };
+
   const navigateCalificacionScreen = () => {
     navigation.navigate('CalificacionScreen' as never);
   };
 
   const handleBottomButtonPress = () => {
-    navigation.navigate('ListaCatScreen' as never);
+    navigation.navigate('CategoriasScreen' as never); // Corregido para navegar a la pantalla de categorías
   };
 
   return (
@@ -77,11 +76,6 @@ const PortafolioScreen = () => {
           </TouchableOpacity>
         </View>
       </View>
-
-      {/* Contenido de Categorias */}
-      
-        
-      
     </ScrollView>
   );
 };

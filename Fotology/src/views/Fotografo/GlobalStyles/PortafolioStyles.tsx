@@ -83,6 +83,34 @@ const PortafolioStyles = StyleSheet.create({
     color: 'white',
     fontSize: 18,
   },
+  // Estilos para el bloque de categoría
+  categoryBlock: {
+    marginTop: 20,
+    alignItems: 'center',
+  },
+  categoryImage: {
+    width: 200,
+    height: 200,
+    borderRadius: 10,
+    marginBottom: 10,
+  },
+  categoryText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#000',
+  },
+  categoryButton: {
+    backgroundColor: 'orange',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 10,
+    marginTop: 10,
+  },
+  categoryButtonText: {
+    color: 'white',
+    fontSize: 16,
+  },
 });
 
 export default PortafolioStyles;

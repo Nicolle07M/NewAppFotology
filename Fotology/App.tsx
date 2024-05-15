@@ -12,7 +12,7 @@ import PortafolioScreen from './src/views/Fotografo/Portafolio';
 import CategoriasScreen from './src/views/Fotografo/Categorias';
 import ListaCatScreen from './src/views/Fotografo/ListaCat';
 import CalificacionScreen from './src/views/Fotografo/Calificacion';
-
+import Portafolio from './src/views/Fotografo/Portafolio';
 
 export type RootStackParamList = {
   HomeScreen: undefined;
@@ -21,9 +21,9 @@ export type RootStackParamList = {
   WelcomeScreen: undefined;
   ContactoScreen: undefined;
   PerfilScreen: undefined;
-  PortafolioScreen : undefined;
-  ListaCatScreen: undefined
-  CategoriasScreen: undefined
+  PortafolioScreen: undefined
+  CategoriasScreen: undefined;
+  ListaCatScreen: undefined;
   CalificacionScreen: undefined;
 };
 
