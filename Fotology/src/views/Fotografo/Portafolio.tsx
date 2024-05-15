@@ -43,7 +43,7 @@ const PortafolioScreen = () => {
         >
           <View style={PortafolioStyles.overlay}>
             <View style={PortafolioStyles.textContainer}>
-              <Text style={PortafolioStyles.text}>Categorias</Text>
+              <Text style={PortafolioStyles.text}>Portafolio</Text>
               <Text style={PortafolioStyles.text2}>¡Crea tus categorias y publica!</Text>
             </View>
           </View>
