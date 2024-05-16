@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ImageBackground, Image } from 'react-native';
 import styles from './RegisterStyle';
 import { FontAwesome } from '@expo/vector-icons'; 
+import { useNavigation } from '@react-navigation/native';
 
 const RegisterScreen = ({ navigation }) => {
   const [email, setEmail] = React.useState('');

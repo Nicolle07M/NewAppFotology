@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'; 
+import { ScrollView, StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'; 
 import ListaCatStyles from './GlobalStyles/ListaCatStyles';
 import { useNavigation } from '@react-navigation/native';
 
@@ -11,9 +11,8 @@ export default function ListaCatScreen() {
     navigation.navigate('PortafolioScreen', { categoria });
   };
 
-
   return (
-    <View style={ListaCatStyles.container}>
+    <ScrollView contentContainerStyle={ListaCatStyles.container}>
       <StatusBar style="auto" />
       <View style={ListaCatStyles.header}>
         <Text style={ListaCatStyles.headerText}>Categorias</Text>
@@ -36,7 +35,6 @@ export default function ListaCatScreen() {
           </View>
         </View>
 
-
         <View style={ListaCatStyles.imageContainer}>
           <View style={ListaCatStyles.imageWrapper}>
             <Image
@@ -51,7 +49,6 @@ export default function ListaCatScreen() {
             </TouchableOpacity>
           </View>
         </View>
-
 
         <View style={ListaCatStyles.imageContainer}>
           <View style={ListaCatStyles.imageWrapper}>
@@ -68,7 +65,6 @@ export default function ListaCatScreen() {
           </View>
         </View>
 
-
         <View style={ListaCatStyles.imageContainer}>
           <View style={ListaCatStyles.imageWrapper}>
             <Image
@@ -83,7 +79,6 @@ export default function ListaCatScreen() {
             </TouchableOpacity>
           </View>
         </View>
-
 
         <View style={ListaCatStyles.imageContainer}>
           <View style={ListaCatStyles.imageWrapper}>
@@ -100,7 +95,6 @@ export default function ListaCatScreen() {
           </View>
         </View>
 
-
         <View style={ListaCatStyles.imageContainer}>
           <View style={ListaCatStyles.imageWrapper}>
             <Image
@@ -116,6 +110,6 @@ export default function ListaCatScreen() {
           </View>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }

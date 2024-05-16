@@ -1,10 +1,12 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { View, Text, StyleSheet, ImageBackground, ScrollView, TouchableOpacity, Image} from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, ScrollView, TouchableOpacity, Image, Button} from 'react-native';
 import styles from './GlobalStyles/WelcomeStyle';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
+import { HomeScreen } from '../Home/home';
+
 
 const WelcomeScreen = () => {
   const navigation = useNavigation();
@@ -192,6 +194,13 @@ const WelcomeScreen = () => {
       <Text style={styles.description3}>
         ¡Gracias por ser parte de nuestra comunidad de fotógrafos! Estamos aquí para apoyarte en tu viaje fotográfico.
       </Text>
+      <Button
+
+  title="Go to Home"
+
+  onPress={() => navigation.navigate('HomeScreen')}
+
+/>
     </ScrollView>
 
 
