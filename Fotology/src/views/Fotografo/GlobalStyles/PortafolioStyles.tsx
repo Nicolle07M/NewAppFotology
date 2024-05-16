@@ -94,6 +94,16 @@ const PortafolioStyles = StyleSheet.create({
     borderRadius: 10,
     marginBottom: 10,
   },
+  categoryContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: '#fff',
+    padding: 10,
+    borderRadius: 10,
+    marginBottom: 10,
+    width: '90%',
+  },
   categoryText: {
     fontSize: 24,
     fontWeight: 'bold',
@@ -106,6 +116,10 @@ const PortafolioStyles = StyleSheet.create({
     paddingHorizontal: 20,
     borderRadius: 10,
     marginTop: 10,
+  },
+  categoryButtonsContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   categoryButtonText: {
     color: 'white',

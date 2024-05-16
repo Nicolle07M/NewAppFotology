@@ -91,6 +91,7 @@ const CategoriasStyles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: 'lightgray',
   },
+  
 });
 
 export default CategoriasStyles;

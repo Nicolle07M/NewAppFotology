@@ -1,12 +1,51 @@
-import React from 'react';
-import { Dimensions, View, Text, ImageBackground, ScrollView, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import React, { useState, useEffect } from 'react';
+import { Dimensions, View, Text, ImageBackground, ScrollView, TouchableOpacity, Image } from 'react-native';
+import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import PortafolioStyles from './GlobalStyles/PortafolioStyles';
 
 const windowWidth = Dimensions.get('window').width;
 
+type RootStackParamList = {
+  PortafolioScreen: { selectedCategory?: string };
+};
+
+type PortafolioScreenRouteProp = RouteProp<RootStackParamList, 'PortafolioScreen'>;
+
 const PortafolioScreen = () => {
   const navigation = useNavigation();
+  const route = useRoute<PortafolioScreenRouteProp>();
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (route.params?.selectedCategory) {
+      addCategory(route.params.selectedCategory);
+    }
+  }, [route.params?.selectedCategory]);
+
+  const addCategory = (category: string) => {
+    setSelectedCategories((prevCategories) => [...prevCategories, category]);
+  };
+
+  const removeCategory = (category: string) => {
+    setSelectedCategories((prevCategories) => prevCategories.filter((cat) => cat !== category));
+  };
+
+  const renderSelectedCategories = () => {
+    return selectedCategories.map((category, index) => (
+      <View key={index} style={PortafolioStyles.categoryContainer}>
+        <Image source={require('../../../assets/aleja.jpg')} style={PortafolioStyles.categoryImage} />
+        <Text style={PortafolioStyles.categoryText}>{category}</Text>
+        <View style={PortafolioStyles.categoryButtonsContainer}>
+          <TouchableOpacity onPress={() => navigation.navigate('CategoriaDetalleScreen', { category })}>
+            <Text style={PortafolioStyles.categoryButton}>Abrir</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => removeCategory(category)}>
+            <Text style={PortafolioStyles.categoryButton}>Eliminar</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    ));
+  };
 
   const navigateToContactoScreen = () => {
     navigation.navigate('ContactoScreen' as never);
@@ -29,7 +68,7 @@ const PortafolioScreen = () => {
   };
 
   const handleBottomButtonPress = () => {
-    navigation.navigate('CategoriasScreen' as never); // Corregido para navegar a la pantalla de categorías
+    navigation.navigate('CategoriasScreen' as never);
   };
 
   return (
@@ -43,10 +82,9 @@ const PortafolioScreen = () => {
           <View style={PortafolioStyles.overlay}>
             <View style={PortafolioStyles.textContainer}>
               <Text style={PortafolioStyles.text}>Portafolio</Text>
-              <Text style={PortafolioStyles.text2}>¡Crea tus categorias y publica!</Text>
+              <Text style={PortafolioStyles.text2}>¡Crea tus categorías y publica!</Text>
             </View>
           </View>
-          {/* Header */}
           <View style={PortafolioStyles.header}>
             <TouchableOpacity onPress={navigateWelcomeScreen}>
               <Text style={PortafolioStyles.headerButton}>Home</Text>
@@ -70,6 +108,7 @@ const PortafolioScreen = () => {
           </View>
         </ImageBackground>
         <View style={PortafolioStyles.content}>
+          {renderSelectedCategories()}
           <Text style={PortafolioStyles.textBelowInput}>Aquí verás tus categorías</Text>
           <TouchableOpacity style={PortafolioStyles.bottomButton} onPress={handleBottomButtonPress}>
             <Text style={PortafolioStyles.bottomButtonText}>Crear categoría</Text>

@@ -12,6 +12,7 @@ import PortafolioScreen from './src/views/Fotografo/Portafolio';
 import CategoriasScreen from './src/views/Fotografo/Categorias';
 import ListaCatScreen from './src/views/Fotografo/ListaCat';
 import CalificacionScreen from './src/views/Fotografo/Calificacion';
+import CategoriaDetalleScreen from './src/views/Fotografo/CategoriaDetalleScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -30,6 +31,7 @@ const App = () => {
         <Drawer.Screen name="CategoriasScreen" component={CategoriasScreen} />
         <Drawer.Screen name="ListaCatScreen" component={ListaCatScreen} />
         <Drawer.Screen name="CalificacionScreen" component={CalificacionScreen} />
+        <Drawer.Screen name="CategoriaDetalleScreen" component={CategoriaDetalleScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
