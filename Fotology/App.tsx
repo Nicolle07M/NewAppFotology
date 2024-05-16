@@ -31,7 +31,6 @@ const App = () => {
         <Drawer.Screen name="ListaCatScreen" component={ListaCatScreen} />
         <Drawer.Screen name="CalificacionScreen" component={CalificacionScreen} />
       </Drawer.Navigator>
-        
     </NavigationContainer>
   );
 };

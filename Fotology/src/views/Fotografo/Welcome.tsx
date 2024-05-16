@@ -38,7 +38,6 @@ const WelcomeScreen = () => {
     
     <ScrollView contentContainerStyle={styles.container}>
       
-
       <View style={styles.backgroundContainer}>
         <ImageBackground
           source={require('../../../assets/Fondo1.jpg')}
@@ -194,13 +193,6 @@ const WelcomeScreen = () => {
       <Text style={styles.description3}>
         ¡Gracias por ser parte de nuestra comunidad de fotógrafos! Estamos aquí para apoyarte en tu viaje fotográfico.
       </Text>
-      <Button
-
-  title="Go to Home"
-
-  onPress={() => navigation.navigate('HomeScreen')}
-
-/>
     </ScrollView>
 
 
