@@ -11,33 +11,39 @@ type RootStackParamList = {
 
 type PortafolioScreenRouteProp = RouteProp<RootStackParamList, 'PortafolioScreen'>;
 
-const PortafolioScreen = () => {
+export default function PortafolioScreen() {
   const navigation = useNavigation();
   const route = useRoute<PortafolioScreenRouteProp>();
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [showAdditionalBlock, setShowAdditionalBlock] = useState<boolean>(false);
 
   useEffect(() => {
     if (route.params?.selectedCategory) {
       addCategory(route.params.selectedCategory);
+    } else {
+      // Si no hay categoría seleccionada, ocultar el bloque adicional
+      setShowAdditionalBlock(false);
     }
   }, [route.params?.selectedCategory]);
 
   const addCategory = (category: string) => {
     setSelectedCategories((prevCategories) => [...prevCategories, category]);
+    setShowAdditionalBlock(true); // Mostrar el bloque adicional cuando se selecciona una categoría
   };
 
   const removeCategory = (category: string) => {
     setSelectedCategories((prevCategories) => prevCategories.filter((cat) => cat !== category));
+    setShowAdditionalBlock(false); // Ocultar el bloque adicional cuando se elimina la categoría
   };
 
   const renderSelectedCategories = () => {
     return selectedCategories.map((category, index) => (
       <View key={index} style={PortafolioStyles.categoryContainer}>
-        <Image source={require('../../../assets/aleja.jpg')} style={PortafolioStyles.categoryImage} />
+        <Image source={require('../../../assets/viajes.jpg')} style={PortafolioStyles.categoryImage} />
         <Text style={PortafolioStyles.categoryText}>{category}</Text>
         <View style={PortafolioStyles.categoryButtonsContainer}>
-          <TouchableOpacity onPress={() => navigation.navigate('CategoriaDetalleScreen', { category })}>
-            <Text style={PortafolioStyles.categoryButton}>Abrir</Text>
+          <TouchableOpacity onPress={() => navigation.navigate('CategoriaDetalleScreen' as never, { category } as never)}>
+            <Text style={PortafolioStyles.categoryButton}>Editar</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => removeCategory(category)}>
             <Text style={PortafolioStyles.categoryButton}>Eliminar</Text>
@@ -108,8 +114,8 @@ const PortafolioScreen = () => {
           </View>
         </ImageBackground>
         <View style={PortafolioStyles.content}>
-          {renderSelectedCategories()}
-          <Text style={PortafolioStyles.textBelowInput}>Aquí verás tus categorías</Text>
+          {selectedCategories.length > 0 && renderSelectedCategories()}
+          {/* Bottom Button */}
           <TouchableOpacity style={PortafolioStyles.bottomButton} onPress={handleBottomButtonPress}>
             <Text style={PortafolioStyles.bottomButtonText}>Crear categoría</Text>
           </TouchableOpacity>
@@ -117,6 +123,6 @@ const PortafolioScreen = () => {
       </View>
     </ScrollView>
   );
-};
+}
 
-export default PortafolioScreen;
+

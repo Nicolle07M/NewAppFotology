@@ -7,32 +7,28 @@ import { useNavigation } from '@react-navigation/native';
 
 const windowWidth = Dimensions.get('window').width;
 
+type SelectedCategoryParam = {
+  selectedCategory: string;
+};
+
 export default function Categorias() {
   const navigation = useNavigation();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   const handleCategoryButtonPress = (text: string) => {
-    console.log(`Botón de ${text} presionado`);
     setSelectedCategory(text);
   };
 
-  const categories = [
-    'Paisajes',
-    'Retratos',
-    'Moda',
-    'Alimentos',
-    'Viajes',
-    'Eventos',
-  ];
+  const categories = ['Paisajes', 'Retratos', 'Moda', 'Alimentos', 'Viajes', 'Eventos'];
 
   const handleBottomButtonPress = () => {
-    console.log('Botón de abajo presionado');
     if (selectedCategory) {
-      navigation.navigate('PortafolioScreen', { selectedCategory });
+      navigation.navigate('PortafolioScreen' as never, { selectedCategory } as never);
     } else {
       console.log('No category selected');
     }
   };
+  
 
   return (
     <ScrollView>
