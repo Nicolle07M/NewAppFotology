@@ -36,10 +36,19 @@ export default function PortafolioScreen() {
     setShowAdditionalBlock(false); // Ocultar el bloque adicional cuando se elimina la categoría
   };
 
+  const categoryImages: { [key: string]: any } = {
+    'Paisajes': require('../../../assets/paisajes.jpg'),
+    'Retratos': require('../../../assets/retrato.jpg'),
+    'Moda': require('../../../assets/moda.jpg'),
+    'Alimentos': require('../../../assets/alimentos.jpg'),
+    'Eventos': require('../../../assets/eventos.jpg'),
+    'default': require('../../../assets/viajes.jpg'),
+  };
+
   const renderSelectedCategories = () => {
     return selectedCategories.map((category, index) => (
       <View key={index} style={PortafolioStyles.categoryContainer}>
-        <Image source={require('../../../assets/viajes.jpg')} style={PortafolioStyles.categoryImage} />
+        <Image source={categoryImages[category] || categoryImages['default']} style={PortafolioStyles.categoryImage} />
         <Text style={PortafolioStyles.categoryText}>{category}</Text>
         <View style={PortafolioStyles.categoryButtonsContainer}>
           <TouchableOpacity onPress={() => navigation.navigate('CategoriaDetalleScreen' as never, { category } as never)}>
@@ -124,5 +133,3 @@ export default function PortafolioScreen() {
     </ScrollView>
   );
 }
-
-
