@@ -6,10 +6,30 @@ import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerI
 import { NavigationContainer } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import { HomeScreen } from '../Home/home';
+import ContactoScreen from '../Fotografo/Contacto';
+import PerfilScreen from '../Fotografo/Perfil';
+import PortafolioScreen from '../Fotografo/Portafolio';
+import CategoriasScreen from '../Fotografo/Categorias';
+import ListaCatScreen from '../Fotografo/ListaCat';
+import CalificacionScreen from '../Fotografo/Calificacion';
 
+const Drawer = createDrawerNavigator();
 
 const WelcomeScreen = () => {
   const navigation = useNavigation();
+  <NavigationContainer>
+  <Drawer.Navigator>
+    <Drawer.Screen name="WelcomeScreen" component={WelcomeScreen} />
+    <Drawer.Screen name="ContactoScreen" component={ContactoScreen} />
+    <Drawer.Screen name="PerfilScreen" component={PerfilScreen} />
+    <Drawer.Screen name="PortafolioScreen" component={PortafolioScreen} />
+    <Drawer.Screen name="CategoriasScreen" component={CategoriasScreen} />
+    <Drawer.Screen name="ListaCatScreen" component={ListaCatScreen} />
+    <Drawer.Screen name="CalificacionScreen" component={CalificacionScreen} />
+  </Drawer.Navigator>
+</NavigationContainer>
+
+
 
   const navigateToContactoScreen = () => {
     navigation.navigate('ContactoScreen' as never);

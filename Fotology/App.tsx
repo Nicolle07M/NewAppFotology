@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createStackNavigator } from '@react-navigation/stack';
 import { HomeScreen } from './src/views/Home/home';
 import RegisterScreen from './src/views/Register/register';
 import WelcomeScreen from './src/views/Fotografo/Welcome';
@@ -14,27 +14,30 @@ import ListaCatScreen from './src/views/Fotografo/ListaCat';
 import CalificacionScreen from './src/views/Fotografo/Calificacion';
 import CategoriaDetalleScreen from './src/views/Fotografo/CategoriaDetalleScreen';
 
-const Drawer = createDrawerNavigator();
-
+const Stack = createStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName='HomeScreen'>
-      <Drawer.Screen name="HomeScreen" component={HomeScreen} />
-        <Drawer.Screen name="LoginFormScreen" component={LoginFormScreen} />
-        <Drawer.Screen name="RegisterScreen" component={RegisterScreen} />
-        <Drawer.Screen name="WelcomeScreen" component={WelcomeScreen} />
-        <Drawer.Screen name="ContactoScreen" component={ContactoScreen} />
-        <Drawer.Screen name="PerfilScreen" component={PerfilScreen} />
-        <Drawer.Screen name="PortafolioScreen" component={PortafolioScreen} />
-        <Drawer.Screen name="CategoriasScreen" component={CategoriasScreen} />
-        <Drawer.Screen name="ListaCatScreen" component={ListaCatScreen} />
-        <Drawer.Screen name="CalificacionScreen" component={CalificacionScreen} />
-        <Drawer.Screen name="CategoriaDetalleScreen" component={CategoriaDetalleScreen} />
-      </Drawer.Navigator>
+      <Stack.Navigator screenOptions={{
+          headerShown: false
+        }}
+      initialRouteName='HomeScreen'>
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="LoginFormScreen" component={LoginFormScreen} />
+        <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
+        <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
+        <Stack.Screen name="ContactoScreen" component={ContactoScreen} />
+        <Stack.Screen name="PerfilScreen" component={PerfilScreen} />
+        <Stack.Screen name="PortafolioScreen" component={PortafolioScreen} />
+        <Stack.Screen name="CategoriasScreen" component={CategoriasScreen} />
+        <Stack.Screen name="ListaCatScreen" component={ListaCatScreen} />
+        <Stack.Screen name="CalificacionScreen" component={CalificacionScreen} />
+        <Stack.Screen name="CategoriaDetalleScreen" component={CategoriaDetalleScreen} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };
 
 export default App;
+

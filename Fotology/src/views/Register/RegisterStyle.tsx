@@ -23,27 +23,6 @@ const RegisterStyles = StyleSheet.create({
       padding: 10,
       marginBottom: 18,
     },
-    formContainer: {
-      width: '80%', 
-      backgroundColor: '#F5F5F5', 
-      borderRadius: 20,
-      paddingHorizontal: 50,
-      paddingVertical: 50,
-      alignItems: 'center',
-    },
-    label2: {
-      fontSize: 20,
-      marginBottom: 30,
-      alignItems: 'center',
-      fontWeight: 'bold',
-    },
-    inputContainer: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      borderBottomWidth: 1, // Línea inferior
-      borderBottomColor: 'gray', // Color de la línea
-      marginBottom: 20, // Espacio entre cajas de texto
-    },
     input: {
       flex: 1,
       height: 40,
@@ -77,16 +56,71 @@ const RegisterStyles = StyleSheet.create({
       alignItems: 'center',
       marginBottom: 20,
     },
-    profileImage: {
+      form: {
+        width: '80%', 
+      backgroundColor: '#F5F5F5', 
+      borderRadius: 20,
+      paddingHorizontal: 50,
+      paddingVertical: 50,
+      alignItems: 'center',
+
+      },
+      formText: {
+        fontSize: 20,
+        marginBottom: 30,
+        alignItems: 'center',
+        fontWeight: 'bold',
+      },
+      formIcon: {
+      width: 25,
+      height: 25,
+      marginTop: 5,
+      },
+      formInput: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        borderBottomWidth: 1, // Línea inferior
+        borderBottomColor: 'gray', // Color de la línea
+        marginBottom: 20, // Espacio entre cajas de texto
+      },
+      formTextInput: {
+      flex: 1,
+      borderBottomWidth: 1,
+      borderBottomColor: '#AAAAAA',
+      marginLeft: 15,
+      },
+      formRegister: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      marginTop: 30,
+      },
+      formRegisterText: {
+      fontStyle: 'italic',
+      color: 'orange',
+      borderBottomWidth: 1,
+      borderBottomColor: 'orange',
+      fontWeight: 'bold',
+      marginLeft: 10,
+      },
+      logoContainer: {
+      position: 'absolute',
+      alignSelf: 'center',
+      top: '5%',
+      alignItems: 'center',
+      },
+      logoImage: {
       width: 100,
       height: 100,
-      borderRadius: 50,
-    },
-    profileImagePlaceholder: {
-      fontSize: 16,
+      },
+      logoText: {
       color: 'white',
-      textDecorationLine: 'underline',
-    },
-  });
+      textAlign: 'center',
+      fontSize: 20,
+      marginTop: 10,
+      fontWeight: 'bold',
+      },
+     });
+    
+
 
 export default RegisterStyles;

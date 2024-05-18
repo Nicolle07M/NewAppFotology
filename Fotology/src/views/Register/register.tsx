@@ -18,22 +18,22 @@ const RegisterScreen = ({ navigation }) => {
     console.log('Confirm Password:', confirmPassword);
     console.log('Address:', adress);
   };
-
   
-
   return (
     <View style={styles.container}>
-      <ImageBackground source={require('../../../assets/Fondo1.jpg')} style={styles.backgroundImage} blurRadius={2}>
+      <ImageBackground 
+        source={require('../../../assets/Fondo1.jpg')}
+        style={styles.backgroundImage}
+        blurRadius={2}>
         <View style={styles.overlay} />
-        <View style={styles.formContainer}>
-          <Text style={styles.label2}>Regístrate aquí!</Text>
-          <View>
-          <TouchableOpacity onPress={handleRegister} style={styles.iconContainer}>
-        <FontAwesome name="user-circle" size={90} color="orange" />
-      </TouchableOpacity>
-          </View>
-          <View style={styles.inputContainer}>
-          <FontAwesome name="user-circle" size={30} color="orange" style={styles.icon} />
+        <View style={styles.form}>
+          <Text style={styles.formText}>Registrate aquí!</Text>
+          <Image
+            source={require('../../../assets/user_menu.png')}
+            style={styles.logoImage}
+          />
+          <View style={styles.formInput}>
+            <Image style={styles.formIcon} />
             <TextInput
               style={styles.input}
               value={username}
@@ -41,9 +41,8 @@ const RegisterScreen = ({ navigation }) => {
               placeholder="Nombre de usuario"
             />
           </View>
-          <View style={styles.inputContainer}>
-          <FontAwesome name="envelope" size={25} color="orange" style={styles.icon} />
-
+          <View style={styles.formInput}>
+            <Image style={styles.formIcon} />
             <TextInput
               style={styles.input}
               value={email}
@@ -51,8 +50,8 @@ const RegisterScreen = ({ navigation }) => {
               placeholder="Correo electrónico"
             />
           </View>
-          <View style={styles.inputContainer}>
-          <FontAwesome name="address-card" size={25} color="orange" style={styles.icon} />
+          <View style={styles.formInput}>
+            <Image style={styles.formIcon} />
             <TextInput
               style={styles.input}
               value={adress}
@@ -60,8 +59,8 @@ const RegisterScreen = ({ navigation }) => {
               placeholder="Dirección"
             />
           </View>
-          <View style={styles.inputContainer}>
-          <FontAwesome name="lock" size={30} color="orange" style={styles.icon} />
+          <View style={styles.formInput}>
+            <Image style={styles.formIcon} />
             <TextInput
               style={styles.input}
               value={password}
@@ -70,8 +69,8 @@ const RegisterScreen = ({ navigation }) => {
               secureTextEntry
             />
           </View>
-          <View style={styles.inputContainer}>
-          <FontAwesome name="lock" size={30} color="orange" style={styles.icon} />
+          <View style={styles.formInput}>
+            <Image style={styles.formIcon} />
             <TextInput
               style={styles.input}
               value={confirmPassword}
@@ -87,7 +86,6 @@ const RegisterScreen = ({ navigation }) => {
       </ImageBackground>
     </View>
   );
-};
-
+}
 
 export default RegisterScreen;
