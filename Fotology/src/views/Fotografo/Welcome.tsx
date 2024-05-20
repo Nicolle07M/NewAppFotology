@@ -1,13 +1,35 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { View, Text, StyleSheet, ImageBackground, ScrollView, TouchableOpacity, Image} from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, ScrollView, TouchableOpacity, Image, Button} from 'react-native';
 import styles from './GlobalStyles/WelcomeStyle';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
+import { HomeScreen } from '../Home/home';
+import ContactoScreen from '../Fotografo/Contacto';
+import PerfilScreen from '../Fotografo/Perfil';
+import PortafolioScreen from '../Fotografo/Portafolio';
+import CategoriasScreen from '../Fotografo/Categorias';
+import ListaCatScreen from '../Fotografo/ListaCat';
+import CalificacionScreen from '../Fotografo/Calificacion';
+
+const Drawer = createDrawerNavigator();
 
 const WelcomeScreen = () => {
   const navigation = useNavigation();
+  <NavigationContainer>
+  <Drawer.Navigator>
+    <Drawer.Screen name="WelcomeScreen" component={WelcomeScreen} />
+    <Drawer.Screen name="ContactoScreen" component={ContactoScreen} />
+    <Drawer.Screen name="PerfilScreen" component={PerfilScreen} />
+    <Drawer.Screen name="PortafolioScreen" component={PortafolioScreen} />
+    <Drawer.Screen name="CategoriasScreen" component={CategoriasScreen} />
+    <Drawer.Screen name="ListaCatScreen" component={ListaCatScreen} />
+    <Drawer.Screen name="CalificacionScreen" component={CalificacionScreen} />
+  </Drawer.Navigator>
+</NavigationContainer>
+
+
 
   const navigateToContactoScreen = () => {
     navigation.navigate('ContactoScreen' as never);
@@ -36,7 +58,6 @@ const WelcomeScreen = () => {
     
     <ScrollView contentContainerStyle={styles.container}>
       
-
       <View style={styles.backgroundContainer}>
         <ImageBackground
           source={require('../../../assets/Fondo1.jpg')}

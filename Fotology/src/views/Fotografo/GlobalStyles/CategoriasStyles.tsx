@@ -10,13 +10,16 @@ const CategoriasStyles = StyleSheet.create({
   },
   header: {
     backgroundColor: 'orange',
-    alignItems: 'center',
+    width: '100%', // Ancho al 100%
+    paddingHorizontal: 20, // Añadido para espacio interno
+    paddingVertical: 30, // Modificado para ajustar la altura del cuadro de texto
+    alignItems: 'center', // Alineado al centro horizontalmente
     justifyContent: 'center',
   },
-  
   headerText: {
     fontSize: 30,
     color: 'white',
+    textAlign: 'center', // Añadido para centrar horizontalmente
   },
   content: {
     width: '100%',
@@ -24,21 +27,71 @@ const CategoriasStyles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 20,
   },
-  textBelowInput: {
+  button: {
+    backgroundColor: 'orange',
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderRadius: 25,
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    marginBottom: 20,
+  },
+  buttonText: {
     fontSize: 20,
-    color: 'gray',
+    color: 'white',
+    marginRight: 5,
+  },
+  symbolText: {
+    fontSize: 20,
+    color: 'white',
+  },
+  listItemContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    marginLeft: 10,
+    marginRight: 10,
+  },
+  listItem: {
+    fontSize: 18,
+    color: '#333',
+    paddingVertical: 25,
+  },
+  categoryButton: {
+    width: 40,
+    height: 40,
+    backgroundColor: 'transparent',
+    borderRadius: 20,
+    borderWidth: 2,
+    borderColor: 'orange',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  categoryButtonSelected: {
+    backgroundColor: 'orange',
+  },
+  checkmark: {
+    color: 'white',
+    fontSize: 20,
   },
   bottomButton: {
     backgroundColor: 'orange',
-    paddingVertical: 15,
-    paddingHorizontal: 30,
-    borderRadius: 10,
-    marginTop: 460,
+    borderRadius: 25,
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    marginTop: 20,
   },
   bottomButtonText: {
+    fontSize: 20,
     color: 'white',
-    fontSize: 18,
   },
+  divider: {
+    borderBottomWidth: 1,
+    borderBottomColor: 'lightgray',
+  },
+  
 });
 
 export default CategoriasStyles;

@@ -83,6 +83,77 @@ const PortafolioStyles = StyleSheet.create({
     color: 'white',
     fontSize: 18,
   },
+  // Estilos para el bloque de categoría
+  categoryBlock: {
+    marginTop: 20,
+    alignItems: 'center',
+  },
+  categoryImage: {
+    width: 200,
+    height: 200,
+    borderRadius: 10,
+    marginBottom: 10,
+  },
+  categoryContainer: {
+    flexDirection: 'column', // Cambia a columna para apilar los elementos verticalmente
+    alignItems: 'center', // Centra los elementos horizontalmente
+    backgroundColor: '#fff',
+    padding: 10,
+    borderRadius: 10,
+    marginBottom: 10,
+    width: '90%',
+  },
+  categoryText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#000',
+    marginBottom: 10, // Espacio entre la palabra y los botones
+  },
+  categoryButtonsContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center', // Centra los botones horizontalmente
+  },
+  categoryButton: {
+    backgroundColor: 'orange',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 10,
+    marginHorizontal: 5, // Espacio horizontal entre los botones
+  },
+  categoryButtonText: {
+    color: 'white',
+    fontSize: 16,
+  },
+  // Estilos para el bloque adicional
+  additionalBlock: {
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  additionalBlockImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 10,
+    marginBottom: 10,
+  },
+  additionalBlockButton: {
+    backgroundColor: 'orange',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 10,
+    marginTop: 10,
+  },
+  additionalBlockButtonText: {
+    color: 'white',
+    fontSize: 16,
+  },
+  additionalBlockText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#000',
+  },
 });
 
 export default PortafolioStyles;

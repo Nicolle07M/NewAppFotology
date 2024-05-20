@@ -1,83 +1,87 @@
 import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, ImageBackground, Image } from 'react-native';
 import styles from './RegisterStyle';
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons'; 
+import { useNavigation } from '@react-navigation/native';
+import CustomTextInput from '../../components/CustomTextInputRegister';
+import useViewModel from './viewModel';
 
-const RegisterScreen = ({ navigation }) => {
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  const [username, setUsername] = React.useState('');
-  const [confirmPassword, setConfirmPassword] = React.useState('');
-  const [address, setAddress] = React.useState('');
+export const RegisterScreen = () => {
 
-  const handleRegister = () => {
-    console.log('Email:', email);
-    console.log('Username:', username);
-    console.log('Password:', password);
-    console.log('Confirm Password:', confirmPassword);
-    console.log('Address:', address);
-  };
-
+  const { username, email, adress, password, confirmPassword, onChange, register } = useViewModel();
+  
   return (
     <View style={styles.container}>
-      <ImageBackground source={require('../../../assets/Fondo1.jpg')} style={styles.backgroundImage} blurRadius={2}>
+      <ImageBackground 
+        source={require('../../../assets/Fondo1.jpg')}
+        style={styles.backgroundImage}
+        blurRadius={2}>
         <View style={styles.overlay} />
-        <View style={styles.formContainer}>
-          <Text style={styles.label2}>Regístrate aquí!</Text>
-          <View style={styles.inputContainer}>
-            <FontAwesome name="user-circle" size={30} color="orange" style={styles.icon} />
-            <TextInput
-              style={styles.input}
+        <View style={styles.form}>
+          <Text style={styles.formText}>Registrate aquí!</Text>
+          <Image
+            source={require('../../../assets/user_menu.png')}
+            style={styles.logoImage}
+          />
+          <View style={styles.formInput}>
+            <Image style={styles.formIcon} />
+            <CustomTextInput
+              placeholder='Nombre de usuario'
+              keyboardType='default'
+              property='username'
+              onChangeText={onChange}
               value={username}
-              onChangeText={setUsername}
-              placeholder="Nombre de usuario"
             />
           </View>
-          <View style={styles.inputContainer}>
-            <FontAwesome name="envelope" size={25} color="orange" style={styles.icon} />
-            <TextInput
-              style={styles.input}
+          <View style={styles.formInput}>
+            <Image style={styles.formIcon} />
+            <CustomTextInput
+              keyboardType='default'
+              property='email'
               value={email}
-              onChangeText={setEmail}
+              onChangeText={onChange}
               placeholder="Correo electrónico"
             />
           </View>
-          <View style={styles.inputContainer}>
-            <FontAwesome name="address-card" size={25} color="orange" style={styles.icon} />
-            <TextInput
-              style={styles.input}
-              value={address}
-              onChangeText={setAddress}
+          <View style={styles.formInput}>
+            <Image style={styles.formIcon} />
+            <CustomTextInput
+              property='adress'
+              value={adress}
+              keyboardType='default'
+              onChangeText={onChange}
               placeholder="Dirección"
             />
           </View>
-          <View style={styles.inputContainer}>
-            <FontAwesome name="lock" size={30} color="orange" style={styles.icon} />
-            <TextInput
-              style={styles.input}
+          <View style={styles.formInput}>
+            <Image style={styles.formIcon} />
+            <CustomTextInput
+              property='password'
               value={password}
-              onChangeText={setPassword}
+              keyboardType='default'
+              onChangeText={onChange}
               placeholder="Contraseña"
-              secureTextEntry
+              secureTextEntry={true}
             />
           </View>
-          <View style={styles.inputContainer}>
-            <FontAwesome name="lock" size={30} color="orange" style={styles.icon} />
-            <TextInput
-              style={styles.input}
+          <View style={styles.formInput}>
+            <Image style={styles.formIcon} />
+            <CustomTextInput
+              keyboardType='default'
+              property='confirmPassword'
               value={confirmPassword}
-              onChangeText={setConfirmPassword}
+              onChangeText={onChange}
               placeholder="Confirmar Contraseña"
-              secureTextEntry
+              secureTextEntry={true}
             />
           </View>
-          <TouchableOpacity style={styles.buttonContainer} onPress={handleRegister}>
+          <TouchableOpacity style={styles.buttonContainer} onPress={() => register()}>
             <Text style={styles.buttonText}>Registrarse</Text>
           </TouchableOpacity>
         </View>
       </ImageBackground>
     </View>
   );
-};
+}
 
 export default RegisterScreen;

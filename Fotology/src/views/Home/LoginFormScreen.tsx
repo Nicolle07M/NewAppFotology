@@ -1,19 +1,16 @@
 import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, ImageBackground, Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, ImageBackground, Image } from 'react-native';
 import styles from './LoginStyles';
-
-const LoginFormScreen = ({ navigation }) => {
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-
-  const handleLogin = () => {
-    // Aquí puedes agregar lógica de autenticación si es necesario
-    console.log('Email:', email);
-    console.log('Password:', password);
-
-    // Redirige al usuario a la vista welcome.tsx
-    navigation.navigate('WelcomeScreen');
-  };
+import { FontAwesome } from '@expo/vector-icons'; 
+import { useNavigation } from '@react-navigation/native';
+import useViewModel from './viewModel';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../../../App';  // Asegúrate de que este camino sea correcto
+import { CustomTextInput } from '../../components/CustomTextInput';
+export const LoginFormScreen = () => {
+  const { email, password, onChange } = useViewModel();
+  
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
   return (
     <View style={styles.container}>
@@ -23,23 +20,27 @@ const LoginFormScreen = ({ navigation }) => {
         <View style={styles.formContainer}>
           <Text style={styles.label2}>Bienvenido a Fotology</Text>
           <View style={styles.inputContainer}>
-            <TextInput
-              style={styles.input}
+            <FontAwesome name="user-circle" size={26} color="orange" style={styles.icon} />
+            <CustomTextInput
+              placeholder='Correo electrónico'
+              keyboardType='email-address'
+              property='email'
+              onChangeText={onChange}
               value={email}
-              onChangeText={setEmail}
-              placeholder="Correo electrónico"
             />
           </View>
           <View style={styles.inputContainer}>
-            <TextInput
-              style={styles.input}
+            <FontAwesome name="lock" size={26} color="orange" style={styles.icon} />
+            <CustomTextInput
+              placeholder='Contraseña'
+              keyboardType='default'
+              property='password'
+              onChangeText={onChange}
               value={password}
-              onChangeText={setPassword}
-              placeholder="Contraseña"
-              secureTextEntry
+              secureTextEntry={true}
             />
           </View>
-          <TouchableOpacity style={styles.buttonContainer} onPress={handleLogin}>
+          <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate('WelcomeScreen')}>
             <Text style={styles.buttonText}>Iniciar Sesión</Text>
           </TouchableOpacity>
         </View>

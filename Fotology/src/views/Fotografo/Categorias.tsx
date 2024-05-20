@@ -1,44 +1,65 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import { Dimensions } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import CategoriasStyles from './GlobalStyles/CategoriasStyles';
+import { useNavigation } from '@react-navigation/native';
 
 const windowWidth = Dimensions.get('window').width;
-const headerHeight = 100;
-const headerWidth = windowWidth;
 
-const CategoriasScreen = () => {
+type SelectedCategoryParam = {
+  selectedCategory: string;
+};
+
+export default function Categorias() {
   const navigation = useNavigation();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   const handleCategoryButtonPress = (text: string) => {
-    console.log(`Botón de ${text} presionado`);
     setSelectedCategory(text);
   };
 
+  const categories = ['Paisajes', 'Retratos', 'Moda', 'Alimentos', 'Viajes', 'Eventos'];
+
   const handleBottomButtonPress = () => {
-    // Maneja la lógica cuando se presiona el botón en la parte inferior de la pantalla
-    navigation.navigate('ListaCatScreen' as never);
+    if (selectedCategory) {
+      navigation.navigate('PortafolioScreen' as never, { selectedCategory } as never);
+    } else {
+      console.log('No category selected');
+    }
   };
+  
 
   return (
-    <View style={CategoriasStyles.container}>
-      
-      <StatusBar style="auto" />
-      <View style={[CategoriasStyles.header, { height: headerHeight, width: headerWidth }]}>
-        <Text style={CategoriasStyles.headerText}>Portafolio</Text>
+    <ScrollView>
+      <View style={CategoriasStyles.container}>
+        <StatusBar style="auto" />
+        <View style={CategoriasStyles.header}>
+          <Text style={CategoriasStyles.headerText}>Portafolio</Text>
+        </View>
+        <View style={CategoriasStyles.content}>
+          <ScrollView style={{ width: '100%' }}>
+            {categories.map((category, index) => (
+              <View key={index}>
+                <View style={CategoriasStyles.listItemContainer}>
+                  <Text style={CategoriasStyles.listItem}>{category}</Text>
+                  <TouchableOpacity onPress={() => handleCategoryButtonPress(category)}>
+                    <View style={[CategoriasStyles.categoryButton, selectedCategory === category && CategoriasStyles.categoryButtonSelected]}>
+                      {selectedCategory === category && <Text style={CategoriasStyles.checkmark}>✓</Text>}
+                    </View>
+                  </TouchableOpacity>
+                </View>
+                {index !== categories.length - 1 && <View style={CategoriasStyles.divider} />}
+              </View>
+            ))}
+          </ScrollView>
+          {selectedCategory && (
+            <TouchableOpacity style={CategoriasStyles.bottomButton} onPress={handleBottomButtonPress}>
+              <Text style={CategoriasStyles.bottomButtonText}>Confirmar selección</Text>
+            </TouchableOpacity>
+          )}
+        </View>
       </View>
-      <View style={CategoriasStyles.content}>
-        <Text style={CategoriasStyles.textBelowInput}>Aquí verás tus categorías</Text>
-        <TouchableOpacity style={CategoriasStyles.bottomButton} onPress={handleBottomButtonPress}>
-          <Text style={CategoriasStyles.bottomButtonText}>Crear categoría</Text>
-        </TouchableOpacity>
-      </View>
-      
-    </View>
+    </ScrollView>
   );
 }
-
-export default CategoriasScreen;
