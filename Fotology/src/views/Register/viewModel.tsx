@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ApiFotology } from '../../Data/sources/remote/api/ApiFotology';
+import { RegisterAuthUseCase } from '../../Domain/useCases/auth/RegisterAuth';
 
 const RegisterViewModel = () => {
   const [values, setValues] = useState({
@@ -14,15 +15,12 @@ const RegisterViewModel = () => {
     setValues({ ...values, [property]: value });
   };
 
-  const register = async () => {
-    try {
-    const response = await ApiFotology.post('/fotografo/create', values);
-    console.log('RESPONSE: ' + JSON.stringify(response));
-    
-    } catch (error) {
-      console.log('ERROR: ' + error);
-    }
-    
+  const register = async() => {
+
+    const { result, error } = await RegisterAuthUseCase(values);
+    console.log('result' + JSON.stringify(result));
+    console.log('error' + error);
+  
   }
 
   return {
