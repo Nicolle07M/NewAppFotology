@@ -19,7 +19,7 @@ export const CustomTextInput: React.FC<Props> = ({
   onChangeText
 }) => {
   return (
-    <View style={customStyles.inputContainer}>
+    <View style={customStyles.formInput}>
       <TextInput
         style={customStyles.input}
         placeholder={placeholder}
@@ -33,12 +33,12 @@ export const CustomTextInput: React.FC<Props> = ({
 };
 
 const customStyles = StyleSheet.create({
-  inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderBottomWidth: 1, // Línea inferior
-    borderBottomColor: 'gray', // Color de la línea
-    marginBottom: 20, // Espacio entre cajas de texto
+  formInput: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      borderBottomWidth: 1, // Línea inferior
+      borderBottomColor: 'gray', // Color de la línea
+      marginBottom: 20, // Espacio entre cajas de texto
   },
   input: {
     flex: 1,

@@ -3,7 +3,7 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, ImageBackground, I
 import styles from './RegisterStyle';
 import { FontAwesome } from '@expo/vector-icons'; 
 import { useNavigation } from '@react-navigation/native';
-import CustomTextInput from '../../components/CustomTextInput';
+import CustomTextInput from '../../components/CustomTextInputRegister';
 import useViewModel from './viewModel';
 
 export const RegisterScreen = () => {
