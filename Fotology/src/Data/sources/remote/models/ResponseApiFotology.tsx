@@ -1,7 +1,8 @@
-export interface ResponseApiDelivery {
+export interface ResponseApiFotology {
 
     success: boolean;
     message: string;
-    data: any;
-    
+    data?: any;
+    error?: any;
+
 }
