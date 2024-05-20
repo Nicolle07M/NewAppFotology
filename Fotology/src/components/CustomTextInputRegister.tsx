@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TextInput, StyleSheet, KeyboardType } from 'react-native';
+import { TextInput, StyleSheet, View, KeyboardType } from 'react-native';
 
 interface Props {
   placeholder: string;
@@ -7,7 +7,7 @@ interface Props {
   keyboardType: KeyboardType;
   secureTextEntry?: boolean;
   property: string;
-  onChangeText: (property: string, value: any) => void;
+  onChangeText: (property: string, value: string) => void;
 }
 
 export const CustomTextInput: React.FC<Props> = ({
@@ -19,9 +19,9 @@ export const CustomTextInput: React.FC<Props> = ({
   onChangeText
 }) => {
   return (
-    <View style={customStyles.formInput}>
+    <View style={styles.inputContainer}>
       <TextInput
-        style={customStyles.input}
+        style={styles.input}
         placeholder={placeholder}
         keyboardType={keyboardType}
         value={value}
@@ -32,13 +32,13 @@ export const CustomTextInput: React.FC<Props> = ({
   );
 };
 
-const customStyles = StyleSheet.create({
-  formInput: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      borderBottomWidth: 1, // Línea inferior
-      borderBottomColor: 'gray', // Color de la línea
-      marginBottom: 20, // Espacio entre cajas de texto
+const styles = StyleSheet.create({
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: 'gray',
+    marginBottom: 20,
   },
   input: {
     flex: 1,

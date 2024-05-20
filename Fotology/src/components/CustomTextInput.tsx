@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TextInput, StyleSheet, KeyboardType } from 'react-native';
+import { TextInput, StyleSheet, KeyboardType } from 'react-native';
 
 interface Props {
   placeholder: string;
@@ -19,27 +19,18 @@ export const CustomTextInput: React.FC<Props> = ({
   onChangeText
 }) => {
   return (
-    <View style={customStyles.inputContainer}>
-      <TextInput
-        style={customStyles.input}
-        placeholder={placeholder}
-        keyboardType={keyboardType}
-        value={value}
-        onChangeText={text => onChangeText(property, text)}
-        secureTextEntry={secureTextEntry}
-      />
-    </View>
+    <TextInput
+      style={customStyles.input}
+      placeholder={placeholder}
+      keyboardType={keyboardType}
+      value={value}
+      onChangeText={text => onChangeText(property, text)}
+      secureTextEntry={secureTextEntry}
+    />
   );
 };
 
 const customStyles = StyleSheet.create({
-  inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderBottomWidth: 1, // Línea inferior
-    borderBottomColor: 'gray', // Color de la línea
-    marginBottom: 20, // Espacio entre cajas de texto
-  },
   input: {
     flex: 1,
     height: 40,

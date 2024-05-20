@@ -1,12 +1,13 @@
 import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, ImageBackground, Image } from 'react-native';
+import { View, Text, TouchableOpacity, ImageBackground, Image } from 'react-native';
 import styles from './LoginStyles';
 import { FontAwesome } from '@expo/vector-icons'; 
 import { useNavigation } from '@react-navigation/native';
 import useViewModel from './viewModel';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../../App';  // Asegúrate de que este camino sea correcto
-import { CustomTextInput } from '../../components/CustomTextInput';
+import CustomTextInput from '../../components/CustomTextInput';
+
 export const LoginFormScreen = () => {
   const { email, password, onChange } = useViewModel();
   
