@@ -19,7 +19,16 @@ export const LoginFormScreen = () => {
         <View style={styles.overlay} />
         <Image source={require('../../../assets/LOGOA.png')} style={styles.logo} />
         <View style={styles.formContainer}>
-          <Text style={styles.label2}>Bienvenido a Fotology</Text>
+        <View style={styles.buttonRowContainer}>
+            <TouchableOpacity style={[styles.buttonContainer, styles.button]} onPress={() => navigation.navigate('FotografoScreen')}>
+              <Text style={[styles.buttonText, styles.buttonTextCenter]}>FOTOGRAFO</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={[styles.buttonContainer, styles.button]} onPress={() => navigation.navigate('ClienteScreen')}>
+              <Text style={[styles.buttonText, styles.buttonTextCenter]}>CLIENTE</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.orangeLine} />
+          <Text style={styles.label2}>Ingresa como Fotógrafo</Text>
           <View style={styles.inputContainer}>
             <FontAwesome name="user-circle" size={26} color="orange" style={styles.icon} />
             <CustomTextInput

@@ -27,7 +27,7 @@ const LoginStyles = StyleSheet.create({
       backgroundColor: '#F5F5F5', 
       borderRadius: 20,
       paddingHorizontal: 50,
-      paddingVertical: 75,
+      paddingVertical: 55,
       alignItems: 'center',
     },
     label: {
@@ -36,7 +36,8 @@ const LoginStyles = StyleSheet.create({
     },
     label2: {
       fontSize: 20,
-      marginBottom: 40,
+      marginTop: 30,
+      marginBottom: 10,
       alignItems: 'center',
       fontWeight: 'bold',
       
@@ -61,7 +62,7 @@ const LoginStyles = StyleSheet.create({
       paddingVertical: 10,
       paddingHorizontal: 20,
       borderRadius: 60,
-      marginTop: 50,
+      marginTop: 20,
       shadowColor: '#FF8C00', // Color de la sombra naranja con opacidad reducida
       shadowOffset: {
         width: 0,
@@ -76,6 +77,32 @@ const LoginStyles = StyleSheet.create({
       fontSize: 20,
       fontWeight: 'bold',
       textAlign: 'center',
+    },
+
+
+    buttonRowContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      marginBottom: 10,
+      
+    },
+    button: {
+      width: '60%', // Establece un ancho fijo para los botones
+      marginTop: -25,
+      justifyContent: 'center', // Centra el contenido verticalmente
+      marginRight: 5, 
+      
+    },
+    buttonTextCenter: {
+      textAlign: 'center', // Centra el texto horizontalmente
+      fontSize: 15,
+    },
+    orangeLine: {
+      width: '100%',
+      height: 1,
+      backgroundColor: 'orange',
+      alignSelf: 'center',
+      marginVertical: 10,
     },
     
   });
