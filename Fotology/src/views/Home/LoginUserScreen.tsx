@@ -8,7 +8,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../../App';  // Asegúrate de que este camino sea correcto
 import CustomTextInput from '../../components/CustomTextInput';
 
-export const LoginFormScreen = () => {
+export const LoginUserScreen = () => {
   const { email, password, onChange } = useViewModel();
   
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
@@ -28,7 +28,7 @@ export const LoginFormScreen = () => {
             </TouchableOpacity>
           </View>
           <View style={styles.orangeLine} />
-          <Text style={styles.label2}>Ingresa como Fotógrafo</Text>
+          <Text style={styles.label2}>Ingresa como Cliente</Text>
           <View style={styles.inputContainer}>
             <FontAwesome name="user-circle" size={26} color="orange" style={styles.icon} />
             <CustomTextInput
@@ -59,4 +59,4 @@ export const LoginFormScreen = () => {
   );
 };
 
-export default LoginFormScreen;
+export default LoginUserScreen;
