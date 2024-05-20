@@ -80,7 +80,7 @@ const WelcomeScreen = () => {
       <View style={styles.container}>
       <View style={styles.comentarioContainer}>
         <View style={styles.fotoContainer}>
-         <Image source={require('../../../assets/aleja.jpg')} style={styles.foto}/> 
+         <Image source={require('../../../assets/foto1.jpg')} style={styles.foto}/> 
           <View style={styles.foto}><Text style={styles.username}>Camila S.</Text></View>
         </View>    
         <View style={styles.infoContainer}>
@@ -106,7 +106,7 @@ const WelcomeScreen = () => {
     <View style={styles.container}>
       <View style={styles.comentarioContainer}>
         <View style={styles.fotoContainer}>
-         <Image source={require('../../../assets/aleja.jpg')} style={styles.foto}/> 
+         <Image source={require('../../../assets/foto2.jpg')} style={styles.foto}/> 
           <View style={styles.foto}><Text style={styles.username}>Andres C.</Text></View>
         </View>    
         <View style={styles.infoContainer}>
@@ -132,7 +132,7 @@ const WelcomeScreen = () => {
     <View style={styles.container}>
       <View style={styles.comentarioContainer}>
         <View style={styles.fotoContainer}>
-         <Image source={require('../../../assets/aleja.jpg')} style={styles.foto}/> 
+         <Image source={require('../../../assets/foto3.jpg')} style={styles.foto}/> 
           <View style={styles.foto}><Text style={styles.username}>Made R.</Text></View>
         </View>    
         <View style={styles.infoContainer}>
