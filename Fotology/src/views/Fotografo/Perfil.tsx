@@ -29,12 +29,12 @@ export const PerfilScreen = () => {
     navigation.navigate('CalificacionScreen');
   };
 
-  const [description, setDescription] = useState('Descripción');
+  const [description, setDescription] = useState('');
   const [editMode, setEditMode] = useState(false);
   const [backgroundImageUri, setBackgroundImageUri] = useState(require('../../../assets/Fondo1.jpg'));
   const [profileImageUri, setProfileImageUri] = useState(require('../../../assets/LOGOA.png'));
-  const [personName, setPersonName] = useState('Nombre de la persona');
-  const [phoneNumber, setPhoneNumber] = useState('123456789');
+  const [personName, setPersonName] = useState('Usuario 00');
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [facebook, setFacebook] = useState('');
   const [instagram, setInstagram] = useState('');
   const [twitter, setTwitter] = useState('');
