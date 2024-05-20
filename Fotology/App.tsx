@@ -14,7 +14,24 @@ import ListaCatScreen from './src/views/Fotografo/ListaCat';
 import CalificacionScreen from './src/views/Fotografo/Calificacion';
 import CategoriaDetalleScreen from './src/views/Fotografo/CategoriaDetalleScreen';
 
-const Stack = createStackNavigator();
+
+export type RootStackParamList = {
+
+  HomeScreen: undefined;
+  RegisterScreen: undefined;
+  LoginFormScreen: undefined;
+  WelcomeScreen: undefined;
+  ContactoScreen: undefined;
+  PortafolioScreen: undefined;
+  PerfilScreen: undefined;
+  CategoriasScreen: undefined;
+  CalificacionScreen: undefined;
+  CategoriaDetalleScreen: undefined;
+
+  };
+const Stack = createStackNavigator <RootStackParamList>();
+
+
 
 const App = () => {
   return (
@@ -31,7 +48,6 @@ const App = () => {
         <Stack.Screen name="PerfilScreen" component={PerfilScreen} />
         <Stack.Screen name="PortafolioScreen" component={PortafolioScreen} />
         <Stack.Screen name="CategoriasScreen" component={CategoriasScreen} />
-        <Stack.Screen name="ListaCatScreen" component={ListaCatScreen} />
         <Stack.Screen name="CalificacionScreen" component={CalificacionScreen} />
         <Stack.Screen name="CategoriaDetalleScreen" component={CategoriaDetalleScreen} />
       </Stack.Navigator>

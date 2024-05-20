@@ -3,21 +3,12 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, ImageBackground, I
 import styles from './RegisterStyle';
 import { FontAwesome } from '@expo/vector-icons'; 
 import { useNavigation } from '@react-navigation/native';
+import CustomTextInput from '../../components/CustomTextInput';
+import useViewModel from './viewModel';
 
-const RegisterScreen = ({ navigation }) => {
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  const [username, setUsername] = React.useState('');
-  const [confirmPassword, setConfirmPassword] = React.useState('');
-  const [adress, setAdress] = React.useState('');
+export const RegisterScreen = () => {
 
-  const handleRegister = () => {
-    console.log('Email:', email);
-    console.log('Username:', username);
-    console.log('Password:', password);
-    console.log('Confirm Password:', confirmPassword);
-    console.log('Address:', adress);
-  };
+  const { username, email, adress, password, confirmPassword, onChange, register } = useViewModel();
   
   return (
     <View style={styles.container}>
@@ -34,52 +25,57 @@ const RegisterScreen = ({ navigation }) => {
           />
           <View style={styles.formInput}>
             <Image style={styles.formIcon} />
-            <TextInput
-              style={styles.input}
+            <CustomTextInput
+              placeholder='Nombre de usuario'
+              keyboardType='default'
+              property='username'
+              onChangeText={onChange}
               value={username}
-              onChangeText={setUsername}
-              placeholder="Nombre de usuario"
             />
           </View>
           <View style={styles.formInput}>
             <Image style={styles.formIcon} />
-            <TextInput
-              style={styles.input}
+            <CustomTextInput
+              keyboardType='default'
+              property='email'
               value={email}
-              onChangeText={setEmail}
+              onChangeText={onChange}
               placeholder="Correo electrónico"
             />
           </View>
           <View style={styles.formInput}>
             <Image style={styles.formIcon} />
-            <TextInput
-              style={styles.input}
+            <CustomTextInput
+              property='adress'
               value={adress}
-              onChangeText={setAdress}
+              keyboardType='default'
+              onChangeText={onChange}
               placeholder="Dirección"
             />
           </View>
           <View style={styles.formInput}>
             <Image style={styles.formIcon} />
-            <TextInput
-              style={styles.input}
+            <CustomTextInput
+              property='password'
               value={password}
-              onChangeText={setPassword}
+              keyboardType='default'
+              onChangeText={onChange}
               placeholder="Contraseña"
-              secureTextEntry
+              secureTextEntry={true}
             />
           </View>
           <View style={styles.formInput}>
             <Image style={styles.formIcon} />
-            <TextInput
-              style={styles.input}
+            <CustomTextInput
+              keyboardType='default'
+              property='confirmPassword'
               value={confirmPassword}
-              onChangeText={setConfirmPassword}
+              onChangeText={onChange}
               placeholder="Confirmar Contraseña"
-              secureTextEntry
+              secureTextEntry={true}
             />
           </View>
-          <TouchableOpacity style={styles.buttonContainer} onPress={handleRegister}>
+          <TouchableOpacity style={styles.buttonContainer} onPress={register()}>
             <Text style={styles.buttonText}>Registrarse</Text>
           </TouchableOpacity>
         </View>
