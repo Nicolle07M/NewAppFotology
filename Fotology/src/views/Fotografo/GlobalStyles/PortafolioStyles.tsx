@@ -77,7 +77,7 @@ const PortafolioStyles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 30,
     borderRadius: 10,
-    marginTop: 460,
+    marginTop: 10,
   },
   bottomButtonText: {
     color: 'white',
@@ -100,7 +100,7 @@ const PortafolioStyles = StyleSheet.create({
     backgroundColor: '#fff',
     padding: 10,
     borderRadius: 10,
-    marginBottom: 10,
+    marginBottom: 8,
     width: '90%',
   },
   categoryText: {

@@ -32,7 +32,7 @@ const PerfilStyle = StyleSheet.create({
     },
     profileContainer: { // imagen 
       position: 'absolute',
-      top: 70, // bajar o subir el circulo 
+      top: 120, // bajar o subir el circulo 
       left: 100,
       alignItems: 'center',
     },
