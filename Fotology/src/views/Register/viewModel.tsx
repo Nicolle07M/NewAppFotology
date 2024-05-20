@@ -3,6 +3,7 @@ import { ApiFotology } from '../../Data/sources/remote/api/ApiFotology';
 import { RegisterAuthUseCase } from '../../Domain/useCases/auth/RegisterAuth';
 
 const RegisterViewModel = () => {
+  const [errorMessage, setErrorMessage] = useState('');
   const [values, setValues] = useState({
     username: '',
     email: '',
@@ -16,8 +17,40 @@ const RegisterViewModel = () => {
   };
 
   const register = async() => {
-    const response = await RegisterAuthUseCase(values);
-    console.log('Result' + JSON.stringify(response));
+    if (!isValidForm()) {
+      const response = await RegisterAuthUseCase(values);
+      console.log('Result' + JSON.stringify(response));
+    }
+    
+    
+  }
+
+  const isValidForm = (): boolean => {
+    if (values.username === '') {
+    setErrorMessage('El nombre de usuario es requerido');
+    return false;
+  }
+    if (values.email === '') {
+    setErrorMessage('El correo es requerido');
+    return false;
+  }
+    if (values.adress === '') {
+    setErrorMessage('La direccion es requerida');
+    return false;
+  }
+    if (values.password === '') {
+    setErrorMessage('La contraseña es requerida');
+    return false;
+  }
+    if (values.confirmPassword === '') {
+    setErrorMessage('La confirmación de contraseña es requerida');
+    return false;
+  }
+    if (values.password !== values.confirmPassword) {
+    setErrorMessage('Las contraseñas no coinciden');
+    return false;
+  }
+    return true;
     
   }
 
@@ -25,6 +58,7 @@ const RegisterViewModel = () => {
     ...values,
     onChange,
     register,
+    errorMessage
   };
 };
 

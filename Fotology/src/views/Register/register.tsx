@@ -1,12 +1,17 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, ImageBackground, Image } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, TouchableOpacity, ImageBackground, Image, ToastAndroid } from 'react-native';
 import styles from './RegisterStyle';
 import CustomTextInput from '../../components/CustomTextInputRegister';
 import useViewModel from './viewModel';
 
 export const RegisterScreen = () => {
-  const { username, email, adress, password, confirmPassword, onChange, register } = useViewModel();
+  const { username, email, adress, password, confirmPassword, onChange, register, errorMessage } = useViewModel();
   
+  useEffect(() => {
+    if (errorMessage !== '')
+      ToastAndroid.show(errorMessage, ToastAndroid.LONG);
+  }, [errorMessage]);
+
   return (
     <View style={styles.container}>
       <ImageBackground 
