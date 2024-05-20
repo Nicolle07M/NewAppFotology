@@ -75,7 +75,7 @@ export const RegisterScreen = () => {
               secureTextEntry={true}
             />
           </View>
-          <TouchableOpacity style={styles.buttonContainer} onPress={register()}>
+          <TouchableOpacity style={styles.buttonContainer} onPress={() => register()}>
             <Text style={styles.buttonText}>Registrarse</Text>
           </TouchableOpacity>
         </View>
