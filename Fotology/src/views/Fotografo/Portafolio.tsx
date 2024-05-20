@@ -52,7 +52,7 @@ export default function PortafolioScreen() {
         <Text style={PortafolioStyles.categoryText}>{category}</Text>
         <View style={PortafolioStyles.categoryButtonsContainer}>
           <TouchableOpacity onPress={() => navigation.navigate('CategoriaDetalleScreen' as never, { category } as never)}>
-            <Text style={PortafolioStyles.categoryButton}>Editar</Text>
+            <Text style={PortafolioStyles.categoryButton}>Abrir</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => removeCategory(category)}>
             <Text style={PortafolioStyles.categoryButton}>Eliminar</Text>

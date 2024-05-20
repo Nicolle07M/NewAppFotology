@@ -77,6 +77,37 @@ const LoginStyles = StyleSheet.create({
       fontWeight: 'bold',
       textAlign: 'center',
     },
+    buttonGroupContainer: {
+      flexDirection: 'row', // Cambiado a 'row' para que los botones se alineen horizontalmente
+      justifyContent: 'space-between', // Alinea los botones de manera uniforme a lo largo del contenedor
+      marginTop: 20,
+      paddingHorizontal: 20, // Agregado para espaciar los botones del borde de la pantalla
+    },
+    buttonContainer2: {
+      backgroundColor: '#ff9900',
+      paddingVertical: 15,
+      paddingHorizontal: 30,
+      borderRadius: 30,
+      shadowColor: '#FF8C00',
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.4,
+      shadowRadius: 10,
+      elevation: 6,
+    },
+    buttonText2: {
+      color: 'white',
+      textAlign: 'center',
+      fontSize: 16,
+    },
+    buttonRowContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      marginBottom: 10, // Agregado margen inferior para separar los botones del texto
+      paddingHorizontal: 20, // Agregado para espaciar los botones del borde del contenedor
+    },
   });
   
   export default LoginStyles;

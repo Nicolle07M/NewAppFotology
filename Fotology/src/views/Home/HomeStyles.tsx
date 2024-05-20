@@ -39,7 +39,7 @@ const HomeStyles = StyleSheet.create({
         height: 6, // Aumenta la altura de la sombra para que sea más pronunciada
       },
       shadowOpacity: 10, // Opacidad de la sombra eliminada
-      shadowRadius: 80, // Radio de la sombra aumentado
+      shadowRadius: 90, // Radio de la sombra aumentado
       elevation: 8, // Elevación para la sombra en Android aumentada
     },
     buttonText: {

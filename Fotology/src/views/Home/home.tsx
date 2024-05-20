@@ -38,6 +38,7 @@ export const HomeScreen = () => {
           <TouchableOpacity style={styles.buttonContainer} onPress={handleLoginPress}>
             <Text style={styles.buttonText}>Iniciar Sesión</Text>
           </TouchableOpacity>
+          
           <View style={styles.registerContainer}>
             <Text style={styles.registerText}>¿No tienes cuenta?</Text>
             <TouchableOpacity style={styles.registerButton} onPress={handleRegisterPress}>
