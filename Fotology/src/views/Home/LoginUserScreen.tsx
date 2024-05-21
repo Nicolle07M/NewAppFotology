@@ -50,7 +50,7 @@ export const LoginUserScreen = () => {
               secureTextEntry={true}
             />
           </View>
-          <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate('WelcomeScreen')}>
+          <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate('WelcomeClienteScreen')}>
             <Text style={styles.buttonText}>Iniciar Sesión</Text>
           </TouchableOpacity>
         </View>
