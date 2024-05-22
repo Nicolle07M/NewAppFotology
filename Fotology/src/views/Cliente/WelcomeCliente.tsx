@@ -5,30 +5,12 @@ import styles from './GlobalStyles/WelcomeClienteStyles';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
-import { HomeScreen } from '../Home/home';
-import ContactoScreen from '../Fotografo/Contacto';
-import PerfilScreen from '../Fotografo/Perfil';
-import PortafolioScreen from '../Fotografo/Portafolio';
-import CategoriasScreen from '../Fotografo/Categorias';
-import ListaCatScreen from '../Fotografo/ListaCat';
-import CalificacionScreen from '../Fotografo/Calificacion';
+
 
 const Drawer = createDrawerNavigator();
 
 const WelcomeClienteScreen = () => {
   const navigation = useNavigation();
-  <NavigationContainer>
-  <Drawer.Navigator>
-    <Drawer.Screen name="WelcomeScreen" component={WelcomeClienteScreen} />
-    <Drawer.Screen name="ContactoScreen" component={ContactoScreen} />
-    <Drawer.Screen name="PerfilScreen" component={PerfilScreen} />
-    <Drawer.Screen name="PortafolioScreen" component={PortafolioScreen} />
-    <Drawer.Screen name="CategoriasScreen" component={CategoriasScreen} />
-    <Drawer.Screen name="ListaCatScreen" component={ListaCatScreen} />
-    <Drawer.Screen name="CalificacionScreen" component={CalificacionScreen} />
-  </Drawer.Navigator>
-</NavigationContainer>
-
 
 
   const navigateToContactoScreen = () => {
@@ -42,13 +24,13 @@ const WelcomeClienteScreen = () => {
   const navigatePortafolioScreen = () => {
     navigation.navigate('PortafolioScreen' as never);
   };  
-  const navigateCategoriasScreen = () => {
-    navigation.navigate('CategoriasScreen' as never);
-  };  
 
+  const navigateWelcomeClienteScreen = () => {
+    navigation.navigate('WelcomeClienteScreen' as never);
+  };
 
-  const navigateWelcomeScreen = () => {
-    navigation.navigate('WelcomeScreen' as never);
+  const handleLoginPress = () => {
+    navigation.navigate('HomeScreen' as never);
   };
 
 
@@ -64,34 +46,24 @@ const WelcomeClienteScreen = () => {
         >
           <View style={styles.overlay}>
             <View style={styles.textContainer}>
-              <Text style={styles.text}>¡Bienvenido Cliente!</Text>
-              <Text style={styles.text2}>Fotology</Text>
+              <Text style={styles.text}>¡Hola Cliente!</Text>
+              <Text style={styles.text2}>Esto es Fotology</Text>
             </View>
           </View>
           {/* Header */}
           <View style={styles.header}>
-          <TouchableOpacity onPress={navigateWelcomeScreen}>
+          <TouchableOpacity onPress={navigateWelcomeClienteScreen}>
               <Text style={styles.headerButton}>Home</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress= {navigatePortafolioScreen}>
-              <Text style={styles.headerButton}>Portafolio</Text>
-            </TouchableOpacity>
-
-       
-
-            <TouchableOpacity onPress={navigateToContactoScreen}>
-              <Text style={styles.headerButton}>Contacto</Text>
-            </TouchableOpacity>
-            
-            <TouchableOpacity onPress={navigatePerfilScreen}>
-              <Text style={styles.headerButton}>Perfil</Text>
+            <TouchableOpacity onPress={handleLoginPress}>
+              <Text style={styles.headerButton}>Cerrar Seion</Text>
             </TouchableOpacity>
           </View>
         </ImageBackground>
-        <Text style={styles.description2}>
-        Fotografos destacados del mes
-      </Text>
+        <View style={styles.orangeLine} />
+      <Text style={styles.title2}>Fotógrafos Destacados</Text>
+  
       <View style={styles.orangeLine} />
       </View>
       <View style={styles.container}>
@@ -172,43 +144,9 @@ const WelcomeClienteScreen = () => {
         </View>
       </View>
     </View>
-      <Text style={styles.description}>
-        Estamos aquí para brindarte la asistencia que necesitas para aprovechar al máximo nuestro sitio web de fotografía. Si tienes alguna pregunta o problema, ¡no dudes en ponerte en contacto con nosotros.
-      </Text>
+     
       <View style={styles.orangeLine} />
 
-      <Text style={styles.title2}>Categorías de Fotografía</Text>
-      <Text style={styles.description}>
-        En nuestro sitio web, ofrecemos una amplia variedad de categorías de fotografía para que puedas explorar y disfrutar. Desde paisajes hasta retratos, tenemos algo para todos los amantes de la fotografía.
-      </Text>
-      <View style={styles.orangeLine} />
-
-      <Text style={styles.title2}>Fotógrafos Destacados</Text>
-      <Text style={styles.description}>
-        De igual manera también tenemos una sección en la cual se dan a conocer los fotógrafos que han sido destacados durante el mes.
-      </Text>
-      <View style={styles.orangeLine} />
-      <Text style={styles.title2}>Preguntas Frecuentes</Text>
-      <Text style={styles.description}>
-        ¿Cómo subir mis propias fotos?
-        Inicia sesión en tu cuenta.
-        Ve a tu perfil.
-        Haz clic en "Subir Foto".
-        Selecciona la imagen que deseas cargar desde tu dispositivo.
-        Agrega metadatos y categorías.
-      </Text>
-
-      <Text style={styles.description}>
-        ¡Listo! Tu foto estará disponible para que otros la vean.
-      </Text>
-
-      <View style={styles.orangeLine} />
-      <Text style={styles.description}>
-        Si experimentas problemas técnicos mientras usas nuestro sitio web, asegúrate de que tu navegador esté actualizado y que estés utilizando una conexión a Internet estable. Si el problema persiste, no dudes en contactarnos para obtener ayuda adicional.
-      </Text>
-      <Text style={styles.description3}>
-        ¡Gracias por ser parte de nuestra comunidad de fotógrafos! Estamos aquí para apoyarte en tu viaje fotográfico.
-      </Text>
     </ScrollView>
 
 

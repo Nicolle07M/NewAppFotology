@@ -31,7 +31,6 @@ export type RootStackParamList = {
   CategoriaDetalleScreen: undefined;
   LoginUserScreen: undefined;
   WelcomeClienteScreen: undefined;
-
   };
 const Stack = createStackNavigator <RootStackParamList>();
 

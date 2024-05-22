@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-const WelcomeClienteStyles = StyleSheet.create({
+const WelcomeStyles = StyleSheet.create({
     container: {
       flexGrow: 1,
       justifyContent: 'center',
@@ -162,4 +162,4 @@ const WelcomeClienteStyles = StyleSheet.create({
     
   });
 
-export default WelcomeClienteStyles;
+export default WelcomeStyles;
