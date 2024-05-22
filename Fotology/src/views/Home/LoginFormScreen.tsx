@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, ImageBackground, Image } from 'react-native';
+import React, { useState, useEffect } from 'react'
+import { View, Text, TouchableOpacity, ImageBackground, Image, ToastAndroid, } from 'react-native';
 import styles from './LoginStyles';
 import { FontAwesome } from '@expo/vector-icons'; 
 import { useNavigation } from '@react-navigation/native';
@@ -9,9 +9,16 @@ import { RootStackParamList } from '../../../App';  // Asegúrate de que este ca
 import CustomTextInput from '../../components/CustomTextInput';
 
 export const LoginFormScreen = () => {
-  const { email, password, onChange } = useViewModel();
-  
-  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+  const { email, password, errorMessage, onChange, login } = useViewModel();
+
+const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+
+useEffect(() => {
+  if (errorMessage !== '') {
+    ToastAndroid.show(errorMessage, ToastAndroid.LONG);
+  }
+}, [errorMessage]);
+
 
   return (
     <View style={styles.container}>
@@ -50,7 +57,7 @@ export const LoginFormScreen = () => {
               secureTextEntry={true}
             />
           </View>
-          <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate('WelcomeScreen')}>
+          <TouchableOpacity style={styles.buttonContainer} onPress={() => login()}>
             <Text style={styles.buttonText}>Iniciar Sesión</Text>
           </TouchableOpacity>
         </View>

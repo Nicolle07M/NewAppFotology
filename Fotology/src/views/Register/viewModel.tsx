@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { ApiFotology } from '../../Data/sources/remote/api/ApiFotology';
 import { RegisterAuthUseCase } from '../../Domain/useCases/auth/RegisterAuth';
 
 const RegisterViewModel = () => {

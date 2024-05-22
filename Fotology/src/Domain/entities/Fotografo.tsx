@@ -5,4 +5,5 @@ export interface Fotografo {
     adress: string;  
     password: string;
     confirmPassword: string; 
+    session_token?: string;
 }

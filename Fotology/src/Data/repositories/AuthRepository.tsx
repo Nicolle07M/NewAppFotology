@@ -23,5 +23,27 @@ export class AuthRepositoryImpl implements AuthRepository {
     }
   
   }
+
+  async login(email: string, password: string): 
+  
+  Promise<ResponseApiFotology> {
+    try {
+      const response = await 
+      ApiFotology.post<ResponseApiFotology>('/fotografo/login', {
+        email: email,
+        password: password
+      });
+      return Promise.resolve(response.data);
+
+    } catch (error) {
+      let e = (error as AxiosError);
+      console.log('error' + JSON.stringify(e.response?.data));
+      
+      const apiError: ResponseApiFotology = 
+      JSON.parse(JSON.stringify(e.response?.data));
+      return Promise.resolve(apiError);
+    }
+  }
+  
   
 }
