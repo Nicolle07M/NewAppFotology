@@ -18,6 +18,10 @@ export const LoginFormScreen = () => {
     }
   }, [errorMessage]);
 
+  const navigateToWelcomeScreen = () => {
+    navigation.navigate('WelcomeScreen' as never);
+  };  
+
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../../../../assets/Fondo1.jpg')} style={styles.backgroundImage} blurRadius={2}>
@@ -58,6 +62,11 @@ export const LoginFormScreen = () => {
           <TouchableOpacity style={styles.buttonContainer} onPress={() => login()}>
             <Text style={styles.buttonText}>Iniciar Sesión</Text>
           </TouchableOpacity>
+          {/* Nuevo botón agregado debajo del botón de inicio de sesión */}
+          <TouchableOpacity style={styles.additionalButtonContainer} onPress={navigateToWelcomeScreen}>
+            <Text style={styles.additionalButtonText}>Inicio</Text>
+          </TouchableOpacity>
+          {/* Fin del nuevo botón */}
         </View>
       </ImageBackground>
     </View>
