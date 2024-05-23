@@ -21,7 +21,7 @@ const CategoriaDetalleScreen = () => {
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={require('../../../assets/Fondo1.jpg')}
+        source={require('../../../../assets/Fondo1.jpg')}
         style={styles.backgroundImage}
         blurRadius={3}
       >

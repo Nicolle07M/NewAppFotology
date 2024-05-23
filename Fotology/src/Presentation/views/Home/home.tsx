@@ -23,14 +23,14 @@ export const HomeScreen = () => {
         style={styles.gradient}
       >
         <ImageBackground
-          source={require('../../../assets/Fondo1.jpg')}
+          source={require('../../../../assets/Fondo1.jpg')}
           style={styles.imageBackground}
           blurRadius={5} // Puedes ajustar este valor según sea necesario
         >
           <View style={styles.overlay} />
           <View style={styles.logoContainer}>
             <Image
-              source={require('../../../assets/LOGOA.png')}
+              source={require('../../../../assets/LOGOA.png')}
               style={styles.logo}
               resizeMode="contain" // Ajusta el tamaño del logo para que se ajuste dentro del contenedor
             />

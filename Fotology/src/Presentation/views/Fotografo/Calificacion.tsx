@@ -34,7 +34,7 @@ const CalificacionScreen = () => {
     <ScrollView contentContainerStyle={styles.container}>
     <View style={styles.backgroundContainer}>
       <ImageBackground
-        source={require('../../../assets/Fondo1.jpg')}
+        source={require('../../../../assets/Fondo1.jpg')}
         style={styles.backgroundImage}
         blurRadius={3}
       >
@@ -72,7 +72,7 @@ const CalificacionScreen = () => {
       <View style={styles.container}>
       <View style={styles.comentarioContainer}>
         <View style={styles.fotoContainer}>
-         <Image source={require('../../../assets/nat.jpg')} style={styles.foto}/> 
+         <Image source={require('../../../../assets/nat.jpg')} style={styles.foto}/> 
           <View style={styles.foto}></View>
         </View>
         <View style={styles.infoContainer}>
@@ -98,7 +98,7 @@ const CalificacionScreen = () => {
     <View style={styles.container}>
       <View style={styles.comentarioContainer}>
         <View style={styles.fotoContainer}>
-         <Image source={require('../../../assets/nicolle.jpg')} style={styles.foto}/> 
+         <Image source={require('../../../../assets/nicolle.jpg')} style={styles.foto}/> 
           <View style={styles.foto}></View>
         </View>
         <View style={styles.infoContainer}>
@@ -122,7 +122,7 @@ const CalificacionScreen = () => {
     <View style={styles.container}>
       <View style={styles.comentarioContainer}>
         <View style={styles.fotoContainer}>
-         <Image source={require('../../../assets/erik.jpg')} style={styles.foto}/> 
+         <Image source={require('../../../../assets/erik.jpg')} style={styles.foto}/> 
           <View style={styles.foto}></View>
         </View>
         <View style={styles.infoContainer}>
@@ -142,7 +142,7 @@ const CalificacionScreen = () => {
     <View style={styles.container}>
       <View style={styles.comentarioContainer}>
         <View style={styles.fotoContainer}>
-         <Image source={require('../../../assets/mario.jpg')} style={styles.foto}/> 
+         <Image source={require('../../../../assets/mario.jpg')} style={styles.foto}/> 
           <View style={styles.foto}></View>
         </View>
         <View style={styles.infoContainer}>
@@ -164,7 +164,7 @@ const CalificacionScreen = () => {
     <View style={styles.container}>
       <View style={styles.comentarioContainer}>
         <View style={styles.fotoContainer}>
-         <Image source={require('../../../assets/camilo.jpg')} style={styles.foto}/> 
+         <Image source={require('../../../../assets/camilo.jpg')} style={styles.foto}/> 
           <View style={styles.foto}></View>
         </View>
         <View style={styles.infoContainer}>
@@ -190,7 +190,7 @@ const CalificacionScreen = () => {
     <View style={styles.container}>
       <View style={styles.comentarioContainer}>
         <View style={styles.fotoContainer}>
-         <Image source={require('../../../assets/aleja.jpg')} style={styles.foto}/> 
+         <Image source={require('../../../../assets/aleja.jpg')} style={styles.foto}/> 
           <View style={styles.foto}></View>
         </View>
         <View style={styles.infoContainer}>

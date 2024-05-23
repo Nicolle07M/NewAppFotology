@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { RegisterAuthUseCase } from '../../Domain/useCases/auth/RegisterAuth';
-import { ApiFotology } from '../../Data/sources/remote/api/ApiFotology';
+import { RegisterAuthUseCase } from '../../../Domain/useCases/auth/RegisterAuth';
+import { ApiFotology } from '../../../Data/sources/remote/api/ApiFotology';
 
 const RegisterViewModel = () => {
   const [errorMessage, setErrorMessage] = useState('');

@@ -37,12 +37,12 @@ export default function PortafolioScreen() {
   };
 
   const categoryImages: { [key: string]: any } = {
-    'Paisajes': require('../../../assets/paisajes.jpg'),
-    'Retratos': require('../../../assets/retrato.jpg'),
-    'Moda': require('../../../assets/moda.jpg'),
-    'Alimentos': require('../../../assets/alimentos.jpg'),
-    'Eventos': require('../../../assets/eventos.jpg'),
-    'default': require('../../../assets/viajes.jpg'),
+    'Paisajes': require('../../../../assets/paisajes.jpg'),
+    'Retratos': require('../../../../assets/retrato.jpg'),
+    'Moda': require('../../../../assets/moda.jpg'),
+    'Alimentos': require('../../../../assets/alimentos.jpg'),
+    'Eventos': require('../../../../assets/eventos.jpg'),
+    'default': require('../../../../assets/viajes.jpg'),
   };
 
   const renderSelectedCategories = () => {
@@ -90,7 +90,7 @@ export default function PortafolioScreen() {
     <ScrollView contentContainerStyle={PortafolioStyles.container}>
       <View style={PortafolioStyles.backgroundContainer}>
         <ImageBackground
-          source={require('../../../assets/Fondo1.jpg')}
+          source={require('../../../../assets/Fondo1.jpg')}
           style={PortafolioStyles.backgroundImage}
           blurRadius={3}
         >

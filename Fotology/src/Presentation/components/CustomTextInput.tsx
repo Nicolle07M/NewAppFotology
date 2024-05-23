@@ -1,3 +1,4 @@
+// CustomTextInputRegister.js
 import React from 'react';
 import { TextInput, StyleSheet, KeyboardType } from 'react-native';
 
@@ -35,6 +36,7 @@ const customStyles = StyleSheet.create({
     flex: 1,
     height: 40,
     paddingHorizontal: 10,
+    borderBottomWidth: 0, // Eliminar cualquier borde inferior
   },
 });
 

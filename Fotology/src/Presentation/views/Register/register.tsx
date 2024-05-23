@@ -18,7 +18,7 @@ export const RegisterScreen = () => {
   return (
     <View style={styles.container}>
       <ImageBackground 
-        source={require('../../../assets/Fondo1.jpg')}
+        source={require('../../../../assets/Fondo1.jpg')}
         style={styles.backgroundImage}
         blurRadius={2}
       >
@@ -26,7 +26,7 @@ export const RegisterScreen = () => {
         <View style={styles.form}>
           <Text style={styles.formText}>¡Regístrate aquí!</Text>
           <Image
-            source={require('../../../assets/user_menu.png')}
+            source={require('../../../../assets/user_menu.png')}
             style={styles.logoImage}
           />
           <CustomTextInput

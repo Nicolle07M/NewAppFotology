@@ -12,7 +12,7 @@ export const ContactoScreen = () => {
   const [nombre, setNombre] = useState('');
   const [email, setEmail] = useState('');
   const [mensaje, setMensaje] = useState('');
-  const [backgroundImageUri, setBackgroundImageUri] = useState(require('../../../assets/Fondo2.jpg'));
+  const [backgroundImageUri, setBackgroundImageUri] = useState(require('../../../../assets/Fondo2.jpg'));
 
 
     const navigation = useNavigation();
@@ -109,7 +109,7 @@ export const ContactoScreen = () => {
           </View>
          
         <Image
-          source={require('../../../assets/Fondo1.jpg')}
+          source={require('../../../../assets/Fondo1.jpg')}
           blurRadius={5}
           style={styles.backgroundImage}
         />
@@ -122,16 +122,16 @@ export const ContactoScreen = () => {
 <View style={styles.iconContainer}>
 
           <TouchableOpacity onPress={handleFacebookPress}>
-            <Image source={require('../../../assets/facebook.png')} style={styles.icon} />
+            <Image source={require('../../../../assets/facebook.png')} style={styles.icon} />
           </TouchableOpacity>
           <TouchableOpacity onPress={handleGmailPress}>
-            <Image source={require('../../../assets/gmail.png')} style={styles.icon} />
+            <Image source={require('../../../../assets/gmail.png')} style={styles.icon} />
           </TouchableOpacity>
           <TouchableOpacity onPress={handleInstagramPress}>
-            <Image source={require('../../../assets/instagram.png')} style={styles.icon} />
+            <Image source={require('../../../../assets/instagram.png')} style={styles.icon} />
           </TouchableOpacity>
           <TouchableOpacity onPress={handleTwitterPress}>
-            <Image source={require('../../../assets/twtter.png')} style={styles.icon} />
+            <Image source={require('../../../../assets/twtter.png')} style={styles.icon} />
           </TouchableOpacity>
         </View>
       <Text style={styles.subtitle}>NO SEAS TÍMIDO</Text>

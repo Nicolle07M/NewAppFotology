@@ -10,7 +10,6 @@ import ContactoScreen from '../Fotografo/Contacto';
 import PerfilScreen from '../Fotografo/Perfil';
 import PortafolioScreen from '../Fotografo/Portafolio';
 import CategoriasScreen from '../Fotografo/Categorias';
-import ListaCatScreen from '../Fotografo/ListaCat';
 import CalificacionScreen from '../Fotografo/Calificacion';
 
 const Drawer = createDrawerNavigator();
@@ -24,7 +23,6 @@ const WelcomeScreen = () => {
     <Drawer.Screen name="PerfilScreen" component={PerfilScreen} />
     <Drawer.Screen name="PortafolioScreen" component={PortafolioScreen} />
     <Drawer.Screen name="CategoriasScreen" component={CategoriasScreen} />
-    <Drawer.Screen name="ListaCatScreen" component={ListaCatScreen} />
     <Drawer.Screen name="CalificacionScreen" component={CalificacionScreen} />
   </Drawer.Navigator>
 </NavigationContainer>
@@ -60,7 +58,7 @@ const WelcomeScreen = () => {
       
       <View style={styles.backgroundContainer}>
         <ImageBackground
-          source={require('../../../assets/Fondo1.jpg')}
+          source={require('../../../../assets/Fondo1.jpg')}
           style={styles.backgroundImage}
           blurRadius={3}
         >
@@ -101,7 +99,7 @@ const WelcomeScreen = () => {
       <View style={styles.container}>
       <View style={styles.comentarioContainer}>
         <View style={styles.fotoContainer}>
-         <Image source={require('../../../assets/foto1.jpg')} style={styles.foto}/> 
+         <Image source={require('../../../../assets/foto1.jpg')} style={styles.foto}/> 
           <View style={styles.foto}><Text style={styles.username}>Camila S.</Text></View>
         </View>    
         <View style={styles.infoContainer}>
@@ -127,7 +125,7 @@ const WelcomeScreen = () => {
     <View style={styles.container}>
       <View style={styles.comentarioContainer}>
         <View style={styles.fotoContainer}>
-         <Image source={require('../../../assets/foto2.jpg')} style={styles.foto}/> 
+         <Image source={require('../../../../assets/foto2.jpg')} style={styles.foto}/> 
           <View style={styles.foto}><Text style={styles.username}>Andres C.</Text></View>
         </View>    
         <View style={styles.infoContainer}>
@@ -153,7 +151,7 @@ const WelcomeScreen = () => {
     <View style={styles.container}>
       <View style={styles.comentarioContainer}>
         <View style={styles.fotoContainer}>
-         <Image source={require('../../../assets/foto3.jpg')} style={styles.foto}/> 
+         <Image source={require('../../../../assets/foto3.jpg')} style={styles.foto}/> 
           <View style={styles.foto}><Text style={styles.username}>Made R.</Text></View>
         </View>    
         <View style={styles.infoContainer}>

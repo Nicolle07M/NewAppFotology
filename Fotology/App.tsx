@@ -2,19 +2,18 @@ import 'react-native-gesture-handler';
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { HomeScreen } from './src/views/Home/home';
-import RegisterScreen from './src/views/Register/register';
-import WelcomeScreen from './src/views/Fotografo/Welcome';
-import LoginFormScreen from './src/views/Home/LoginFormScreen';
-import ContactoScreen from './src/views/Fotografo/Contacto';
-import PerfilScreen from './src/views/Fotografo/Perfil';
-import PortafolioScreen from './src/views/Fotografo/Portafolio';
-import CategoriasScreen from './src/views/Fotografo/Categorias';
-import ListaCatScreen from './src/views/Fotografo/ListaCat';
-import CalificacionScreen from './src/views/Fotografo/Calificacion';
-import CategoriaDetalleScreen from './src/views/Fotografo/CategoriaDetalleScreen';
-import LoginUserScreen from './src/views/Home/LoginUserScreen';
-import WelcomeClienteScreen from './src/views/Cliente/WelcomeCliente';
+import { HomeScreen } from './src/Presentation/views/Home/home';
+import RegisterScreen from './src/Presentation/views/Register/register';
+import WelcomeScreen from './src/Presentation/views/Fotografo/Welcome';
+import LoginFormScreen from './src/Presentation/views/Home/LoginFormScreen';
+import ContactoScreen from './src/Presentation/views/Fotografo/Contacto';
+import PerfilScreen from './src/Presentation/views/Fotografo/Perfil';
+import PortafolioScreen from './src/Presentation/views/Fotografo/Portafolio';
+import CategoriasScreen from './src/Presentation/views/Fotografo/Categorias';
+import CalificacionScreen from './src/Presentation/views/Fotografo/Calificacion';
+import CategoriaDetalleScreen from './src/Presentation/views/Fotografo/CategoriaDetalleScreen';
+import LoginUserScreen from './src//Presentation/views/Home/LoginUserScreen';
+import WelcomeClienteScreen from './src//Presentation/views/Cliente/WelcomeCliente';
 
 
 export type RootStackParamList = {

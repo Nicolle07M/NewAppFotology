@@ -55,7 +55,7 @@ const LoginStyles = StyleSheet.create({
       paddingHorizontal: 10,
     },
     icon: {
-      marginRight: 0,
+      marginRight: 10,
     },
     buttonContainer: {
       backgroundColor: '#ff9900',
@@ -78,20 +78,16 @@ const LoginStyles = StyleSheet.create({
       fontWeight: 'bold',
       textAlign: 'center',
     },
-
-
     buttonRowContainer: {
       flexDirection: 'row',
       justifyContent: 'space-between',
       marginBottom: 10,
-      
     },
     button: {
       width: '60%', // Establece un ancho fijo para los botones
       marginTop: -25,
       justifyContent: 'center', // Centra el contenido verticalmente
       marginRight: 5, 
-      
     },
     buttonTextCenter: {
       textAlign: 'center', // Centra el texto horizontalmente
@@ -104,7 +100,6 @@ const LoginStyles = StyleSheet.create({
       alignSelf: 'center',
       marginVertical: 10,
     },
-    
-  });
-  
-  export default LoginStyles;
+});
+
+export default LoginStyles;

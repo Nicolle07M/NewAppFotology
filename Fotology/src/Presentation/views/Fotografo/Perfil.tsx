@@ -31,8 +31,8 @@ export const PerfilScreen = () => {
 
   const [description, setDescription] = useState('');
   const [editMode, setEditMode] = useState(false);
-  const [backgroundImageUri, setBackgroundImageUri] = useState(require('../../../assets/Fondo1.jpg'));
-  const [profileImageUri, setProfileImageUri] = useState(require('../../../assets/LOGOA.png'));
+  const [backgroundImageUri, setBackgroundImageUri] = useState(require('../../../../assets/Fondo1.jpg'));
+  const [profileImageUri, setProfileImageUri] = useState(require('../../../../assets/LOGOA.png'));
   const [personName, setPersonName] = useState('Usuario 00');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [facebook, setFacebook] = useState('');
@@ -165,7 +165,7 @@ export const PerfilScreen = () => {
             </TouchableOpacity>
           </View>
           <Image
-             source={require('../../../assets/Fondo1.jpg')}
+             source={require('../../../../assets/Fondo1.jpg')}
              blurRadius={5}
             style={styles.backgroundImage}
           />
@@ -199,7 +199,7 @@ export const PerfilScreen = () => {
             {editMode && (
               <View style={styles.inputContainer}>
                 <Image
-                  source={require('../../../assets/usuario.png')}
+                  source={require('../../../../assets/usuario.png')}
                   style={styles.socialIcon}
                 />
                 <TextInput
@@ -214,7 +214,7 @@ export const PerfilScreen = () => {
 
             <View style={styles.inputContainer}>
               <Image
-                source={require('../../../assets/editar.png')}
+                source={require('../../../../assets/editar.png')}
                 style={styles.socialIcon}
               />
               <TextInput
@@ -228,7 +228,7 @@ export const PerfilScreen = () => {
             </View>
             <View style={styles.inputContainer}>
               <Image
-                source={require('../../../assets/telefono.png')}
+                source={require('../../../../assets/telefono.png')}
                 style={styles.socialIcon}
               />
               <TextInput
@@ -242,7 +242,7 @@ export const PerfilScreen = () => {
             </View>
             <View style={styles.inputContainer}>
               <Image
-                source={require('../../../assets/mensaje.png')}
+                source={require('../../../../assets/mensaje.png')}
                 style={styles.socialIcon}
               />
               <TextInput
@@ -256,7 +256,7 @@ export const PerfilScreen = () => {
             </View>
             <View style={styles.inputContainer}>
               <Image
-                source={require('../../../assets/instagram.png')}
+                source={require('../../../../assets/instagram.png')}
                 style={styles.socialIcon}
               />
               <TextInput
@@ -269,7 +269,7 @@ export const PerfilScreen = () => {
             </View>
             <View style={styles.inputContainer}>
               <Image
-                source={require('../../../assets/twtter.png')}
+                source={require('../../../../assets/twtter.png')}
                 style={styles.socialIcon}
               />
               <TextInput
