@@ -5,12 +5,15 @@ import CustomTextInput from '../../components/CustomTextInputRegister';
 import useViewModel from './viewModel';
 
 export const RegisterScreen = () => {
-  const { username, email, adress, password, confirmPassword, onChange, register, errorMessage } = useViewModel();
-  
+  const { username, email, adress, password, confirmPassword, onChange, register, errorMessage  } = useViewModel();
+    
   useEffect(() => {
+
     if (errorMessage !== '')
-      ToastAndroid.show(errorMessage, ToastAndroid.LONG);
-  }, [errorMessage]);
+    
+    ToastAndroid.show(errorMessage, ToastAndroid.LONG)
+    
+    }, [errorMessage]);
 
   return (
     <View style={styles.container}>
