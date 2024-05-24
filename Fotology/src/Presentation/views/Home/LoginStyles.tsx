@@ -45,8 +45,7 @@ const LoginStyles = StyleSheet.create({
     inputContainer: {
       flexDirection: 'row',
       alignItems: 'center',
-      borderBottomWidth: 1, // Línea inferior
-      borderBottomColor: 'gray', // Color de la línea
+      borderBottomWidth: 0, // Línea inferior
       marginBottom: 20, // Espacio entre cajas de texto
     },
     input: {

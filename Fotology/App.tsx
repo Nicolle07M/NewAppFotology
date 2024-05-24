@@ -14,7 +14,7 @@ import CalificacionScreen from './src/Presentation/views/Fotografo/Calificacion'
 import CategoriaDetalleScreen from './src/Presentation/views/Fotografo/CategoriaDetalleScreen';
 import LoginUserScreen from './src//Presentation/views/Home/LoginUserScreen';
 import WelcomeClienteScreen from './src//Presentation/views/Cliente/WelcomeCliente';
-
+import { ProfileInfoScreen } from './src/Presentation/views/Profile/info/ProfileInfo';
 
 export type RootStackParamList = {
 
@@ -30,6 +30,7 @@ export type RootStackParamList = {
   CategoriaDetalleScreen: undefined;
   LoginUserScreen: undefined;
   WelcomeClienteScreen: undefined;
+  ProfileInfoScreen: undefined;
   };
 const Stack = createStackNavigator <RootStackParamList>();
 
@@ -54,6 +55,9 @@ const App = () => {
         <Stack.Screen name="CategoriaDetalleScreen" component={CategoriaDetalleScreen} />
         <Stack.Screen name="LoginUserScreen" component={LoginUserScreen} />
         <Stack.Screen name="WelcomeClienteScreen" component={WelcomeClienteScreen} />
+        <Stack.Screen name="ProfileInfoScreen" component={ProfileInfoScreen}
+
+/>
       </Stack.Navigator>
     </NavigationContainer>
   );

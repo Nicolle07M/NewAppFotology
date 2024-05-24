@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Dimensions, View, Text, ImageBackground, ScrollView, TouchableOpacity, Image } from 'react-native';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import PortafolioStyles from './GlobalStyles/PortafolioStyles';
+import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem, DrawerContentComponentProps } from '@react-navigation/drawer';
+import useViewModel from '../Profile/info/viewModel'
+import { ProfileInfoScreen } from '../Profile/info/ProfileInfo';
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -11,8 +14,78 @@ type RootStackParamList = {
 
 type PortafolioScreenRouteProp = RouteProp<RootStackParamList, 'PortafolioScreen'>;
 
-export default function PortafolioScreen() {
+
+const WelcomeViewModel = (props: DrawerContentComponentProps) => {
+  const { navigation } = props; // Desestructura navigation de las props
+  const { removeSession } = useViewModel();
+  
+  const handleLogout = () => {
+    removeSession();
+    navigation.navigate('HomeScreen');
+  };
+
+  const handleNavigateToCalificacion = () => {
+    navigation.navigate('CalificacionScreen');
+  };
+  const handleNavigateToContacto = () => {
+    navigation.navigate('ContactoScreen');
+  };
+  const handleNavigateToPerfil = () => {
+    navigation.navigate('PerfilScreen');
+  };
+  const handleNavigateToHome = () => {
+    navigation.navigate('WelcomeScreen');
+  };
+
+  
+
+  return (
+    <DrawerContentScrollView {...props} style={{ backgroundColor: 'white' }}>
+      <DrawerItemList {...props}  /> 
+      <DrawerItem
+        label="Bienvenidos"
+        onPress={handleNavigateToHome}
+        labelStyle={{ color: 'black' }}
+      />
+      <DrawerItem
+        label="Calificacion"
+        onPress={handleNavigateToCalificacion}
+        labelStyle={{ color: 'black' }}
+      />
+      <DrawerItem
+        label="Contacto"
+        onPress={handleNavigateToContacto}
+        labelStyle={{ color: 'black' }}
+      />
+      <DrawerItem
+        label="Perfil"
+        onPress={handleNavigateToPerfil}
+        labelStyle={{ color: 'black' }}
+      />
+      <DrawerItem
+        label="Cerrar Sesión"
+        onPress={handleLogout}
+        labelStyle={{ color: 'black' }}
+      />
+    </DrawerContentScrollView>
+  );
+}
+
+const Drawer = createDrawerNavigator();
+
+const PortafolioScreen = () => {
   const navigation = useNavigation();
+
+  return (
+    <Drawer.Navigator drawerContent={props => <WelcomeViewModel {...props} />}>
+      <Drawer.Screen name="Portafolio" component={WelcomeContent} />
+    </Drawer.Navigator>
+  );
+};
+
+const WelcomeContent = () => {
+  const navigation = useNavigation();
+
   const route = useRoute<PortafolioScreenRouteProp>();
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [showAdditionalBlock, setShowAdditionalBlock] = useState<boolean>(false);
@@ -62,26 +135,6 @@ export default function PortafolioScreen() {
     ));
   };
 
-  const navigateToContactoScreen = () => {
-    navigation.navigate('ContactoScreen' as never);
-  };
-
-  const navigatePerfilScreen = () => {
-    navigation.navigate('PerfilScreen' as never);
-  };
-
-  const navigatePortafolioScreen = () => {
-    navigation.navigate('PortafolioScreen' as never);
-  };
-
-  const navigateWelcomeScreen = () => {
-    navigation.navigate('WelcomeScreen' as never);
-  };
-
-  const navigateCalificacionScreen = () => {
-    navigation.navigate('CalificacionScreen' as never);
-  };
-
   const handleBottomButtonPress = () => {
     navigation.navigate('CategoriasScreen' as never);
   };
@@ -100,31 +153,9 @@ export default function PortafolioScreen() {
               <Text style={PortafolioStyles.text2}>¡Crea tus categorías y publica!</Text>
             </View>
           </View>
-          <View style={PortafolioStyles.header}>
-            <TouchableOpacity onPress={navigateWelcomeScreen}>
-              <Text style={PortafolioStyles.headerButton}>Home</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={navigatePortafolioScreen}>
-              <Text style={PortafolioStyles.headerButton}>Portafolio</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={navigateCalificacionScreen}>
-              <Text style={PortafolioStyles.headerButton}>Calificación</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={navigateToContactoScreen}>
-              <Text style={PortafolioStyles.headerButton}>Contacto</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={navigatePerfilScreen}>
-              <Text style={PortafolioStyles.headerButton}>Perfil</Text>
-            </TouchableOpacity>
-          </View>
         </ImageBackground>
         <View style={PortafolioStyles.content}>
           {selectedCategories.length > 0 && renderSelectedCategories()}
-          {/* Bottom Button */}
           <TouchableOpacity style={PortafolioStyles.bottomButton} onPress={handleBottomButtonPress}>
             <Text style={PortafolioStyles.bottomButtonText}>Crear categoría</Text>
           </TouchableOpacity>
@@ -133,3 +164,5 @@ export default function PortafolioScreen() {
     </ScrollView>
   );
 }
+
+export default PortafolioScreen;

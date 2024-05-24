@@ -2,56 +2,81 @@ import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { View, Text, StyleSheet, ImageBackground, ScrollView, TouchableOpacity, Image, Button} from 'react-native';
 import styles from './GlobalStyles/WelcomeStyle';
-import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
+import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem, DrawerContentComponentProps } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
-import { HomeScreen } from '../Home/home';
-import ContactoScreen from '../Fotografo/Contacto';
-import PerfilScreen from '../Fotografo/Perfil';
-import PortafolioScreen from '../Fotografo/Portafolio';
-import CategoriasScreen from '../Fotografo/Categorias';
-import CalificacionScreen from '../Fotografo/Calificacion';
+import useViewModel from '../Profile/info/viewModel'
+
+const WelcomeViewModel = (props: DrawerContentComponentProps) => {
+  const { navigation } = props; // Desestructura navigation de las props
+  const { removeSession } = useViewModel();
+  
+  const handleLogout = () => {
+    removeSession();
+    navigation.navigate('HomeScreen');
+  };
+
+  const handleNavigateToCalificacion = () => {
+    navigation.navigate('CalificacionScreen');
+  };
+  const handleNavigateToContacto = () => {
+    navigation.navigate('ContactoScreen');
+  };
+  const handleNavigateToPerfil = () => {
+    navigation.navigate('PerfilScreen');
+  };
+  const handleNavigateToPortafolio = () => {
+    navigation.navigate('PortafolioScreen');
+  };
+
+  
+
+  return (
+    <DrawerContentScrollView {...props} style={{ backgroundColor: 'white' }}>
+      <DrawerItemList {...props}  /> 
+      <DrawerItem
+        label="Portafolio"
+        onPress={handleNavigateToPortafolio}
+        labelStyle={{ color: 'black' }}
+      />
+      <DrawerItem
+        label="Calificacion"
+        onPress={handleNavigateToCalificacion}
+        labelStyle={{ color: 'black' }}
+      />
+      <DrawerItem
+        label="Contacto"
+        onPress={handleNavigateToContacto}
+        labelStyle={{ color: 'black' }}
+      />
+      <DrawerItem
+        label="Perfil"
+        onPress={handleNavigateToPerfil}
+        labelStyle={{ color: 'black' }}
+      />
+      <DrawerItem
+        label="Cerrar Sesión"
+        onPress={handleLogout}
+        labelStyle={{ color: 'black' }}
+      />
+    </DrawerContentScrollView>
+  );
+}
 
 const Drawer = createDrawerNavigator();
 
 const WelcomeScreen = () => {
   const navigation = useNavigation();
-  <NavigationContainer>
-  <Drawer.Navigator>
-    <Drawer.Screen name="WelcomeScreen" component={WelcomeScreen} />
-    <Drawer.Screen name="ContactoScreen" component={ContactoScreen} />
-    <Drawer.Screen name="PerfilScreen" component={PerfilScreen} />
-    <Drawer.Screen name="PortafolioScreen" component={PortafolioScreen} />
-    <Drawer.Screen name="CategoriasScreen" component={CategoriasScreen} />
-    <Drawer.Screen name="CalificacionScreen" component={CalificacionScreen} />
-  </Drawer.Navigator>
-</NavigationContainer>
 
+  return (
+    <Drawer.Navigator drawerContent={props => <WelcomeViewModel {...props} />} initialRouteName="Welcome">
+      <Drawer.Screen name="Bienvenidos" component={WelcomeContent} />
+    </Drawer.Navigator>
+  );
+};
 
-
-  const navigateToContactoScreen = () => {
-    navigation.navigate('ContactoScreen' as never);
-  };  
-
-  const navigatePerfilScreen = () => {
-    navigation.navigate('PerfilScreen' as never);
-  };  
-
-  const navigatePortafolioScreen = () => {
-    navigation.navigate('PortafolioScreen' as never);
-  };  
-  const navigateCategoriasScreen = () => {
-    navigation.navigate('CategoriasScreen' as never);
-  };  
-
-
-  const navigateWelcomeScreen = () => {
-    navigation.navigate('WelcomeScreen' as never);
-  };
-  const navigateCalificacionScreen = () => {
-    navigation.navigate('CalificacionScreen' as never);
-  };
-
+const WelcomeContent = () => {
+  const navigation = useNavigation();
   return (
     
     <ScrollView contentContainerStyle={styles.container}>
@@ -67,28 +92,6 @@ const WelcomeScreen = () => {
               <Text style={styles.text}>¡Bienvenido!</Text>
               <Text style={styles.text2}>Fotology</Text>
             </View>
-          </View>
-          {/* Header */}
-          <View style={styles.header}>
-          <TouchableOpacity onPress={navigateWelcomeScreen}>
-              <Text style={styles.headerButton}>Home</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress= {navigatePortafolioScreen}>
-              <Text style={styles.headerButton}>Portafolio</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={navigateCalificacionScreen}>
-              <Text style={styles.headerButton}>Calificación</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={navigateToContactoScreen}>
-              <Text style={styles.headerButton}>Contacto</Text>
-            </TouchableOpacity>
-            
-            <TouchableOpacity onPress={navigatePerfilScreen}>
-              <Text style={styles.headerButton}>Perfil</Text>
-            </TouchableOpacity>
           </View>
         </ImageBackground>
         <Text style={styles.description2}>
