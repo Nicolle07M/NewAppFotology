@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-const WelcomeStyles = StyleSheet.create({
+const FotografosStyles = StyleSheet.create({
     container: {
       flexGrow: 1,
       justifyContent: 'center',
@@ -11,6 +11,7 @@ const WelcomeStyles = StyleSheet.create({
       alignItems: 'center',
       overflow: 'hidden',
       marginTop: 0, // Ajusta el margen superior aquí
+     
     },
     header: {
       flexDirection: 'row',
@@ -63,7 +64,8 @@ const WelcomeStyles = StyleSheet.create({
       alignItems: 'center',
     },
     ratingButton: {
-      marginRight: 2,
+      marginRight: 0,
+      marginBottom: 40,
     },
     comentarioContainer: {
       flexDirection: 'row',
@@ -76,8 +78,10 @@ const WelcomeStyles = StyleSheet.create({
       width: '87%',
     },
     comentario: {
-      fontSize: 14,
-      marginBottom: 5,
+        fontSize: 14,
+        marginBottom: 5,
+        textAlign: 'center', // Centra el texto horizontalmente
+        textAlignVertical: 'center', // Centra el texto verticalmente
     },
     fotoContainer: {
       width: 100,
@@ -187,10 +191,16 @@ const WelcomeStyles = StyleSheet.create({
     searchButton2: {
       backgroundColor: 'orange', // Color del botón de búsqueda
       paddingHorizontal: 10,
-      paddingVertical: 10,
+      paddingVertical: 5,
       borderRadius: 5,
       marginBottom: 9,
-      marginRight: 10,
+      marginRight: 90,
+      marginLeft: 'auto', // Centra el botón horizontalmente
+      elevation: 5, // Agrega efecto 3D con elevación
+  shadowColor: 'black', // Color de la sombra
+  shadowOpacity: 0.3, // Opacidad de la sombra
+  shadowRadius: 5, // Radio de la sombra
+  shadowOffset: { width: 0, height: 2 }, // Desplazamiento de la sombra
     },
     searchButtonText: {
       color: 'white', // Color del texto del botón de búsqueda
@@ -202,4 +212,4 @@ const WelcomeStyles = StyleSheet.create({
     
   });
 
-export default WelcomeStyles;
+export default FotografosStyles;
