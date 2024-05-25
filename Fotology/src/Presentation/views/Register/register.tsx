@@ -3,17 +3,17 @@ import { View, Text, TouchableOpacity, ImageBackground, Image, ToastAndroid } fr
 import styles from './RegisterStyle';
 import CustomTextInput from '../../components/CustomTextInputRegister';
 import useViewModel from './viewModel';
+import ModalPickImage from '../../components/ModalPickImage';
 
 export const RegisterScreen = () => {
-  const { username, email, adress, password, confirmPassword, onChange, register, errorMessage  } = useViewModel();
-    
-  useEffect(() => {
+  const { username, email, adress, image, password, confirmPassword, onChange, register, errorMessage, pickImage, takePhoto } = useViewModel();
+  const [modalVisible, setModalVisible] = useState(false);
 
-    if (errorMessage !== '')
-    
-    ToastAndroid.show(errorMessage, ToastAndroid.LONG)
-    
-    }, [errorMessage]);
+  useEffect(() => {
+    if (errorMessage !== '') {
+      ToastAndroid.show(errorMessage, ToastAndroid.LONG);
+    }
+  }, [errorMessage]);
 
   return (
     <View style={styles.container}>
@@ -25,10 +25,19 @@ export const RegisterScreen = () => {
         <View style={styles.overlay} />
         <View style={styles.form}>
           <Text style={styles.formText}>¡Regístrate aquí!</Text>
-          <Image
-            source={require('../../../../assets/user_menu.png')}
-            style={styles.logoImage}
-          />
+          <TouchableOpacity onPress={() => setModalVisible(true)}>
+            {image === '' ? (
+              <Image
+                source={require('../../../../assets/user_menu.png')}
+                style={styles.logoImage}
+              />
+            ) : (
+              <Image
+                source={{ uri: image }}
+                style={styles.logoImage}
+              />
+            )}
+          </TouchableOpacity>
           <CustomTextInput
             placeholder='Nombre de usuario'
             keyboardType='default'
@@ -71,6 +80,18 @@ export const RegisterScreen = () => {
           </TouchableOpacity>
         </View>
       </ImageBackground>
+      <ModalPickImage
+
+openGallery={pickImage}
+
+openCamera={takePhoto}
+
+setModalUseState={setModalVisible}
+
+modalUseState={modalVisible}
+
+/>
+
     </View>
   );
 }
