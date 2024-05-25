@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity, ImageBackground, Image, ToastAndroid } from 'react-native';
+import React, { useState,useEffect } from 'react';
+import { View, Text, TouchableOpacity, ImageBackground, Image, ToastAndroid, Alert } from 'react-native';
 import styles from './RegisterStyle';
 import CustomTextInput from '../../components/CustomTextInputRegister';
 import useViewModel from './viewModel';
 import ModalPickImage from '../../components/ModalPickImage';
+import { RegisterAuthUseCase } from '../../../Domain/useCases/auth/RegisterAuth';
+import * as ImagePicker from "expo-image-picker";
 
-export const RegisterScreen = () => {
+const RegisterScreen = () => {
   const { username, email, adress, image, password, confirmPassword, onChange, register, errorMessage, pickImage, takePhoto } = useViewModel();
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -81,19 +83,14 @@ export const RegisterScreen = () => {
         </View>
       </ImageBackground>
       <ModalPickImage
-
-openGallery={pickImage}
-
-openCamera={takePhoto}
-
-setModalUseState={setModalVisible}
-
-modalUseState={modalVisible}
-
-/>
-
+        openGallery={pickImage}
+        openCamera={takePhoto}
+        setModalUseState={setModalVisible}
+        modalUseState={modalVisible}
+      />
     </View>
   );
 }
 
 export default RegisterScreen;
+
