@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, ImageBackground, Image, ToastAndroid, Alert } from 'react-native';
 import styles from './RegisterStyle';
 import CustomTextInput from '../../components/CustomTextInputRegister';
@@ -6,16 +6,22 @@ import useViewModel from './viewModel';
 import ModalPickImage from '../../components/ModalPickImage';
 import { RegisterAuthUseCase } from '../../../Domain/useCases/auth/RegisterAuth';
 import * as ImagePicker from "expo-image-picker";
+import { useNavigation } from '@react-navigation/native';
 
 const RegisterScreen = () => {
   const { username, email, adress, image, password, confirmPassword, onChange, register, errorMessage, pickImage, takePhoto } = useViewModel();
   const [modalVisible, setModalVisible] = useState(false);
+  const navigation = useNavigation(); // Use useNavigation to get the navigation instance
 
   useEffect(() => {
     if (errorMessage !== '') {
       ToastAndroid.show(errorMessage, ToastAndroid.LONG);
     }
   }, [errorMessage]);
+
+  const navigateToLogin = () => {
+    navigation.navigate('LoginFormScreen'); // Use the correct navigation method
+  };
 
   return (
     <View style={styles.container}>
@@ -80,6 +86,12 @@ const RegisterScreen = () => {
           <TouchableOpacity style={styles.buttonContainer} onPress={register}>
             <Text style={styles.buttonText}>Registrarse</Text>
           </TouchableOpacity>
+          <View style={styles.registerContainer}>
+            <Text style={styles.registerText}>Ahora!</Text>
+            <TouchableOpacity style={styles.registerButton} onPress={navigateToLogin}>
+              <Text style={styles.registerButtonText}>Iniciar Sesion</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </ImageBackground>
       <ModalPickImage
@@ -93,4 +105,3 @@ const RegisterScreen = () => {
 }
 
 export default RegisterScreen;
-

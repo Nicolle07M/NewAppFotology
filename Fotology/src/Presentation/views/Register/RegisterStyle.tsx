@@ -25,6 +25,9 @@ const RegisterStyles = StyleSheet.create({
     paddingVertical: 50,
     alignItems: 'center',
   },
+  loginButtonContainer: {
+    marginTop: 10, // Reduce marginTop for login button to 10
+  },
   formText: {
     fontSize: 20,
     marginBottom: 30,
@@ -55,6 +58,25 @@ const RegisterStyles = StyleSheet.create({
     width: 100,
     height: 100,
     marginBottom: 20,
+  },
+  registerContainer: {
+    flexDirection: 'row',
+    marginTop: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  registerText: {
+    color: 'gray',
+    fontSize: 16,
+  },
+  registerButton: {
+    marginLeft: 5,
+  },
+  registerButtonText: {
+    color: 'orange',
+    fontSize: 16,
+    fontWeight: 'bold',
+    textDecorationLine: 'underline',
   },
 });
 
