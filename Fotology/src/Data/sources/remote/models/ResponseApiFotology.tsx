@@ -4,6 +4,5 @@ export interface ResponseApiFotology {
     message: string;
     data?: any;
     error? : any;
-
-
+    
 }
