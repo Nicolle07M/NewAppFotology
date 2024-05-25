@@ -3,31 +3,81 @@ import { StyleSheet, View, Image, TextInput, TouchableOpacity, Text, Alert, Keyb
 import * as ImagePicker from 'expo-image-picker';
 import { useNavigation } from '@react-navigation/native'; 
 import styles from './GlobalStyles/PerfilStyle';
-
+import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem, DrawerContentComponentProps } from '@react-navigation/drawer';
+import useViewModel from '../Profile/info/viewModel'
 const { height } = Dimensions.get('window');
 
-export const PerfilScreen = () => {
-  const navigation = useNavigation();
+const WelcomeViewModel = (props: DrawerContentComponentProps) => {
+  const { navigation } = props; // Desestructura navigation de las props
+  const { removeSession } = useViewModel();
+  
+  const handleLogout = () => {
+    removeSession();
+    navigation.navigate('HomeScreen');
+  };
 
-  const navigateToContactoScreen = () => {
+  const handleNavigateToCalificacion = () => {
+    navigation.navigate('CalificacionScreen');
+  };
+  const handleNavigateToContacto = () => {
     navigation.navigate('ContactoScreen');
   };
-
-  const navigatePerfilScreen = () => {
-    navigation.navigate('PerfilScreen');
+  const handleNavigateToHome = () => {
+    navigation.navigate('WelcomeScreen');
   };
-
-  const navigatePortafolioScreen = () => {
+  
+  const handleNavigateToPortafolio = () => {
     navigation.navigate('PortafolioScreen');
   };
 
-  const navigateWelcomeScreen = () => {
-    navigation.navigate('WelcomeScreen');
-  };
+  
 
-  const navigateCalificacionScreen = () => {
-    navigation.navigate('CalificacionScreen');
-  };
+  return (
+    <DrawerContentScrollView {...props} style={{ backgroundColor: 'white' }}>
+      <DrawerItemList {...props}  /> 
+      <DrawerItem
+        label="Bienvenidos"
+        onPress={handleNavigateToHome}
+        labelStyle={{ color: 'black' }}
+      />
+      <DrawerItem
+        label="Calificacion"
+        onPress={handleNavigateToCalificacion}
+        labelStyle={{ color: 'black' }}
+      />
+      <DrawerItem
+        label="Contacto"
+        onPress={handleNavigateToContacto}
+        labelStyle={{ color: 'black' }}
+      />
+      <DrawerItem
+        label="Portafolio"
+        onPress={handleNavigateToPortafolio}
+        labelStyle={{ color: 'black' }}
+      />
+      <DrawerItem
+        label="Cerrar Sesión"
+        onPress={handleLogout}
+        labelStyle={{ color: 'black' }}
+      />
+    </DrawerContentScrollView>
+  );
+}
+
+const Drawer = createDrawerNavigator();
+
+const PerfilScreen = () => {
+  const navigation = useNavigation();
+
+  return (
+    <Drawer.Navigator drawerContent={props => <WelcomeViewModel {...props} />}>
+      <Drawer.Screen name="Perfil" component={WelcomeContent} />
+    </Drawer.Navigator>
+  );
+};
+
+const WelcomeContent = () => {
+  const navigation = useNavigation();
 
   const [description, setDescription] = useState('');
   const [editMode, setEditMode] = useState(false);
@@ -143,27 +193,7 @@ export const PerfilScreen = () => {
         enabled
       >
         <View style={styles.backgroundContainer}>
-          <View style={styles.header}>
-            <TouchableOpacity onPress={navigateWelcomeScreen}>
-              <Text style={styles.headerButton}>Home</Text>
-            </TouchableOpacity>
 
-            <TouchableOpacity onPress={navigatePortafolioScreen}>
-              <Text style={styles.headerButton}>Portafolio</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={navigateCalificacionScreen}>
-              <Text style={styles.headerButton}>Calificación</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={navigateToContactoScreen}>
-              <Text style={styles.headerButton}>Contacto</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={navigatePerfilScreen}>
-              <Text style={styles.headerButton}>Perfil</Text>
-            </TouchableOpacity>
-          </View>
           <Image
              source={require('../../../../assets/Fondo1.jpg')}
              blurRadius={5}

@@ -1,19 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity, ImageBackground, Image, ToastAndroid } from 'react-native';
+import React, { useState,useEffect } from 'react';
+import { View, Text, TouchableOpacity, ImageBackground, Image, ToastAndroid, Alert } from 'react-native';
 import styles from './RegisterStyle';
 import CustomTextInput from '../../components/CustomTextInputRegister';
 import useViewModel from './viewModel';
+import ModalPickImage from '../../components/ModalPickImage';
+import { RegisterAuthUseCase } from '../../../Domain/useCases/auth/RegisterAuth';
+import * as ImagePicker from "expo-image-picker";
 
-export const RegisterScreen = () => {
-  const { username, email, adress, password, confirmPassword, onChange, register, errorMessage  } = useViewModel();
-    
+const RegisterScreen = () => {
+  const { username, email, adress, image, password, confirmPassword, onChange, register, errorMessage, pickImage, takePhoto } = useViewModel();
+  const [modalVisible, setModalVisible] = useState(false);
+
   useEffect(() => {
-
-    if (errorMessage !== '')
-    
-    ToastAndroid.show(errorMessage, ToastAndroid.LONG)
-    
-    }, [errorMessage]);
+    if (errorMessage !== '') {
+      ToastAndroid.show(errorMessage, ToastAndroid.LONG);
+    }
+  }, [errorMessage]);
 
   return (
     <View style={styles.container}>
@@ -25,10 +27,19 @@ export const RegisterScreen = () => {
         <View style={styles.overlay} />
         <View style={styles.form}>
           <Text style={styles.formText}>¡Regístrate aquí!</Text>
-          <Image
-            source={require('../../../../assets/user_menu.png')}
-            style={styles.logoImage}
-          />
+          <TouchableOpacity onPress={() => setModalVisible(true)}>
+            {image === '' ? (
+              <Image
+                source={require('../../../../assets/user_menu.png')}
+                style={styles.logoImage}
+              />
+            ) : (
+              <Image
+                source={{ uri: image }}
+                style={styles.logoImage}
+              />
+            )}
+          </TouchableOpacity>
           <CustomTextInput
             placeholder='Nombre de usuario'
             keyboardType='default'
@@ -71,8 +82,15 @@ export const RegisterScreen = () => {
           </TouchableOpacity>
         </View>
       </ImageBackground>
+      <ModalPickImage
+        openGallery={pickImage}
+        openCamera={takePhoto}
+        setModalUseState={setModalVisible}
+        modalUseState={modalVisible}
+      />
     </View>
   );
 }
 
 export default RegisterScreen;
+

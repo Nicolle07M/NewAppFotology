@@ -3,28 +3,83 @@ import { View, Text, StyleSheet, TouchableOpacity, Image, Alert, ScrollView, Ima
 import styles from './GlobalStyles/CalificacionStyles'
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons'; // Importa el icono de Ionicons
+import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem, DrawerContentComponentProps } from '@react-navigation/drawer';
+import useViewModel from '../Profile/info/viewModel'
 
-const CalificacionScreen = () => {
 
-  const navigation = useNavigation(); // Obtener el objeto de navegación
+const WelcomeViewModel = (props: DrawerContentComponentProps) => {
+  const { navigation } = props; // Desestructura navigation de las props
+  const { removeSession } = useViewModel();
   
-  const navigateToContactoScreen = () => {
-    navigation.navigate('ContactoScreen');
-  };  
-
-  const navigatePerfilScreen = () => {
-    navigation.navigate('PerfilScreen');
-  };  
-
-  const navigatePortafolioScreen = () => {
-    navigation.navigate('PortafolioScreen');
-  };  
-  const navigateWelcomeScreen = () => {
-    navigation.navigate('WelcomeScreen');
+  const handleLogout = () => {
+    removeSession();
+    navigation.navigate('HomeScreen');
   };
-  const navigateCalificacionScreen = () => {
+
+  const handleNavigateToCalificacion = () => {
     navigation.navigate('CalificacionScreen');
   };
+  const handleNavigateToContacto = () => {
+    navigation.navigate('ContactoScreen');
+  };
+  const handleNavigateToPerfil = () => {
+    navigation.navigate('PerfilScreen');
+  };
+  const handleNavigateToPortafolio = () => {
+    navigation.navigate('PortafolioScreen');
+  };
+  const handleNavigateToHome = () => {
+    navigation.navigate('WelcomeScreen');
+  };
+
+  
+
+  return (
+    <DrawerContentScrollView {...props} style={{ backgroundColor: 'white' }}>
+      <DrawerItemList {...props}  /> 
+      <DrawerItem
+        label="Bienvenidos"
+        onPress={handleNavigateToHome}
+        labelStyle={{ color: 'black' }}
+      />
+      <DrawerItem
+        label="Portafolio"
+        onPress={handleNavigateToPortafolio}
+        labelStyle={{ color: 'black' }}
+      />
+      <DrawerItem
+        label="Contacto"
+        onPress={handleNavigateToContacto}
+        labelStyle={{ color: 'black' }}
+      />
+      <DrawerItem
+        label="Perfil"
+        onPress={handleNavigateToPerfil}
+        labelStyle={{ color: 'black' }}
+      />
+      <DrawerItem
+        label="Cerrar Sesión"
+        onPress={handleLogout}
+        labelStyle={{ color: 'black' }}
+      />
+    </DrawerContentScrollView>
+  );
+}
+
+const Drawer = createDrawerNavigator();
+
+const CalificacionScreen = () => {
+  const navigation = useNavigation();
+
+  return (
+    <Drawer.Navigator drawerContent={props => <WelcomeViewModel {...props} />} >
+      <Drawer.Screen name="Calificacion" component={WelcomeContent} />
+    </Drawer.Navigator>
+  );
+};
+
+const WelcomeContent = () => {
+  const navigation = useNavigation();
 
 
 
@@ -43,28 +98,6 @@ const CalificacionScreen = () => {
             <Text style={styles.text}>Fotógrafo</Text>
             <Text style={styles.text2}>Estas son tus calificaciones</Text>
           </View>
-        </View>
-        {/* Header */}
-        <View style={styles.header}>
-        <TouchableOpacity onPress={navigateWelcomeScreen}>
-            <Text style={styles.headerButton}>Home</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity onPress= {navigatePortafolioScreen}>
-            <Text style={styles.headerButton}>Portafolio</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity onPress={navigateCalificacionScreen}>
-            <Text style={styles.headerButton}>Calificación</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity onPress={navigateToContactoScreen}>
-            <Text style={styles.headerButton}>Contacto</Text>
-          </TouchableOpacity>
-          
-          <TouchableOpacity onPress={navigatePerfilScreen}>
-            <Text style={styles.headerButton}>Perfil</Text>
-          </TouchableOpacity>
         </View>
       </ImageBackground>
       </View>
