@@ -28,10 +28,6 @@ export const LoginFormScreen = ({ navigation, route }: Props) => {
     }
   }, [fotografo]);
 
-  const navigateToWelcomeScreen = () => {
-    navigation.navigate('WelcomeScreen' as never);
-  };  
-
 
   return (
     <View style={styles.container}>
@@ -75,9 +71,6 @@ export const LoginFormScreen = ({ navigation, route }: Props) => {
             login();
           }}>
             <Text style={styles.buttonText}>Iniciar Sesión</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.additionalButtonContainer} onPress={navigateToWelcomeScreen}>
-            <Text style={styles.additionalButtonText}>Inicio</Text>
           </TouchableOpacity>
         </View>
       </ImageBackground>
