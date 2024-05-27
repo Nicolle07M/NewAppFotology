@@ -14,6 +14,8 @@ import CalificacionScreen from './src/Presentation/views/Fotografo/Calificacion'
 import CategoriaDetalleScreen from './src/Presentation/views/Fotografo/CategoriaDetalleScreen';
 import LoginUserScreen from './src//Presentation/views/Home/LoginUserScreen';
 import WelcomeClienteScreen from './src//Presentation/views/Cliente/WelcomeCliente';
+import ContactoClienteScreen from './src/Presentation/views/Cliente/ContactoCliente';
+import FotografosClienteScreen from './src/Presentation/views/Cliente/FotografosCliente';
 import { ProfileInfoScreen } from './src/Presentation/views/Profile/info/ProfileInfo';
 import PaisajesScreen from './src/Presentation/views/Fotografo/Paisajes';
 import RetratosScreen from './src/Presentation/views/Fotografo/Retratos';
@@ -27,6 +29,7 @@ import PublicacionMScreen from './src/Presentation/views/Fotografo/PublicacionM'
 import PublicacionAScreen from './src/Presentation/views/Fotografo/PublicacionA';
 import PublicacionVScreen from './src/Presentation/views/Fotografo/PublicacionV';
 import PublicacionEScreen from './src/Presentation/views/Fotografo/PublicacionE';
+
 
 export type RootStackParamList = {
 
@@ -42,6 +45,8 @@ export type RootStackParamList = {
   CategoriaDetalleScreen: undefined;
   LoginUserScreen: undefined;
   WelcomeClienteScreen: undefined;
+  ContactoClienteScreen: undefined;
+  FotografosClienteScreen: undefined;
   ProfileInfoScreen: undefined;
   PaisajesScreen: undefined;
   RetratosScreen: undefined;
@@ -79,6 +84,7 @@ const App = () => {
         <Stack.Screen name="CategoriaDetalleScreen" component={CategoriaDetalleScreen} />
         <Stack.Screen name="LoginUserScreen" component={LoginUserScreen} />
         <Stack.Screen name="WelcomeClienteScreen" component={WelcomeClienteScreen} />
+<<<<<<< HEAD
         <Stack.Screen name="ProfileInfoScreen" component={ProfileInfoScreen}/>
         <Stack.Screen name="PaisajesScreen" component={PaisajesScreen}/> 
         <Stack.Screen name="RetratosScreen" component={RetratosScreen}/>
@@ -92,8 +98,14 @@ const App = () => {
         <Stack.Screen name="PublicacionAScreen" component={PublicacionAScreen}/>
         <Stack.Screen name="PublicacionVScreen" component={PublicacionVScreen}/>
         <Stack.Screen name="PublicacionEScreen" component={PublicacionEScreen}
+=======
+        <Stack.Screen name="ContactoClienteScreen" component={ContactoClienteScreen} />
+        <Stack.Screen name="FotografosClienteScreen" component={FotografosClienteScreen} />
+        <Stack.Screen name="ProfileInfoScreen" component={ProfileInfoScreen}
+>>>>>>> 264b3992100aee6d307361ae5ded39771407170a
 
 />
+
       </Stack.Navigator>
     </NavigationContainer>
   );

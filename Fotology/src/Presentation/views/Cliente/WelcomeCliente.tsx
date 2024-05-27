@@ -13,17 +13,13 @@ const WelcomeClienteScreen = () => {
   const navigation = useNavigation();
 
 
-  const navigateToContactoScreen = () => {
-    navigation.navigate('ContactoScreen' as never);
+  const navigateToContactoClienteScreen = () => {
+    navigation.navigate('ContactoClienteScreen' as never);
   };  
 
-  const navigatePerfilScreen = () => {
-    navigation.navigate('PerfilScreen' as never);
-  };  
-
-  const navigatePortafolioScreen = () => {
-    navigation.navigate('PortafolioScreen' as never);
-  };  
+  const navigateFotografosClienteScreen = () => {
+    navigation.navigate('FotografosClienteScreen' as never);
+  };
 
   const navigateWelcomeClienteScreen = () => {
     navigation.navigate('WelcomeClienteScreen' as never);
@@ -46,7 +42,7 @@ const WelcomeClienteScreen = () => {
         >
           <View style={styles.overlay}>
             <View style={styles.textContainer}>
-              <Text style={styles.text}>¡Hola Cliente!</Text>
+              <Text style={styles.text}>¡Hola Mario!</Text>
               <Text style={styles.text2}>Esto es Fotology</Text>
             </View>
           </View>
@@ -54,6 +50,14 @@ const WelcomeClienteScreen = () => {
           <View style={styles.header}>
           <TouchableOpacity onPress={navigateWelcomeClienteScreen}>
               <Text style={styles.headerButton}>Home</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={navigateFotografosClienteScreen}>
+              <Text style={styles.headerButton}>Fotografos</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={navigateToContactoClienteScreen}>
+              <Text style={styles.headerButton}>Contacto</Text>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={handleLoginPress}>
@@ -95,8 +99,8 @@ const WelcomeClienteScreen = () => {
     <View style={styles.container}>
       <View style={styles.comentarioContainer}>
         <View style={styles.fotoContainer}>
-         <Image source={require('../../../../assets/foto2.jpg')} style={styles.foto}/> 
-          <View style={styles.foto}><Text style={styles.username}>Andres C.</Text></View>
+         <Image source={require('../../../../assets/foto5.jpg')} style={styles.foto}/> 
+          <View style={styles.foto}><Text style={styles.username}>Alexis M.</Text></View>
         </View>    
         <View style={styles.infoContainer}>
           <View style={styles.ratingContainer}>

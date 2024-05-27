@@ -66,8 +66,7 @@ export const LoginFormScreen = ({ navigation, route }: Props) => {
               secureTextEntry={true}
             />
           </View>
-          <TouchableOpacity style={styles.buttonContainer} onPress={() => {
-            console.log('Login button pressed');
+          <TouchableOpacity style={styles.buttonContainer} onPress={() => { 
             login();
           }}>
             <Text style={styles.buttonText}>Iniciar Sesión</Text>

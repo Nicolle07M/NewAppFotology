@@ -113,12 +113,8 @@ const LoginStyles = StyleSheet.create({
         shadowRadius: 5,
         elevation: 6,
     },
-    additionalButtonText: {
-        color: 'white',
-        fontSize: 18,
-        fontWeight: 'bold',
-        textAlign: 'center',
-    },
+    
+      
 });
 
 export default LoginStyles;
