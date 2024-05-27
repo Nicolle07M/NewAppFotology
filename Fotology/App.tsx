@@ -17,6 +17,7 @@ import WelcomeClienteScreen from './src//Presentation/views/Cliente/WelcomeClien
 import ContactoClienteScreen from './src/Presentation/views/Cliente/ContactoCliente';
 import FotografosClienteScreen from './src/Presentation/views/Cliente/FotografosCliente';
 import { ProfileInfoScreen } from './src/Presentation/views/Profile/info/ProfileInfo';
+import RegisterClienteScreen from './src/Presentation/views/Register/registerCliente';
 import MadeScreen from './src/Presentation/views/Cliente/made';
 import PaisajesScreen from './src/Presentation/views/Fotografo/Paisajes';
 import RetratosScreen from './src/Presentation/views/Fotografo/Retratos';
@@ -49,8 +50,8 @@ export type RootStackParamList = {
   ContactoClienteScreen: undefined;
   FotografosClienteScreen: undefined;
   ProfileInfoScreen: undefined;
+  RegisterClienteScreen: undefined;
   MadeScreen: undefined;
-
   PaisajesScreen: undefined;
   RetratosScreen: undefined;
   ModaScreen: undefined;
@@ -65,7 +66,6 @@ export type RootStackParamList = {
   PublicacionEScreen: undefined;
   };
 const Stack = createStackNavigator <RootStackParamList>();
-
 
 
 const App = () => {
@@ -87,7 +87,6 @@ const App = () => {
         <Stack.Screen name="CategoriaDetalleScreen" component={CategoriaDetalleScreen} />
         <Stack.Screen name="LoginUserScreen" component={LoginUserScreen} />
         <Stack.Screen name="WelcomeClienteScreen" component={WelcomeClienteScreen} />
-
         <Stack.Screen name="ProfileInfoScreen" component={ProfileInfoScreen}/>
         <Stack.Screen name="PaisajesScreen" component={PaisajesScreen}/> 
         <Stack.Screen name="RetratosScreen" component={RetratosScreen}/>
@@ -101,9 +100,11 @@ const App = () => {
         <Stack.Screen name="PublicacionAScreen" component={PublicacionAScreen}/>
         <Stack.Screen name="PublicacionVScreen" component={PublicacionVScreen}/>
         <Stack.Screen name="PublicacionEScreen" component={PublicacionEScreen}/>
-
         <Stack.Screen name="ContactoClienteScreen" component={ContactoClienteScreen} />
         <Stack.Screen name="FotografosClienteScreen" component={FotografosClienteScreen} />
+
+
+        <Stack.Screen name="RegisterClienteScreen" component={RegisterClienteScreen} />
         <Stack.Screen name="MadeScreen" component={MadeScreen}/>
 
 

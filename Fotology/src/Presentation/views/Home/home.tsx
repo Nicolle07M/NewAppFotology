@@ -16,6 +16,10 @@ export const HomeScreen = () => {
     navigation.navigate('RegisterScreen');
   };
 
+  const handleRegisterClientePress = () => {
+    navigation.navigate('RegisterClienteScreen');
+  };
+
   return (
     <View style={styles.container}>
       <LinearGradient
@@ -40,11 +44,16 @@ export const HomeScreen = () => {
           </TouchableOpacity>
           
           <View style={styles.registerContainer}>
-            <Text style={styles.registerText}>¿No tienes cuenta?</Text>
+            <Text style={styles.registerText}>¿No tienes cuenta? Registrate!</Text>
             <TouchableOpacity style={styles.registerButton} onPress={handleRegisterPress}>
-              <Text style={styles.registerButtonText}>Regístrate</Text>
+              <Text style={styles.registerButtonText}>Fotografo</Text>
+            </TouchableOpacity>
+            <Text style={styles.registerText}> o</Text>
+            <TouchableOpacity style={styles.registerButton} onPress={handleRegisterClientePress}>
+              <Text style={styles.registerButtonText}>Cliente</Text>
             </TouchableOpacity>
           </View>
+          
         </ImageBackground>
       </LinearGradient>
     </View>
