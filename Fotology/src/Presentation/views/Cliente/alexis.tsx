@@ -177,7 +177,7 @@ const AlexisScreen = () => {
           <Text style={styles.comentario2}>
             Increíble tu trabajo, me encantó mucho. Muy recomendado, gracias por captar los mejores momentos de mi vida.
           </Text>
-          <Text style={styles.tiempo}>Hace 5 días</Text>
+          <Text style={styles.tiempo}>Hace 1 minuto</Text>
         </View>
       </View>
     </View>
@@ -204,7 +204,7 @@ const AlexisScreen = () => {
           <Text style={styles.comentario2}>
             Increíble tu trabajo, me encantó mucho. Muy recomendado, gracias por captar los mejores momentos de mi vida.
           </Text>
-          <Text style={styles.tiempo}>Hace 7 días</Text>
+          <Text style={styles.tiempo}>Hace 25 minnutos</Text>
         </View>
       </View>
     </View>
@@ -231,7 +231,7 @@ const AlexisScreen = () => {
           <Text style={styles.comentario2}>
             Increíble tu trabajo, me encantó mucho. Muy recomendado, gracias por captar los mejores momentos de mi vida.
           </Text>
-          <Text style={styles.tiempo}>Hace 4 meses</Text>
+          <Text style={styles.tiempo}>Hace 2 horas</Text>
         </View>
       </View>
     </View>
@@ -261,7 +261,7 @@ const AlexisScreen = () => {
           <Text style={styles.comentario2}>
           Muy buen servicio en general. Las fotos quedaron geniales, aunque hubo algunos pequeños detalles que podrían mejorar.
           </Text>
-          <Text style={styles.tiempo}>Hace 3 minutos</Text>
+          <Text style={styles.tiempo}>Hace 3 horas</Text>
         </View>
       </View>
     </View>
@@ -290,7 +290,7 @@ const AlexisScreen = () => {
           <Text style={styles.comentario2}>
             Increíble tu trabajo, me encantó mucho. Muy recomendado, gracias por captar los mejores momentos de mi vida.
           </Text>
-          <Text style={styles.tiempo}>Hace 59 minutos</Text>
+          <Text style={styles.tiempo}>Hace 5 días</Text>
         </View>
       </View>
     </View>
@@ -319,7 +319,7 @@ const AlexisScreen = () => {
           <Text style={styles.comentario2}>
             Increíble tu trabajo, me encantó mucho. Muy recomendado, gracias por captar los mejores momentos de mi vida.
           </Text>
-          <Text style={styles.tiempo}>Hace 15 horas</Text>
+          <Text style={styles.tiempo}>Hace 7 días</Text>
         </View>
       </View>
     </View>
@@ -346,7 +346,7 @@ const AlexisScreen = () => {
           <Text style={styles.comentario2}>
             Increíble tu trabajo, me encantó mucho. Muy recomendado, gracias por captar los mejores momentos de mi vida.
           </Text>
-          <Text style={styles.tiempo}>Hace 23 horas</Text>
+          <Text style={styles.tiempo}>Hace 2 meses</Text>
         </View>
       </View>
     </View>

@@ -8,5 +8,4 @@ const ApiFotology = axios.create({
     }
 
 });
-
 export {ApiFotology};

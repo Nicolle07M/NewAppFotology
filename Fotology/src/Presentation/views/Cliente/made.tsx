@@ -17,6 +17,10 @@ const MadeScreen = () => {
   
   const navigation = useNavigation();
 
+  const navigateEventoScreen = () => {
+    navigation.navigate('EventoScreen' as never);
+  };
+
   const handleRating = (value) => {
     setRating(value);
   };
@@ -112,7 +116,7 @@ const MadeScreen = () => {
   <View style={styles.fotoContainer}>
     <Image source={require('../../../../assets/event.jpg')} style={styles.foto}/> 
     <View style={styles.foto}>
-      <TouchableOpacity style={styles.searchButton2}>
+      <TouchableOpacity onPress={navigateEventoScreen} style={styles.searchButton2}>
         <Text style={styles.searchButtonText}>Eventos</Text>
       </TouchableOpacity>
     </View>
