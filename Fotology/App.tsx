@@ -15,6 +15,18 @@ import CategoriaDetalleScreen from './src/Presentation/views/Fotografo/Categoria
 import LoginUserScreen from './src//Presentation/views/Home/LoginUserScreen';
 import WelcomeClienteScreen from './src//Presentation/views/Cliente/WelcomeCliente';
 import { ProfileInfoScreen } from './src/Presentation/views/Profile/info/ProfileInfo';
+import PaisajesScreen from './src/Presentation/views/Fotografo/Paisajes';
+import RetratosScreen from './src/Presentation/views/Fotografo/Retratos';
+import ModaScreen from './src/Presentation/views/Fotografo/Moda';
+import AlimentosScreen from './src/Presentation/views/Fotografo/Alimentos';
+import ViajesScreen from './src/Presentation/views/Fotografo/Viajes';
+import EventosScreen from './src/Presentation/views/Fotografo/Eventos';
+import PublicacionPScreen from './src/Presentation/views/Fotografo/PublicacionP';
+import PublicacionRScreen from './src/Presentation/views/Fotografo/PublicacionR';
+import PublicacionMScreen from './src/Presentation/views/Fotografo/PublicacionM';
+import PublicacionAScreen from './src/Presentation/views/Fotografo/PublicacionA';
+import PublicacionVScreen from './src/Presentation/views/Fotografo/PublicacionV';
+import PublicacionEScreen from './src/Presentation/views/Fotografo/PublicacionE';
 
 export type RootStackParamList = {
 
@@ -31,6 +43,18 @@ export type RootStackParamList = {
   LoginUserScreen: undefined;
   WelcomeClienteScreen: undefined;
   ProfileInfoScreen: undefined;
+  PaisajesScreen: undefined;
+  RetratosScreen: undefined;
+  ModaScreen: undefined;
+  AlimentosScreen: undefined;
+  ViajesScreen: undefined;
+  EventosScreen: undefined;
+  PublicacionPScreen: undefined;
+  PublicacionRScreen: undefined;
+  PublicacionMScreen: undefined;
+  PublicacionAScreen: undefined;
+  PublicacionVScreen: undefined;
+  PublicacionEScreen: undefined;
   };
 const Stack = createStackNavigator <RootStackParamList>();
 
@@ -55,7 +79,19 @@ const App = () => {
         <Stack.Screen name="CategoriaDetalleScreen" component={CategoriaDetalleScreen} />
         <Stack.Screen name="LoginUserScreen" component={LoginUserScreen} />
         <Stack.Screen name="WelcomeClienteScreen" component={WelcomeClienteScreen} />
-        <Stack.Screen name="ProfileInfoScreen" component={ProfileInfoScreen}
+        <Stack.Screen name="ProfileInfoScreen" component={ProfileInfoScreen}/>
+        <Stack.Screen name="PaisajesScreen" component={PaisajesScreen}/> 
+        <Stack.Screen name="RetratosScreen" component={RetratosScreen}/>
+        <Stack.Screen name="ModaScreen" component={ModaScreen}/>
+        <Stack.Screen name="AlimentosScreen" component={AlimentosScreen}/>
+        <Stack.Screen name="ViajesScreen" component={ViajesScreen}/>  
+        <Stack.Screen name="EventosScreen" component={EventosScreen}/>
+        <Stack.Screen name="PublicacionPScreen" component={PublicacionPScreen}/>
+        <Stack.Screen name="PublicacionRScreen" component={PublicacionRScreen}/>
+        <Stack.Screen name="PublicacionMScreen" component={PublicacionMScreen}/>
+        <Stack.Screen name="PublicacionAScreen" component={PublicacionAScreen}/>
+        <Stack.Screen name="PublicacionVScreen" component={PublicacionVScreen}/>
+        <Stack.Screen name="PublicacionEScreen" component={PublicacionEScreen}
 
 />
       </Stack.Navigator>
