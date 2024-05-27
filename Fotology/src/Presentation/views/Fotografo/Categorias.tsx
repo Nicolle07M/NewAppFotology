@@ -1,19 +1,24 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, Alert } from 'react-native';
 import { Dimensions } from 'react-native';
 import CategoriasStyles from './GlobalStyles/CategoriasStyles';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 
 const windowWidth = Dimensions.get('window').width;
 
-type SelectedCategoryParam = {
-  selectedCategory: string;
+type RootStackParamList = {
+  PortafolioScreen: { selectedCategory?: string };
+  CategoriasScreen: { selectedCategories?: string[] };
 };
+
+type CategoriasScreenRouteProp = RouteProp<RootStackParamList, 'CategoriasScreen'>;
 
 export default function Categorias() {
   const navigation = useNavigation();
+  const route = useRoute<CategoriasScreenRouteProp>();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const existingCategories = route.params?.selectedCategories || [];
 
   const handleCategoryButtonPress = (text: string) => {
     setSelectedCategory(text);
@@ -23,12 +28,19 @@ export default function Categorias() {
 
   const handleBottomButtonPress = () => {
     if (selectedCategory) {
-      navigation.navigate('PortafolioScreen' as never, { selectedCategory } as never);
+      if (existingCategories.includes(selectedCategory)) {
+        Alert.alert(
+          'Categoría ya creada',
+          `La categoría ${selectedCategory} ya está creada.`,
+          [{ text: 'OK', onPress: () => navigation.navigate('PortafolioScreen' as never) }]
+        );
+      } else {
+        navigation.navigate('PortafolioScreen' as never, { selectedCategory } as never);
+      }
     } else {
       console.log('No category selected');
     }
   };
-  
 
   return (
     <ScrollView>
