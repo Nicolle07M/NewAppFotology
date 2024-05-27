@@ -17,6 +17,7 @@ import WelcomeClienteScreen from './src//Presentation/views/Cliente/WelcomeClien
 import ContactoClienteScreen from './src/Presentation/views/Cliente/ContactoCliente';
 import FotografosClienteScreen from './src/Presentation/views/Cliente/FotografosCliente';
 import { ProfileInfoScreen } from './src/Presentation/views/Profile/info/ProfileInfo';
+import RegisterClienteScreen from './src/Presentation/views/Register/registerCliente';
 
 
 export type RootStackParamList = {
@@ -36,6 +37,7 @@ export type RootStackParamList = {
   ContactoClienteScreen: undefined;
   FotografosClienteScreen: undefined;
   ProfileInfoScreen: undefined;
+  RegisterClienteScreen: undefined;
   };
 const Stack = createStackNavigator <RootStackParamList>();
 
@@ -62,7 +64,8 @@ const App = () => {
         <Stack.Screen name="WelcomeClienteScreen" component={WelcomeClienteScreen} />
         <Stack.Screen name="ContactoClienteScreen" component={ContactoClienteScreen} />
         <Stack.Screen name="FotografosClienteScreen" component={FotografosClienteScreen} />
-        <Stack.Screen name="ProfileInfoScreen" component={ProfileInfoScreen}
+        <Stack.Screen name="ProfileInfoScreen" component={ProfileInfoScreen} />
+        <Stack.Screen name="RegisterClienteScreen" component={RegisterClienteScreen}
 
 />
 
