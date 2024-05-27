@@ -104,14 +104,8 @@ const App = () => {
 
         <Stack.Screen name="ContactoClienteScreen" component={ContactoClienteScreen} />
         <Stack.Screen name="FotografosClienteScreen" component={FotografosClienteScreen} />
-
-        <Stack.Screen name="ProfileInfoScreen" component={ProfileInfoScreen}/>
         <Stack.Screen name="MadeScreen" component={MadeScreen}/>
 
-        <Stack.Screen name="ProfileInfoScreen" component={ProfileInfoScreen}
-
-
-/>
 
       </Stack.Navigator>
     </NavigationContainer>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TouchableOpacity, Alert, Image, TextInput } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
-import PublicacionVStyles from './GlobalStyles/PublicacionVStyles';
+import PublicacionStyles from './GlobalStyles/PublicacionStyles';
 
 export default function PublicacionV() {
   const [selectedImages, setSelectedImages] = useState<string[]>([]);
@@ -80,57 +80,57 @@ export default function PublicacionV() {
   };
 
   return (
-    <View style={PublicacionVStyles.container}>
+    <View style={PublicacionStyles.container}>
       <StatusBar style="auto" />
-      <View style={PublicacionVStyles.header}>
-        <Text style={PublicacionVStyles.headerText}>Portafolio</Text>
+      <View style={PublicacionStyles.header}>
+        <Text style={PublicacionStyles.headerText}>Portafolio</Text>
       </View>
-      <View style={PublicacionVStyles.content}>
-        <Text style={PublicacionVStyles.mainText}>Publicación de imágenes</Text>
-        <Text style={[PublicacionVStyles.subText, { textAlign: 'center' }]}>Los archivos que subas se visualizarán en tu portafolio</Text>
-        <View style={PublicacionVStyles.divider}></View>
-        <View style={PublicacionVStyles.additionalContainer}>
-          <View style={PublicacionVStyles.additionalTextContainer}>
-            <Text style={PublicacionVStyles.additionalText}>Formulario</Text>
+      <View style={PublicacionStyles.content}>
+        <Text style={PublicacionStyles.mainText}>Publicación de imágenes</Text>
+        <Text style={[PublicacionStyles.subText, { textAlign: 'center' }]}>Los archivos que subas se visualizarán en tu portafolio</Text>
+        <View style={PublicacionStyles.divider}></View>
+        <View style={PublicacionStyles.additionalContainer}>
+          <View style={PublicacionStyles.additionalTextContainer}>
+            <Text style={PublicacionStyles.additionalText}>Formulario</Text>
           </View>
-          <View style={PublicacionVStyles.fileUploadContainer}>
-            <Text style={PublicacionVStyles.uploadText}>Carga tu archivo</Text>
-            <View style={PublicacionVStyles.innerSquare}>
-              <Text style={PublicacionVStyles.squareText}>Archivo</Text>
-              <View style={PublicacionVStyles.additionalSquare}>
-                <Text style={PublicacionVStyles.additionalSquareText}>Selecciona el archivo:</Text>
-                <TouchableOpacity style={PublicacionVStyles.button} onPress={handleTextClick}>
-                  <Text style={PublicacionVStyles.buttonText}>Buscar</Text>
+          <View style={PublicacionStyles.fileUploadContainer}>
+            <Text style={PublicacionStyles.uploadText}>Carga tu archivo</Text>
+            <View style={PublicacionStyles.innerSquare}>
+              <Text style={PublicacionStyles.squareText}>Archivo</Text>
+              <View style={PublicacionStyles.additionalSquare}>
+                <Text style={PublicacionStyles.additionalSquareText}>Selecciona el archivo:</Text>
+                <TouchableOpacity style={PublicacionStyles.button} onPress={handleTextClick}>
+                  <Text style={PublicacionStyles.buttonText}>Buscar</Text>
                 </TouchableOpacity>
               </View>
-              <View style={PublicacionVStyles.belowTextContainer}>
+              <View style={PublicacionStyles.belowTextContainer}>
                 <TouchableOpacity onPress={handleTextClick}>
-                  <Text style={PublicacionVStyles.belowText}>¿Estás seguro de cargar este archivo?</Text>
+                  <Text style={PublicacionStyles.belowText}>¿Estás seguro de cargar este archivo?</Text>
                 </TouchableOpacity>
               </View>
             </View>
           </View>
           {selectedImages.map((image, index) => (
-            <View key={index} style={PublicacionVStyles.imageContainer}>
-              <Text style={PublicacionVStyles.imageLoadedText}>Imagen cargada:</Text>
-              <Image source={{ uri: image }} style={PublicacionVStyles.image} />
-              <TouchableOpacity style={PublicacionVStyles.deleteButton} onPress={() => handleDeleteImage(index)}>
-                <Text style={PublicacionVStyles.deleteButtonText}>Eliminar</Text>
+            <View key={index} style={PublicacionStyles.imageContainer}>
+              <Text style={PublicacionStyles.imageLoadedText}>Imagen cargada:</Text>
+              <Image source={{ uri: image }} style={PublicacionStyles.image} />
+              <TouchableOpacity style={PublicacionStyles.deleteButton} onPress={() => handleDeleteImage(index)}>
+                <Text style={PublicacionStyles.deleteButtonText}>Eliminar</Text>
               </TouchableOpacity>
             </View>
           ))}
-          <View style={PublicacionVStyles.additionalTextContainer}>
-            <Text style={PublicacionVStyles.imageDescription}>Descripción de la imagen</Text>
+          <View style={PublicacionStyles.additionalTextContainer}>
+            <Text style={PublicacionStyles.imageDescription}>Descripción de la imagen</Text>
             <TextInput
-              style={PublicacionVStyles.descriptionInput}
+              style={PublicacionStyles.descriptionInput}
               placeholder="Ingrese la descripción"
               value={description}
               onChangeText={(text) => setDescription(text)}
             />
           </View>
-          <View style={PublicacionVStyles.buttonContainer}>
-            <TouchableOpacity style={PublicacionVStyles.additionalButton} onPress={handleButtonPress}>
-              <Text style={PublicacionVStyles.buttonsText}>Guardar</Text>
+          <View style={PublicacionStyles.buttonContainer}>
+            <TouchableOpacity style={PublicacionStyles.additionalButton} onPress={handleButtonPress}>
+              <Text style={PublicacionStyles.buttonsText}>Guardar</Text>
             </TouchableOpacity>
           </View>
         </View>
