@@ -152,7 +152,7 @@ const FotografosClienteScreen = () => {
             <Text style={{ margin: 5, color: 'grey', fontSize: 15 }}>5,0</Text>
           </View>
           <Text style={styles.comentario}>
-           Viajes, Eventos, Retratos, Moda
+           Viajes, Eventos, Retratos, Animales
           </Text>
           <TouchableOpacity onPress={navigateAlexisScreen} style={styles.searchButton2}>
           <Text style={styles.searchButtonText}>Ver Perfil</Text>

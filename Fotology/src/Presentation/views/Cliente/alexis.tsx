@@ -110,7 +110,7 @@ const AlexisScreen = () => {
   <View style={styles.rowContainer}>
   <View style={styles.comentarioContainer}>
   <View style={styles.fotoContainer}>
-    <Image source={require('../../../../assets/event.jpg')} style={styles.foto}/> 
+    <Image source={require('../../../../assets/viaje.jpg')} style={styles.foto}/> 
     <View style={styles.foto}>
       <TouchableOpacity style={styles.searchButton2}>
         <Text style={styles.searchButtonText}>Viajes</Text>
@@ -120,7 +120,7 @@ const AlexisScreen = () => {
 </View>
     <View style={styles.comentarioContainer}>
       <View style={styles.fotoContainer}>
-        <Image source={require('../../../../assets/mod.jpg')} style={styles.foto}/> 
+        <Image source={require('../../../../assets/event.jpg')} style={styles.foto}/> 
         <View style={styles.foto}><TouchableOpacity style={styles.searchButton2}>
         <Text style={styles.searchButtonText}>Eventos</Text>
       </TouchableOpacity></View>
@@ -140,9 +140,9 @@ const AlexisScreen = () => {
     </View>
     <View style={styles.comentarioContainer}>
       <View style={styles.fotoContainer}>
-        <Image source={require('../../../../assets/comida.jpg')} style={styles.foto}/> 
+        <Image source={require('../../../../assets/animal.jpg')} style={styles.foto}/> 
         <View style={styles.foto}><TouchableOpacity style={styles.searchButton2}>
-        <Text style={styles.searchButtonText}>Moda</Text>
+        <Text style={styles.searchButtonText}>Animales</Text>
       </TouchableOpacity></View>
       </View>    
     </View>
