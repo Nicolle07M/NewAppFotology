@@ -70,7 +70,7 @@ const WelcomeScreen = () => {
 
   return (
     <Drawer.Navigator drawerContent={props => <WelcomeViewModel {...props} />} initialRouteName="Welcome">
-      <Drawer.Screen name="Bienvenidos" component={WelcomeContent} />
+      <Drawer.Screen name="Home" component={WelcomeContent} />
     </Drawer.Navigator>
   );
 };
