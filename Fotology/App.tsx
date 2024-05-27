@@ -68,7 +68,6 @@ export type RootStackParamList = {
 const Stack = createStackNavigator <RootStackParamList>();
 
 
-
 const App = () => {
   return (
     <NavigationContainer>
@@ -88,7 +87,6 @@ const App = () => {
         <Stack.Screen name="CategoriaDetalleScreen" component={CategoriaDetalleScreen} />
         <Stack.Screen name="LoginUserScreen" component={LoginUserScreen} />
         <Stack.Screen name="WelcomeClienteScreen" component={WelcomeClienteScreen} />
-
         <Stack.Screen name="ProfileInfoScreen" component={ProfileInfoScreen}/>
         <Stack.Screen name="PaisajesScreen" component={PaisajesScreen}/> 
         <Stack.Screen name="RetratosScreen" component={RetratosScreen}/>
@@ -104,11 +102,8 @@ const App = () => {
         <Stack.Screen name="PublicacionEScreen" component={PublicacionEScreen}/>
         <Stack.Screen name="ContactoClienteScreen" component={ContactoClienteScreen} />
         <Stack.Screen name="FotografosClienteScreen" component={FotografosClienteScreen} />
-        <Stack.Screen name="ProfileInfoScreen" component={ProfileInfoScreen} />
         <Stack.Screen name="RegisterClienteScreen" component={RegisterClienteScreen} />
-        <Stack.Screen name="ProfileInfoScreen" component={ProfileInfoScreen}/>
-        <Stack.Screen name="MadeScreen" component={MadeScreen}/>
-        <Stack.Screen name="ProfileInfoScreen" component={ProfileInfoScreen}
+        <Stack.Screen name="MadeScreen" component={MadeScreen}
 />
 
       </Stack.Navigator>

@@ -13,6 +13,10 @@ export const HomeScreen = () => {
   };
 
   const handleRegisterPress = () => {
+    navigation.navigate('RegisterScreen');
+  };
+
+  const handleRegisterClientePress = () => {
     navigation.navigate('RegisterClienteScreen');
   };
 
@@ -45,7 +49,7 @@ export const HomeScreen = () => {
               <Text style={styles.registerButtonText}>Fotografo</Text>
             </TouchableOpacity>
             <Text style={styles.registerText}> o</Text>
-            <TouchableOpacity style={styles.registerButton} onPress={handleRegisterPress}>
+            <TouchableOpacity style={styles.registerButton} onPress={handleRegisterClientePress}>
               <Text style={styles.registerButtonText}>Cliente</Text>
             </TouchableOpacity>
           </View>
