@@ -33,6 +33,9 @@ import PublicacionAScreen from './src/Presentation/views/Fotografo/PublicacionA'
 import PublicacionVScreen from './src/Presentation/views/Fotografo/PublicacionV';
 import PublicacionEScreen from './src/Presentation/views/Fotografo/PublicacionE';
 
+//categorias
+import EventoScreen from './src/Presentation/views/categoriasfotografo/eventos';
+
 
 export type RootStackParamList = {
 
@@ -66,6 +69,10 @@ export type RootStackParamList = {
   PublicacionAScreen: undefined;
   PublicacionVScreen: undefined;
   PublicacionEScreen: undefined;
+
+//categoria
+EventoScreen: undefined;
+
   };
 const Stack = createStackNavigator <RootStackParamList>();
 
@@ -107,6 +114,10 @@ const App = () => {
         <Stack.Screen name="RegisterClienteScreen" component={RegisterClienteScreen} />
         <Stack.Screen name="MadeScreen" component={MadeScreen}/>
         <Stack.Screen name="AlexisScreen" component={AlexisScreen}/>
+
+        <Stack.Screen name="EventoScreen" component={EventoScreen}/>
+
+        
       </Stack.Navigator>
     </NavigationContainer>
   );
