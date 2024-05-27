@@ -5,6 +5,7 @@ import styles from './GlobalStyles/FotografoStyle';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
+import MadeScreen from './made';
 
 
 const Drawer = createDrawerNavigator();
@@ -23,6 +24,10 @@ const FotografosClienteScreen = () => {
 
   const navigateFotografosClienteScreen = () => {
     navigation.navigate('FotografosClienteScreen' as never);
+  };
+
+  const navigateMadeScreen = () => {
+    navigation.navigate('MadeScreen' as never);
   };
 
   const handleLoginPress = () => {
@@ -111,9 +116,9 @@ const FotografosClienteScreen = () => {
             <Text style={{ margin: 5, color: 'grey', fontSize: 15 }}>5,0</Text>
           </View>
           <Text style={styles.comentario}>
-           Eventos, Moda, Retratos, 
+           Eventos, Moda, Retratos, Alimentos
           </Text>
-          <TouchableOpacity onPress={handleSearch} style={styles.searchButton2}>
+          <TouchableOpacity onPress={navigateMadeScreen} style={styles.searchButton2}>
           <Text style={styles.searchButtonText}>Ver Perfil</Text>
           </TouchableOpacity>
         </View>

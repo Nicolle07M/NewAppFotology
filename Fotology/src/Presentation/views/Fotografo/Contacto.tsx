@@ -137,13 +137,13 @@ const WelcomeContent = () => {
           <Image source={require('../../../../assets/facebook.png')} style={styles.icon} />
         </TouchableOpacity>
         <TouchableOpacity onPress={handleGmailPress}>
-          <Image source={require('../../../../assets/gmail.png')} style={styles.icon} />
+          <Image source={require('../../../../assets/gmail.png')} style={styles.icon2} />
         </TouchableOpacity>
         <TouchableOpacity onPress={handleInstagramPress}>
           <Image source={require('../../../../assets/instagram.png')} style={styles.icon} />
         </TouchableOpacity>
         <TouchableOpacity onPress={handleTwitterPress}>
-          <Image source={require('../../../../assets/twtter.png')} style={styles.icon} />
+          <Image source={require('../../../../assets/twtter.png')} style={styles.icon2} />
         </TouchableOpacity>
       </View>
       <Text style={styles.subtitle}>NO SEAS TÍMIDO</Text>
