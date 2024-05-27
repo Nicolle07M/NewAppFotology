@@ -19,6 +19,7 @@ import FotografosClienteScreen from './src/Presentation/views/Cliente/Fotografos
 import { ProfileInfoScreen } from './src/Presentation/views/Profile/info/ProfileInfo';
 import RegisterClienteScreen from './src/Presentation/views/Register/registerCliente';
 import MadeScreen from './src/Presentation/views/Cliente/made';
+import AlexisScreen from './src/Presentation/views/Cliente/alexis';
 import PaisajesScreen from './src/Presentation/views/Fotografo/Paisajes';
 import RetratosScreen from './src/Presentation/views/Fotografo/Retratos';
 import ModaScreen from './src/Presentation/views/Fotografo/Moda';
@@ -52,6 +53,7 @@ export type RootStackParamList = {
   ProfileInfoScreen: undefined;
   RegisterClienteScreen: undefined;
   MadeScreen: undefined;
+  AlexisScreen: undefined;
   PaisajesScreen: undefined;
   RetratosScreen: undefined;
   ModaScreen: undefined;
@@ -104,8 +106,7 @@ const App = () => {
         <Stack.Screen name="FotografosClienteScreen" component={FotografosClienteScreen} />
         <Stack.Screen name="RegisterClienteScreen" component={RegisterClienteScreen} />
         <Stack.Screen name="MadeScreen" component={MadeScreen}/>
-
-
+        <Stack.Screen name="AlexisScreen" component={AlexisScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

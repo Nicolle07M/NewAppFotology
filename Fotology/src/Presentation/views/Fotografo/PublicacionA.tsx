@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TouchableOpacity, Alert, Image, TextInput } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
+
 import PublicacionStyles from './GlobalStyles/PublicacionStyles';
-import { ScrollView } from 'react-native-gesture-handler';
+import  { ScrollView } from 'react-native-gesture-handler';
 
 export default function PublicacionA() {
   const [selectedImages, setSelectedImages] = useState<string[]>([]);
@@ -81,6 +82,7 @@ export default function PublicacionA() {
   };
 
   return (
+
     <ScrollView>
     <View style={PublicacionStyles.container}>
       <StatusBar style="auto" />
@@ -138,6 +140,8 @@ export default function PublicacionA() {
         </View>
       </View>
     </View>
+    
     </ScrollView>
   );
 }
+

@@ -42,7 +42,7 @@ const WelcomeClienteScreen = () => {
         >
           <View style={styles.overlay}>
             <View style={styles.textContainer}>
-              <Text style={styles.text}>¡Hola Mario!</Text>
+              <Text style={styles.text}>¡Hola Nat!</Text>
               <Text style={styles.text2}>Esto es Fotology</Text>
             </View>
           </View>
