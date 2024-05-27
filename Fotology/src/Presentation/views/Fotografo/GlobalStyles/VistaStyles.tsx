@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-const EventosStyles = StyleSheet.create({
+const VistaStyles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: 'white',
@@ -48,4 +48,4 @@ const EventosStyles = StyleSheet.create({
   });
   
 
-export default EventosStyles;
+export default VistaStyles;

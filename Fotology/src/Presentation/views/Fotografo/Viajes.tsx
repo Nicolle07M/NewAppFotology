@@ -1,28 +1,26 @@
-// Viajes.tsx
-
 import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-native'; 
 import { useNavigation } from '@react-navigation/native'; // Importa useNavigation
-import ViajesStyles from './GlobalStyles/ViajesStyles';
+import VistaStyles from './GlobalStyles/VistaStyles';
 
 export default function Viajes() {
-  const navigation = useNavigation(); // Obtiene la función de navegación
+  const navigation = useNavigation();
 
-  const handleCreatePublication = () => {
-    navigation.navigate('PublicacionVScreen'); // Navega a la pantalla PublicacionV
+  const handleCrearPublicacion = () => {
+    navigation.navigate('PublicacionVScreen'); // Navega a PublicacionPScreen al hacer clic en "Crear publicación"
   };
 
   return (
-    <SafeAreaView style={ViajesStyles.container}>
-      <View style={ViajesStyles.header}>
-        <Text style={ViajesStyles.headerText}>Portafolio</Text>
+    <SafeAreaView style={VistaStyles.container}>
+      <View style={VistaStyles.header}>
+        <Text style={VistaStyles.headerText}>Portafolio</Text>
       </View>
-      <View style={ViajesStyles.content}>
-        <Text style={ViajesStyles.centeredText}>Visualización de la categoría</Text>
+      <View style={VistaStyles.content}>
+        <Text style={VistaStyles.centeredText}>Visualización de la categoría</Text>
       </View>
-      <View style={ViajesStyles.footer}>
-        <TouchableOpacity style={ViajesStyles.button} onPress={handleCreatePublication}>
-          <Text style={ViajesStyles.buttonText}>Crear publicación</Text>
+      <View style={VistaStyles.footer}>
+        <TouchableOpacity style={VistaStyles.button} onPress={handleCrearPublicacion}>
+          <Text style={VistaStyles.buttonText}>Crear publicación</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

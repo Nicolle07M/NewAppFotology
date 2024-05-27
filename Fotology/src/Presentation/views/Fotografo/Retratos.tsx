@@ -1,30 +1,28 @@
 import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-native'; 
 import { useNavigation } from '@react-navigation/native'; // Importa useNavigation
-import RetratosStyles from './GlobalStyles/RetratosStyles';
+import VistaStyles from './GlobalStyles/VistaStyles';
 
 export default function Retratos() {
-  const navigation = useNavigation(); // Obtiene la función de navegación
+  const navigation = useNavigation();
 
-  const handleCreatePublication = () => {
-    navigation.navigate('PublicacionRScreen'); // Navega a la pantalla PublicacionR
+  const handleCrearPublicacion = () => {
+    navigation.navigate('PublicacionRScreen'); // Navega a PublicacionPScreen al hacer clic en "Crear publicación"
   };
 
   return (
-    <SafeAreaView style={RetratosStyles.container}>
-      <View style={RetratosStyles.header}>
-        <Text style={RetratosStyles.headerText}>Portafolio</Text>
+    <SafeAreaView style={VistaStyles.container}>
+      <View style={VistaStyles.header}>
+        <Text style={VistaStyles.headerText}>Portafolio</Text>
       </View>
-      <View style={RetratosStyles.content}>
-        <Text style={RetratosStyles.centeredText}>Visualización de la categoría</Text>
+      <View style={VistaStyles.content}>
+        <Text style={VistaStyles.centeredText}>Visualización de la categoría</Text>
       </View>
-      <View style={RetratosStyles.footer}>
-        <TouchableOpacity style={RetratosStyles.button} onPress={handleCreatePublication}>
-          <Text style={RetratosStyles.buttonText}>Crear publicación</Text>
+      <View style={VistaStyles.footer}>
+        <TouchableOpacity style={VistaStyles.button} onPress={handleCrearPublicacion}>
+          <Text style={VistaStyles.buttonText}>Crear publicación</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
 }
-
-export default Retratos;

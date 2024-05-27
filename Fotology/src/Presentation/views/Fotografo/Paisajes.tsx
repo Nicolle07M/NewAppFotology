@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-native'; 
 import { useNavigation } from '@react-navigation/native'; // Importa useNavigation
-import PaisajesStyles from './GlobalStyles/PaisajesStyles';
+import VistaStyles from './GlobalStyles/VistaStyles';
 
 export default function Paisajes() {
   const navigation = useNavigation();
@@ -11,16 +11,16 @@ export default function Paisajes() {
   };
 
   return (
-    <SafeAreaView style={PaisajesStyles.container}>
-      <View style={PaisajesStyles.header}>
-        <Text style={PaisajesStyles.headerText}>Portafolio</Text>
+    <SafeAreaView style={VistaStyles.container}>
+      <View style={VistaStyles.header}>
+        <Text style={VistaStyles.headerText}>Portafolio</Text>
       </View>
-      <View style={PaisajesStyles.content}>
-        <Text style={PaisajesStyles.centeredText}>Visualización de la categoría</Text>
+      <View style={VistaStyles.content}>
+        <Text style={VistaStyles.centeredText}>Visualización de la categoría</Text>
       </View>
-      <View style={PaisajesStyles.footer}>
-        <TouchableOpacity style={PaisajesStyles.button} onPress={handleCrearPublicacion}>
-          <Text style={PaisajesStyles.buttonText}>Crear publicación</Text>
+      <View style={VistaStyles.footer}>
+        <TouchableOpacity style={VistaStyles.button} onPress={handleCrearPublicacion}>
+          <Text style={VistaStyles.buttonText}>Crear publicación</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
