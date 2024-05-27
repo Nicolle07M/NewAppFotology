@@ -22,12 +22,18 @@ const FotografosClienteScreen = () => {
     navigation.navigate('WelcomeClienteScreen' as never);
   };
 
+ 
+
   const navigateFotografosClienteScreen = () => {
     navigation.navigate('FotografosClienteScreen' as never);
   };
 
   const navigateMadeScreen = () => {
     navigation.navigate('MadeScreen' as never);
+  };
+
+  const navigateAlexisScreen = () => {
+    navigation.navigate('AlexisScreen' as never);
   };
 
   const handleLoginPress = () => {
@@ -146,9 +152,9 @@ const FotografosClienteScreen = () => {
             <Text style={{ margin: 5, color: 'grey', fontSize: 15 }}>5,0</Text>
           </View>
           <Text style={styles.comentario}>
-           Eventos, Retratos, Alimentos
+           Viajes, Eventos, Retratos, Moda
           </Text>
-          <TouchableOpacity onPress={handleSearch} style={styles.searchButton2}>
+          <TouchableOpacity onPress={navigateAlexisScreen} style={styles.searchButton2}>
           <Text style={styles.searchButtonText}>Ver Perfil</Text>
           </TouchableOpacity>
         </View>

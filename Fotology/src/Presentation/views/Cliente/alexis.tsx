@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { View, Alert, Text, Linking, ImageBackground, ScrollView, TouchableOpacity, Image, Button, TextInput} from 'react-native';
-import styles from './GlobalStyles/madeStyles';
+import styles from './GlobalStyles/alexisStyles';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
@@ -11,7 +11,7 @@ const Drawer = createDrawerNavigator();
 
 
 
-const MadeScreen = () => {
+const AlexisScreen = () => {
     const [rating, setRating] = useState(0);
     const [comment, setComment] = useState('');
   
@@ -59,13 +59,13 @@ const MadeScreen = () => {
       
       <View style={styles.backgroundContainer}>
         <ImageBackground
-          source={require('../../../../assets/foto3.jpg')}
+          source={require('../../../../assets/foto5.jpg')}
           style={styles.backgroundImage}
           blurRadius={3}
         >
           <View style={styles.overlay}>
             <View style={styles.textContainer}>
-              <Text style={styles.text}>Made Rincón.</Text>
+              <Text style={styles.text}>Alexis Medina.</Text>
               
               <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                 <Ionicons name="star" size={25} color={'#FFD700'} />
@@ -74,7 +74,7 @@ const MadeScreen = () => {
                 <Ionicons name="star" size={25} color={'#FFD700'} />
                 <Ionicons name="star" size={25} color={'#FFD700'} />
               </View>
-              <Text style={styles.text2}>Top 3</Text>
+              <Text style={styles.text2}>Top 2</Text>
             </View>
           </View>
     
@@ -113,7 +113,7 @@ const MadeScreen = () => {
     <Image source={require('../../../../assets/event.jpg')} style={styles.foto}/> 
     <View style={styles.foto}>
       <TouchableOpacity style={styles.searchButton2}>
-        <Text style={styles.searchButtonText}>Eventos</Text>
+        <Text style={styles.searchButtonText}>Viajes</Text>
       </TouchableOpacity>
     </View>
   </View>    
@@ -122,7 +122,7 @@ const MadeScreen = () => {
       <View style={styles.fotoContainer}>
         <Image source={require('../../../../assets/mod.jpg')} style={styles.foto}/> 
         <View style={styles.foto}><TouchableOpacity style={styles.searchButton2}>
-        <Text style={styles.searchButtonText}>Moda</Text>
+        <Text style={styles.searchButtonText}>Eventos</Text>
       </TouchableOpacity></View>
       </View>    
     </View>
@@ -142,7 +142,7 @@ const MadeScreen = () => {
       <View style={styles.fotoContainer}>
         <Image source={require('../../../../assets/comida.jpg')} style={styles.foto}/> 
         <View style={styles.foto}><TouchableOpacity style={styles.searchButton2}>
-        <Text style={styles.searchButtonText}>Alimentos</Text>
+        <Text style={styles.searchButtonText}>Moda</Text>
       </TouchableOpacity></View>
       </View>    
     </View>
@@ -152,6 +152,90 @@ const MadeScreen = () => {
 
     <View style={styles.orangeLine} />
       <Text style={styles.title2}>Calificaciones</Text> 
+
+      <View style={styles.container}>
+      <View style={styles.comentarioContainer2}>
+        <View style={styles.fotoContainer2}>
+         <Image source={require('../../../../assets/nicolle.jpg')} style={styles.foto}/> 
+          <View style={styles.foto2}></View>
+        </View>
+        <View style={styles.infoContainer}>      
+          <View style={styles.ratingContainer}>
+          <Text style={styles.username}>nicolleM07     </Text>
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+          </View>
+          <Text style={styles.comentario2}>
+            Increíble tu trabajo, me encantó mucho. Muy recomendado, gracias por captar los mejores momentos de mi vida.
+          </Text>
+          <Text style={styles.tiempo}>Hace 5 días</Text>
+        </View>
+      </View>
+    </View>
+
+    <View style={styles.container}>
+      <View style={styles.comentarioContainer2}>
+        <View style={styles.fotoContainer2}>
+         <Image source={require('../../../../assets/erik.jpg')} style={styles.foto}/> 
+          <View style={styles.foto2}></View>
+        </View>
+        <View style={styles.infoContainer}>      
+          <View style={styles.ratingContainer}>
+          <Text style={styles.username}>cerik69              </Text>
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+          </View>
+          <Text style={styles.comentario2}>
+            Increíble tu trabajo, me encantó mucho. Muy recomendado, gracias por captar los mejores momentos de mi vida.
+          </Text>
+          <Text style={styles.tiempo}>Hace 7 días</Text>
+        </View>
+      </View>
+    </View>
+
+    <View style={styles.container}>
+      <View style={styles.comentarioContainer2}>
+        <View style={styles.fotoContainer2}>
+         <Image source={require('../../../../assets/aleja.jpg')} style={styles.foto}/> 
+          <View style={styles.foto2}></View>
+        </View>
+        <View style={styles.infoContainer}>      
+          <View style={styles.ratingContainer}>
+          <Text style={styles.username}>alejandra5_       </Text>
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+            <Ionicons name="star" size={15} color={'#FFD700'} />
+            <View style={styles.ratingButton}></View>
+          </View>
+          <Text style={styles.comentario2}>
+            Increíble tu trabajo, me encantó mucho. Muy recomendado, gracias por captar los mejores momentos de mi vida.
+          </Text>
+          <Text style={styles.tiempo}>Hace 4 meses</Text>
+        </View>
+      </View>
+    </View>
+
 
       <View style={styles.container}>
       <View style={styles.comentarioContainer2}>
@@ -268,7 +352,6 @@ const MadeScreen = () => {
     </View>
 
 
-
     <TouchableOpacity style={styles.searchButton2}>
         <Text style={styles.searchButtonText}>VER MÁS</Text>
       </TouchableOpacity>
@@ -315,4 +398,4 @@ const MadeScreen = () => {
   );
 };
 
-export default MadeScreen;
+export default AlexisScreen;
