@@ -1,29 +1,26 @@
-// Eventos.tsx
-
 import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-native'; 
 import { useNavigation } from '@react-navigation/native'; // Importa useNavigation
-import EventosStyles from './GlobalStyles/EventosStyles';
-import PublicacionE from './PublicacionE'; // Asegúrate de importar PublicacionE desde su ruta correcta
+import VistaStyles from './GlobalStyles/VistaStyles';
 
 export default function Eventos() {
-  const navigation = useNavigation(); // Obtiene la función de navegación
+  const navigation = useNavigation();
 
-  const handleCreatePublication = () => {
-    navigation.navigate('PublicacionEScreen'); // Navega a la pantalla PublicacionE
+  const handleCrearPublicacion = () => {
+    navigation.navigate('PublicacionEScreen'); // Navega a PublicacionPScreen al hacer clic en "Crear publicación"
   };
 
   return (
-    <SafeAreaView style={EventosStyles.container}>
-      <View style={EventosStyles.header}>
-        <Text style={EventosStyles.headerText}>Portafolio</Text>
+    <SafeAreaView style={VistaStyles.container}>
+      <View style={VistaStyles.header}>
+        <Text style={VistaStyles.headerText}>Portafolio</Text>
       </View>
-      <View style={EventosStyles.content}>
-        <Text style={EventosStyles.centeredText}>Visualización de la categoría</Text>
+      <View style={VistaStyles.content}>
+        <Text style={VistaStyles.centeredText}>Visualización de la categoría</Text>
       </View>
-      <View style={EventosStyles.footer}>
-        <TouchableOpacity style={EventosStyles.button} onPress={handleCreatePublication}>
-          <Text style={EventosStyles.buttonText}>Crear publicación</Text>
+      <View style={VistaStyles.footer}>
+        <TouchableOpacity style={VistaStyles.button} onPress={handleCrearPublicacion}>
+          <Text style={VistaStyles.buttonText}>Crear publicación</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
