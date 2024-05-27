@@ -107,7 +107,6 @@ const App = () => {
         <Stack.Screen name="RegisterClienteScreen" component={RegisterClienteScreen} />
         <Stack.Screen name="MadeScreen" component={MadeScreen}/>
         <Stack.Screen name="AlexisScreen" component={AlexisScreen}/>
-
       </Stack.Navigator>
     </NavigationContainer>
   );

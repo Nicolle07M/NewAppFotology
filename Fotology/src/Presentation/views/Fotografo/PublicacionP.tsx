@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TouchableOpacity, Alert, Image, TextInput } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
-import PublicacionPStyles from './GlobalStyles/PublicacionPStyles';
+import PublicacionStyles from './GlobalStyles/PublicacionStyles';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default function PublicacionP() {
   const [selectedImages, setSelectedImages] = useState<string[]>([]);
@@ -80,61 +81,63 @@ export default function PublicacionP() {
   };
 
   return (
-    <View style={PublicacionPStyles.container}>
+    <ScrollView>
+    <View style={PublicacionStyles.container}>
       <StatusBar style="auto" />
-      <View style={PublicacionPStyles.header}>
-        <Text style={PublicacionPStyles.headerText}>Portafolio</Text>
+      <View style={PublicacionStyles.header}>
+        <Text style={PublicacionStyles.headerText}>Portafolio</Text>
       </View>
-      <View style={PublicacionPStyles.content}>
-        <Text style={PublicacionPStyles.mainText}>Publicación de imágenes</Text>
-        <Text style={[PublicacionPStyles.subText, { textAlign: 'center' }]}>Los archivos que subas se visualizarán en tu portafolio</Text>
-        <View style={PublicacionPStyles.divider}></View>
-        <View style={PublicacionPStyles.additionalContainer}>
-          <View style={PublicacionPStyles.additionalTextContainer}>
-            <Text style={PublicacionPStyles.additionalText}>Formulario</Text>
+      <View style={PublicacionStyles.content}>
+        <Text style={PublicacionStyles.mainText}>Publicación de imágenes</Text>
+        <Text style={[PublicacionStyles.subText, { textAlign: 'center' }]}>Los archivos que subas se visualizarán en tu portafolio</Text>
+        <View style={PublicacionStyles.divider}></View>
+        <View style={PublicacionStyles.additionalContainer}>
+          <View style={PublicacionStyles.additionalTextContainer}>
+            <Text style={PublicacionStyles.additionalText}>Formulario</Text>
           </View>
-          <View style={PublicacionPStyles.fileUploadContainer}>
-            <Text style={PublicacionPStyles.uploadText}>Carga tu archivo</Text>
-            <View style={PublicacionPStyles.innerSquare}>
-              <Text style={PublicacionPStyles.squareText}>Archivo</Text>
-              <View style={PublicacionPStyles.additionalSquare}>
-                <Text style={PublicacionPStyles.additionalSquareText}>Selecciona el archivo:</Text>
-                <TouchableOpacity style={PublicacionPStyles.button} onPress={handleTextClick}>
-                  <Text style={PublicacionPStyles.buttonText}>Buscar</Text>
+          <View style={PublicacionStyles.fileUploadContainer}>
+            <Text style={PublicacionStyles.uploadText}>Carga tu archivo</Text>
+            <View style={PublicacionStyles.innerSquare}>
+              <Text style={PublicacionStyles.squareText}>Archivo</Text>
+              <View style={PublicacionStyles.additionalSquare}>
+                <Text style={PublicacionStyles.additionalSquareText}>Selecciona el archivo:</Text>
+                <TouchableOpacity style={PublicacionStyles.button} onPress={handleTextClick}>
+                  <Text style={PublicacionStyles.buttonText}>Buscar</Text>
                 </TouchableOpacity>
               </View>
-              <View style={PublicacionPStyles.belowTextContainer}>
+              <View style={PublicacionStyles.belowTextContainer}>
                 <TouchableOpacity onPress={handleTextClick}>
-                  <Text style={PublicacionPStyles.belowText}>¿Estás seguro de cargar este archivo?</Text>
+                  <Text style={PublicacionStyles.belowText}>¿Estás seguro de cargar este archivo?</Text>
                 </TouchableOpacity>
               </View>
             </View>
           </View>
           {selectedImages.map((image, index) => (
-            <View key={index} style={PublicacionPStyles.imageContainer}>
-              <Text style={PublicacionPStyles.imageLoadedText}>Imagen cargada:</Text>
-              <Image source={{ uri: image }} style={PublicacionPStyles.image} />
-              <TouchableOpacity style={PublicacionPStyles.deleteButton} onPress={() => handleDeleteImage(index)}>
-                <Text style={PublicacionPStyles.deleteButtonText}>Eliminar</Text>
+            <View key={index} style={PublicacionStyles.imageContainer}>
+              <Text style={PublicacionStyles.imageLoadedText}>Imagen cargada:</Text>
+              <Image source={{ uri: image }} style={PublicacionStyles.image} />
+              <TouchableOpacity style={PublicacionStyles.deleteButton} onPress={() => handleDeleteImage(index)}>
+                <Text style={PublicacionStyles.deleteButtonText}>Eliminar</Text>
               </TouchableOpacity>
             </View>
           ))}
-          <View style={PublicacionPStyles.additionalTextContainer}>
-            <Text style={PublicacionPStyles.imageDescription}>Descripción de la imagen</Text>
+          <View style={PublicacionStyles.additionalTextContainer}>
+            <Text style={PublicacionStyles.imageDescription}>Descripción de la imagen</Text>
             <TextInput
-              style={PublicacionPStyles.descriptionInput}
+              style={PublicacionStyles.descriptionInput}
               placeholder="Ingrese la descripción"
               value={description}
               onChangeText={(text) => setDescription(text)}
             />
           </View>
-          <View style={PublicacionPStyles.buttonContainer}>
-            <TouchableOpacity style={PublicacionPStyles.additionalButton} onPress={handleButtonPress}>
-              <Text style={PublicacionPStyles.buttonsText}>Guardar</Text>
+          <View style={PublicacionStyles.buttonContainer}>
+            <TouchableOpacity style={PublicacionStyles.additionalButton} onPress={handleButtonPress}>
+              <Text style={PublicacionStyles.buttonsText}>Guardar</Text>
             </TouchableOpacity>
           </View>
         </View>
       </View>
     </View>
+    </ScrollView>
   );
 }

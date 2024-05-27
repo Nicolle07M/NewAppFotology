@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-const PublicacionEStyles = StyleSheet.create({
+const PublicacionStyles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'white',
@@ -201,4 +201,4 @@ const PublicacionEStyles = StyleSheet.create({
     },
 });
 
-export default PublicacionEStyles;
+export default PublicacionStyles;
