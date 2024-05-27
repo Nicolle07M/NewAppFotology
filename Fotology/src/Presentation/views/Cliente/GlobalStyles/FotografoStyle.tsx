@@ -76,6 +76,7 @@ const FotografosStyles = StyleSheet.create({
       borderRadius: 8,
       marginBottom: 10,
       width: '87%',
+      elevation: 12, // Agrega efecto 3D con elevación
     },
     comentario: {
         fontSize: 14,

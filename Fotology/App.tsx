@@ -18,6 +18,19 @@ import ContactoClienteScreen from './src/Presentation/views/Cliente/ContactoClie
 import FotografosClienteScreen from './src/Presentation/views/Cliente/FotografosCliente';
 import { ProfileInfoScreen } from './src/Presentation/views/Profile/info/ProfileInfo';
 import RegisterClienteScreen from './src/Presentation/views/Register/registerCliente';
+import MadeScreen from './src/Presentation/views/Cliente/made';
+import PaisajesScreen from './src/Presentation/views/Fotografo/Paisajes';
+import RetratosScreen from './src/Presentation/views/Fotografo/Retratos';
+import ModaScreen from './src/Presentation/views/Fotografo/Moda';
+import AlimentosScreen from './src/Presentation/views/Fotografo/Alimentos';
+import ViajesScreen from './src/Presentation/views/Fotografo/Viajes';
+import EventosScreen from './src/Presentation/views/Fotografo/Eventos';
+import PublicacionPScreen from './src/Presentation/views/Fotografo/PublicacionP';
+import PublicacionRScreen from './src/Presentation/views/Fotografo/PublicacionR';
+import PublicacionMScreen from './src/Presentation/views/Fotografo/PublicacionM';
+import PublicacionAScreen from './src/Presentation/views/Fotografo/PublicacionA';
+import PublicacionVScreen from './src/Presentation/views/Fotografo/PublicacionV';
+import PublicacionEScreen from './src/Presentation/views/Fotografo/PublicacionE';
 
 
 export type RootStackParamList = {
@@ -38,6 +51,19 @@ export type RootStackParamList = {
   FotografosClienteScreen: undefined;
   ProfileInfoScreen: undefined;
   RegisterClienteScreen: undefined;
+  MadeScreen: undefined;
+  PaisajesScreen: undefined;
+  RetratosScreen: undefined;
+  ModaScreen: undefined;
+  AlimentosScreen: undefined;
+  ViajesScreen: undefined;
+  EventosScreen: undefined;
+  PublicacionPScreen: undefined;
+  PublicacionRScreen: undefined;
+  PublicacionMScreen: undefined;
+  PublicacionAScreen: undefined;
+  PublicacionVScreen: undefined;
+  PublicacionEScreen: undefined;
   };
 const Stack = createStackNavigator <RootStackParamList>();
 
@@ -62,11 +88,27 @@ const App = () => {
         <Stack.Screen name="CategoriaDetalleScreen" component={CategoriaDetalleScreen} />
         <Stack.Screen name="LoginUserScreen" component={LoginUserScreen} />
         <Stack.Screen name="WelcomeClienteScreen" component={WelcomeClienteScreen} />
+
+        <Stack.Screen name="ProfileInfoScreen" component={ProfileInfoScreen}/>
+        <Stack.Screen name="PaisajesScreen" component={PaisajesScreen}/> 
+        <Stack.Screen name="RetratosScreen" component={RetratosScreen}/>
+        <Stack.Screen name="ModaScreen" component={ModaScreen}/>
+        <Stack.Screen name="AlimentosScreen" component={AlimentosScreen}/>
+        <Stack.Screen name="ViajesScreen" component={ViajesScreen}/>  
+        <Stack.Screen name="EventosScreen" component={EventosScreen}/>
+        <Stack.Screen name="PublicacionPScreen" component={PublicacionPScreen}/>
+        <Stack.Screen name="PublicacionRScreen" component={PublicacionRScreen}/>
+        <Stack.Screen name="PublicacionMScreen" component={PublicacionMScreen}/>
+        <Stack.Screen name="PublicacionAScreen" component={PublicacionAScreen}/>
+        <Stack.Screen name="PublicacionVScreen" component={PublicacionVScreen}/>
+        <Stack.Screen name="PublicacionEScreen" component={PublicacionEScreen}/>
         <Stack.Screen name="ContactoClienteScreen" component={ContactoClienteScreen} />
         <Stack.Screen name="FotografosClienteScreen" component={FotografosClienteScreen} />
         <Stack.Screen name="ProfileInfoScreen" component={ProfileInfoScreen} />
-        <Stack.Screen name="RegisterClienteScreen" component={RegisterClienteScreen}
-
+        <Stack.Screen name="RegisterClienteScreen" component={RegisterClienteScreen} />
+        <Stack.Screen name="ProfileInfoScreen" component={ProfileInfoScreen}/>
+        <Stack.Screen name="MadeScreen" component={MadeScreen}/>
+        <Stack.Screen name="ProfileInfoScreen" component={ProfileInfoScreen}
 />
 
       </Stack.Navigator>

@@ -65,6 +65,13 @@ const ContactoStyles = StyleSheet.create({
       height: 20,
       marginRight: 10,
     },
+    icon2: {
+      paddingVertical: -150,
+      width: 25,
+      height: 26,
+      marginRight: 10,
+      marginTop: -3,
+    },
     subtitle: {
       fontSize: 20,
       fontWeight: 'bold',

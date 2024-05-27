@@ -1,16 +1,22 @@
 import { StyleSheet } from "react-native";
-const WelcomeStyles = StyleSheet.create({
+const madeStyles = StyleSheet.create({
     container: {
       flexGrow: 1,
       justifyContent: 'center',
       alignItems: 'center',
     },
+    rowContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginBottom: -30,
+      },
     backgroundContainer: {
       flex: 1,
       width: '100%',
       alignItems: 'center',
       overflow: 'hidden',
       marginTop: 0, // Ajusta el margen superior aquí
+     
     },
     header: {
       flexDirection: 'row',
@@ -37,7 +43,7 @@ const WelcomeStyles = StyleSheet.create({
     },
     overlay: {
       ...StyleSheet.absoluteFillObject,
-      backgroundColor: 'rgba(200, 120, 0, 0.3)', // Color naranja semitransparente
+      
       justifyContent: 'center',
       alignItems: 'center',
     },
@@ -63,7 +69,8 @@ const WelcomeStyles = StyleSheet.create({
       alignItems: 'center',
     },
     ratingButton: {
-      marginRight: 2,
+      marginRight: 0,
+      marginBottom: 40,
     },
     comentarioContainer: {
       flexDirection: 'row',
@@ -72,27 +79,32 @@ const WelcomeStyles = StyleSheet.create({
       padding: 17,
       backgroundColor: 'white', // Color de fondo blanco
       borderRadius: 8,
-      marginBottom: 10,
-      width: '87%',
-      elevation: 95, // Agrega efecto 3D con elevación
+      marginBottom: 100,
+      width: '40%',
+      height: '82%',
+      marginRight: 10, // Agregar margen derecho
+      elevation: 5, // Agrega efecto 3D con elevación
     },
     comentario: {
-      fontSize: 14,
-      marginBottom: 5,
+        fontSize: 14,
+        marginBottom: 5,
+        textAlign: 'center', // Centra el texto horizontalmente
+        textAlignVertical: 'center', // Centra el texto verticalmente
     },
     fotoContainer: {
       width: 100,
-      height: 100, // Ajusta la altura del contenedor si es necesario
+      height: 95, // Ajusta la altura del contenedor si es necesario
       justifyContent: 'center',
       alignItems: 'center',
-      paddingTop: 70, 
+      paddingTop: 50, 
       marginBottom: 5, 
     }, 
     foto: {
-      width: 80,
-      height: 80,
-      borderRadius: 40,
-      marginTop: 4,
+      width: 100,
+      height: 110,
+      borderRadius: 30,
+      marginTop: 7,
+      marginLeft: 25, // Mueve la imagen hacia la derecha
     },
     tiempo: {
       fontSize: 12,
@@ -103,8 +115,8 @@ const WelcomeStyles = StyleSheet.create({
       flex: 1,
     },
     username: {
-      fontSize: 16,
-  fontWeight: 'bold',
+      fontSize: 20,
+      fontWeight: 'bold',
     },
     description: {
       textAlign: 'justify',
@@ -137,11 +149,12 @@ const WelcomeStyles = StyleSheet.create({
       marginVertical: 10,
     },
     title2: {
-      fontSize: 20,
+      fontSize: 30,
       fontWeight: 'bold',
       textAlign: 'center', 
       marginVertical: 10,
       color: 'orange',
+      marginTop: 5,
     },
 
     button: {
@@ -183,24 +196,120 @@ const WelcomeStyles = StyleSheet.create({
       paddingVertical: 10,
       borderRadius: 5,
       marginBottom: 9,
-      marginRight: 10,
+      marginRight: 5,
     },
     searchButton2: {
       backgroundColor: 'orange', // Color del botón de búsqueda
-      paddingHorizontal: 10,
+      paddingHorizontal: 5,
       paddingVertical: 10,
       borderRadius: 5,
       marginBottom: 9,
-      marginRight: 10,
+      marginRight: -7,
+      elevation: 5, // Agrega efecto 3D con elevación
+      shadowColor: 'black', // Color de la sombra
+      shadowOpacity: 0.3, // Opacidad de la sombra
+      shadowRadius: 5, // Radio de la sombra
+      shadowOffset: { width: 0, height: 2 }, // Desplazamiento de la sombra
+      
     },
     searchButtonText: {
       color: 'white', // Color del texto del botón de búsqueda
       textAlign: 'center', // Centra el texto horizontalmente
       textAlignVertical: 'center', // Centra el texto verticalmente
+      fontWeight: 'bold', // Hace que el texto sea más grueso
     },
 
+
+    iconContainer: {
+        marginBottom: 0,
+        marginTop: 10,
+        flexDirection: 'row',
+      },
+      icon: {
+        paddingVertical: -100,
+        width: 20,
+        height: 20,
+        marginRight: 10,
+        marginTop: -20,
+      },
+      icon2: {
+        paddingVertical: -150,
+        width: 25,
+        height: 26,
+        marginRight: 10,
+        marginTop: -23,
+      },
+      tex: {
+        margin: 100,
+        marginTop: -25,
+      },
+      comentarioContainer2: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        padding: 10,
+        backgroundColor: 'white', // Color de fondo blanco
+        borderRadius: 8,
+        marginBottom: 10,
+        width: '87%',
+        elevation: 5,
+      },
+      
+fotoContainer2: {
+    marginRight: 10,
+  },
+  foto2: {
+    width: 50,
+    height: 50,
+    borderRadius: 25, // Para que la foto se vea como un círculo
+    marginTop: -40,
+  },
+comentario2: {
+    fontSize: 14,
+    marginBottom: 5,
+  },
  
+  container3: {
+    flex: 1,
+    padding: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  ratingContainer3: {
+    flexDirection: 'row',
+    marginTop: -25,
+    marginBottom: 10,
+    elevation: 2,
+  },
+  ratingButton3: {
+    marginRight: 2,
+  },
+  selected3: {
+    opacity: 1,
+  },
+  commentInput3: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 5,
+    padding: 70,
+    marginBottom: 10,
+    width: '100%',
+
+  },
+  submitButton3: {
+    backgroundColor: 'orange',
+    paddingVertical: 8,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+    elevation: 55,
+  },
+  submitButtonText3: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#FFFF',
+  },
+
     
   });
 
-export default WelcomeStyles;
+export default madeStyles;

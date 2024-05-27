@@ -66,8 +66,7 @@ const WelcomeClienteScreen = () => {
           </View>
         </ImageBackground>
         <View style={styles.orangeLine} />
-      <Text style={styles.title2}>Fotógrafos Destacados</Text>
-  
+      <Text style={styles.title2}>Fotógrafos Destacados</Text> 
       <View style={styles.orangeLine} />
       </View>
       <View style={styles.container}>
