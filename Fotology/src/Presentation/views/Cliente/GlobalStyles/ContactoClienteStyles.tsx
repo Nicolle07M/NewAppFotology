@@ -9,28 +9,34 @@ const ContactoClienteStyles = StyleSheet.create({
     paddingHorizontal: 20,
     marginTop: 0, // Ajusta el margen superior aquí
   },
-    container2: {
-      flex: 1,
-  backgroundColor: 'rgba(0, 0, 0, 0)',
+  
+  container2: {
+  flex: 1,
   alignItems: 'center',
   justifyContent: 'center',
-  paddingHorizontal: 20,
+  paddingHorizontal: 0,
   position: 'relative', // Establece la posición relativa para que los elementos absolutos se posicionen dentro de este contenedor
-  marginBottom: -20, // Ajusta el margen inferior para reducir el espacio con el contenido que le sigue
+  marginBottom: 95, // Ajusta el margen inferior para reducir el espacio con el contenido que le sigue
+  borderBottomLeftRadius: 100, // Redondea más la esquina inferior izquierda
+  borderBottomRightRadius: 100, // Redondea más la esquina inferior derecha
+  marginHorizontal: -30, // Ajusta el margen horizontal para que el contenedor sea más amplio en la parte inferior
+  width: '110%', // Asegura que el contenedor ocupe todo el ancho de la pantalla
+  marginTop: -13, // Asegura que el contenedor esté pegado a la parte superior
+  resizeMode: 'cover',
+ 
 },
-
     bigTitle: {
       color: 'rgba(255, 255, 255, 0.5)',
       fontSize: 56,
       fontWeight: '900',
-      top: -120, // Ajusta la posición del texto más grande
-      marginBottom: -200, // Reduzca el margen inferior aquí
+      top: 5, // Ajusta la posición del texto más grande
+      marginBottom: 5, // Reduzca el margen inferior aquí
     },
     smallTitle: {
       fontWeight: 'bold', 
       zIndex: 1,
-      fontSize: 22,
-      top: -65, // Ajusta la posición del texto más pequeño
+      fontSize: 20,
+      top: 60, // Ajusta la posición del texto más pequeño
     },
     header: {
       flexDirection: 'row',
@@ -61,20 +67,21 @@ const ContactoClienteStyles = StyleSheet.create({
     },
     icon: {
       paddingVertical: -100,
-      width: 20,
-      height: 20,
+      width: 25,
+      height: 25,
       marginRight: 10,
+      top: -65, // Ajusta este valor según sea necesario para subir los iconos
     },
     subtitle: {
       fontSize: 20,
       fontWeight: 'bold',
-      color: 'white',
+      color: 'black',
       marginTop: 20,
       marginBottom: 10,
     },
     text: {
       fontSize: 16,
-      color: 'white',
+      color: 'black',
       textAlign: 'center',
       marginBottom: 30,
     },
@@ -86,6 +93,7 @@ const ContactoClienteStyles = StyleSheet.create({
       marginBottom: 12,
       position: 'relative', // Para posicionar el texto dentro del cuadro de entrada
     },
+    
     label: {
       position: 'absolute',
       zIndex: 1,
@@ -93,21 +101,31 @@ const ContactoClienteStyles = StyleSheet.create({
       marginBottom: 5,
     },
     input: { 
-      borderWidth: 2, // grosor de los rectangulos
+      height: 50,
+      borderWidth: 0, // grosor de los rectangulos
       borderColor: 'black', // los rectangulos que contienen los Nombre, Gmail, Mensaje 
       borderRadius: 5,
       padding: 10,
       paddingLeft: 70, // Ajuste para dejar espacio para el texto visible
-      color: 'white',
+      color: 'black',
+      backgroundColor: 'white', // Cambia el color de fondo a blanco
     },
     backgroundContainer: {  //image de fondo  
       position: 'absolute',
       width: '110%',
       height: '110%',
+      backgroundColor: '#D6DBDF', // Cambia el color de fondo a gris
     },
   
-     backgroundImage: { //se importa la imagen creo 
-      flex: 1,
+    backgroundImage: {
+      width: '110%',
+      height: 160, // Ajusta la altura según tus necesidades
+      borderTopLeftRadius: 0,
+      borderTopRightRadius: 0,
+      borderBottomLeftRadius: 100,
+      borderBottomRightRadius: 100,
+      marginTop: -13,
+      overflow: 'hidden',
     },
     overlay: {
       ...StyleSheet.absoluteFillObject,
@@ -115,20 +133,21 @@ const ContactoClienteStyles = StyleSheet.create({
       marginTop: 45
     },
     
-    multilineInput: {
+    multilineInput: { //cuadro de mensaje 
       height: 100, // Altura del cuadro de entrada de varias líneas
     },
     button: {
-      backgroundColor: 'orange', // enviar mensaje 
+      backgroundColor: 'orange',
       paddingVertical: 10,
       paddingHorizontal: 20,
       borderRadius: 5,
-      marginBottom: 100,
+      marginTop: -80, // Ajusta el margen superior para subir el botón
     },
     buttonText: {
       color: 'black',
       fontWeight: 'bold',
       textAlign: 'center',
+  
     },
     confirmationMessage: {
       marginTop: -36,
