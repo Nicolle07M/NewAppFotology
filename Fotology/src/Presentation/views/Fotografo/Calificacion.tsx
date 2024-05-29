@@ -38,7 +38,7 @@ const WelcomeViewModel = (props: DrawerContentComponentProps) => {
     <DrawerContentScrollView {...props} style={{ backgroundColor: 'white' }}>
       <DrawerItemList {...props}  /> 
       <DrawerItem
-        label="Bienvenidos"
+        label="Home"
         onPress={handleNavigateToHome}
         labelStyle={{ color: 'black' }}
       />

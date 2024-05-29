@@ -1,28 +1,26 @@
-// Moda.tsx
-
 import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-native'; 
 import { useNavigation } from '@react-navigation/native'; // Importa useNavigation
-import ModaStyles from './GlobalStyles/ModaStyles';
+import VistaStyles from './GlobalStyles/VistaStyles';
 
 export default function Moda() {
-  const navigation = useNavigation(); // Obtiene la función de navegación
+  const navigation = useNavigation();
 
-  const handleCreatePublication = () => {
-    navigation.navigate('PublicacionMScreen'); // Navega a la pantalla PublicacionM
+  const handleCrearPublicacion = () => {
+    navigation.navigate('PublicacionMScreen'); // Navega a PublicacionPScreen al hacer clic en "Crear publicación"
   };
 
   return (
-    <SafeAreaView style={ModaStyles.container}>
-      <View style={ModaStyles.header}>
-        <Text style={ModaStyles.headerText}>Portafolio</Text>
+    <SafeAreaView style={VistaStyles.container}>
+      <View style={VistaStyles.header}>
+        <Text style={VistaStyles.headerText}>Portafolio</Text>
       </View>
-      <View style={ModaStyles.content}>
-        <Text style={ModaStyles.centeredText}>Visualización de la categoría</Text>
+      <View style={VistaStyles.content}>
+        <Text style={VistaStyles.centeredText}>Visualización de la categoría</Text>
       </View>
-      <View style={ModaStyles.footer}>
-        <TouchableOpacity style={ModaStyles.button} onPress={handleCreatePublication}>
-          <Text style={ModaStyles.buttonText}>Crear publicación</Text>
+      <View style={VistaStyles.footer}>
+        <TouchableOpacity style={VistaStyles.button} onPress={handleCrearPublicacion}>
+          <Text style={VistaStyles.buttonText}>Crear publicación</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

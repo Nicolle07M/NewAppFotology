@@ -140,7 +140,6 @@ export default function PublicacionA() {
         </View>
       </View>
     </View>
-    
     </ScrollView>
   );
 }

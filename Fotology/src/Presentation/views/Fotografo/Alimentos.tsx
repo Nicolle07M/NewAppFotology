@@ -1,28 +1,26 @@
-// Alimentos.tsx
-
 import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-native'; 
 import { useNavigation } from '@react-navigation/native'; // Importa useNavigation
-import AlimentosStyles from './GlobalStyles/AlimentosStyles';
+import VistaStyles from './GlobalStyles/VistaStyles';
 
 export default function Alimentos() {
-  const navigation = useNavigation(); // Obtiene la función de navegación
+  const navigation = useNavigation();
 
-  const handleCreatePublication = () => {
-    navigation.navigate('PublicacionAScreen'); // Navega a la pantalla PublicacionA
+  const handleCrearPublicacion = () => {
+    navigation.navigate('PublicacionAScreen'); // Navega a PublicacionPScreen al hacer clic en "Crear publicación"
   };
 
   return (
-    <SafeAreaView style={AlimentosStyles.container}>
-      <View style={AlimentosStyles.header}>
-        <Text style={AlimentosStyles.headerText}>Portafolio</Text>
+    <SafeAreaView style={VistaStyles.container}>
+      <View style={VistaStyles.header}>
+        <Text style={VistaStyles.headerText}>Portafolio</Text>
       </View>
-      <View style={AlimentosStyles.content}>
-        <Text style={AlimentosStyles.centeredText}>Visualización de la categoría</Text>
+      <View style={VistaStyles.content}>
+        <Text style={VistaStyles.centeredText}>Visualización de la categoría</Text>
       </View>
-      <View style={AlimentosStyles.footer}>
-        <TouchableOpacity style={AlimentosStyles.button} onPress={handleCreatePublication}>
-          <Text style={AlimentosStyles.buttonText}>Crear publicación</Text>
+      <View style={VistaStyles.footer}>
+        <TouchableOpacity style={VistaStyles.button} onPress={handleCrearPublicacion}>
+          <Text style={VistaStyles.buttonText}>Crear publicación</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
