@@ -117,7 +117,8 @@ const eventoStyles = StyleSheet.create({
     },
     username: {
       fontSize: 20,
-      fontWeight: 'bold',
+      marginTop: 300,
+   
     },
     description: {
       textAlign: 'justify',
@@ -308,6 +309,17 @@ comentario2: {
     fontSize: 18,
     fontWeight: 'bold',
     color: '#FFFF',
+  },
+  descripcionContainer: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    padding: 10,
+  },
+  descripcionText: {
+    color: 'white',
   },
 
     
