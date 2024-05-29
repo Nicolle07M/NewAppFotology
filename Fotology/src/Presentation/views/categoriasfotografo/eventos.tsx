@@ -127,7 +127,7 @@ const EventoScreen = () => {
     <View style={styles.comentarioContainer}>
       <View style={styles.fotoContainer}>
         <Image source={require('../../../../assets/event.jpg')} style={styles.foto}/> 
-        <View style={styles.foto}></View>
+        <View style={styles.foto}><Text style={styles.username}>Made R.</Text></View>
       </View>    
     </View>
   </View>
