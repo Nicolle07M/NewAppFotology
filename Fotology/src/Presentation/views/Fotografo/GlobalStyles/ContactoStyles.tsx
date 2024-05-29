@@ -38,17 +38,6 @@ const ContactoStyles = StyleSheet.create({
       fontSize: 20,
       top: 60, // Ajusta la posición del texto más pequeño
     },
-    header: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      paddingHorizontal: 20,
-      paddingVertical: 12,
-      backgroundColor: '#FFF',
-      borderBottomWidth: 1,
-      borderBottomColor: '#FFF',
-      marginTop: 0,
-
-    },
     headerButton: {
       fontSize: 16,
       color: 'black',
@@ -127,7 +116,7 @@ const ContactoStyles = StyleSheet.create({
   
     backgroundImage: {
       width: '110%',
-      height: 160, // Ajusta la altura según tus necesidades
+      height: 190, // Ajusta la altura según tus necesidades
       borderTopLeftRadius: 0,
       borderTopRightRadius: 0,
       borderBottomLeftRadius: 100,
@@ -137,10 +126,10 @@ const ContactoStyles = StyleSheet.create({
     },
     overlay: {
       ...StyleSheet.absoluteFillObject,
-      backgroundColor: 'rgba(200, 150, 2, 0.1)', // Color naranja semitransparente
-      marginTop: 45
+      backgroundColor: 'rgba(200, 120, 0, 0.3)', // Color naranja semitransparente
+      justifyContent: 'center',
+      alignItems: 'center',
     },
-    
     multilineInput: { //cuadro de mensaje 
       height: 100, // Altura del cuadro de entrada de varias líneas
     },
