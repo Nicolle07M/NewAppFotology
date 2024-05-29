@@ -98,8 +98,9 @@ export const ContactoClienteScreen = () => {
       </View>
 
       <ImageBackground 
-      source={require('../../../../assets/background.png')} 
+      source={require('../../../../assets/Fondo1.jpg')} 
       style={styles.backgroundImage}
+      blurRadius={3}
     >
         <View style={styles.container2}>
           <Text style={styles.smallTitle}>PONERSE EN CONTACTO</Text>
@@ -114,19 +115,15 @@ export const ContactoClienteScreen = () => {
           <Image source={require('../../../../assets/facebook.png')} style={styles.icon} />
         </TouchableOpacity>
         <TouchableOpacity onPress={handleGmailPress}>
-          <Image source={require('../../../../assets/gmail.png')} style={styles.icon} />
+          <Image source={require('../../../../assets/gmail.png')} style={styles.icon2} />
         </TouchableOpacity>
         <TouchableOpacity onPress={handleInstagramPress}>
           <Image source={require('../../../../assets/instagram.png')} style={styles.icon} />
         </TouchableOpacity>
         <TouchableOpacity onPress={handleTwitterPress}>
-          <Image source={require('../../../../assets/twtter.png')} style={styles.icon} />
+          <Image source={require('../../../../assets/twtter.png')} style={styles.icon2} />
         </TouchableOpacity>
       </View>
-     
-    
-      
-
       <Text style={styles.subtitle}>NO SEAS TÍMIDO</Text>
       <Text style={styles.text}>Si tienes alguna sugerencia de la app escribenos.</Text>
       <View style={styles.inputContainer}>

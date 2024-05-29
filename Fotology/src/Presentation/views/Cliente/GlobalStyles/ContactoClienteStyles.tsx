@@ -72,11 +72,18 @@ const ContactoClienteStyles = StyleSheet.create({
       marginRight: 10,
       top: -65, // Ajusta este valor según sea necesario para subir los iconos
     },
+    icon2: {
+      paddingVertical: -100,
+      width: 31,
+      height: 26,
+      marginRight: 10,
+      top: -65, // Ajusta este valor según sea necesario para subir los iconos
+    },
     subtitle: {
       fontSize: 20,
       fontWeight: 'bold',
       color: 'black',
-      marginTop: 20,
+      marginTop: -20,
       marginBottom: 10,
     },
     text: {

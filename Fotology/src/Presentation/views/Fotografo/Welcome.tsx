@@ -94,10 +94,10 @@ const WelcomeContent = () => {
             </View>
           </View>
         </ImageBackground>
-        <Text style={styles.description2}>
-        Fotografos destacados del mes
-      </Text>
+        <View style={styles.orangeLine} />
+      <Text style={styles.title2}>Fotógrafos Destacados</Text> 
       <View style={styles.orangeLine} />
+     
       </View>
       <View style={styles.container}>
       <View style={styles.comentarioContainer}>

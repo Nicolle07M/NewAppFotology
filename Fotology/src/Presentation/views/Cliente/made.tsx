@@ -237,7 +237,7 @@ const MadeScreen = () => {
             <View style={styles.ratingButton}></View>
           </View>
           <Text style={styles.comentario2}>
-            Increíble tu trabajo, me encantó mucho. Muy recomendado, gracias por captar los mejores momentos de mi vida.
+            Increíble tu trabajo, me encantó mucho, oistes. Muy recomendado a todos los socitos que pillen este perfil, la re buena y bendiciones paraz todos, no olviden bañarse.
           </Text>
           <Text style={styles.tiempo}>Hace 15 horas</Text>
         </View>
@@ -264,7 +264,7 @@ const MadeScreen = () => {
             <View style={styles.ratingButton}></View>
           </View>
           <Text style={styles.comentario2}>
-            Increíble tu trabajo, me encantó mucho. Muy recomendado, gracias por captar los mejores momentos de mi vida.
+            Me encanto tu trabajo, gracias por todo, esas fotos bañandome quedaron increibles, asi compruebo que si me bañe hoy.
           </Text>
           <Text style={styles.tiempo}>Hace 23 horas</Text>
         </View>

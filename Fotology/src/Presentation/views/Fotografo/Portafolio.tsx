@@ -56,7 +56,7 @@ export default function PortafolioScreen() {
     'Moda': require('../../../../assets/moda.jpg'),
     'Alimentos': require('../../../../assets/alimentos.jpg'),
     'Eventos': require('../../../../assets/eventos.jpg'),
-    'Viajes': require('../../../../assets/viajes.jpg'),
+    'Viajes': require('../../../../assets/viaje.jpg'),
     'default': require('../../../../assets/viajes.jpg'),
   };
 
