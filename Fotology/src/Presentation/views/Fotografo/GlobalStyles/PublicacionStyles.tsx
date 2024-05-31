@@ -91,18 +91,18 @@ const PublicacionStyles = StyleSheet.create({
     },
     squareText: {
         position: 'absolute',
-        top: 30,
+        top: 50,
         left: 25,
         fontSize: 16,
         color: 'black',
     },
     additionalSquare: {
         width: 150,
-        height: 26,
+        height: 30,
         backgroundColor: 'white',
         position: 'absolute',
-        top: 29.5,
-        left: 85,
+        top: 45,
+        left: 90,
         justifyContent: 'center',
         alignItems: 'flex-start',
         borderWidth: 1,
@@ -116,27 +116,16 @@ const PublicacionStyles = StyleSheet.create({
     },
     button: {
         backgroundColor: 'orange',
-        paddingVertical: 7,
-        paddingHorizontal: 10,
+        paddingVertical: 10,
+        paddingHorizontal: 12,
         borderRadius: 25,
         position: 'absolute',
-        top: -3.5,
+        top: -6,
         left: 160,
     },
     buttonText: {
-        fontSize: 14,
+        fontSize: 13,
         color: 'white',
-    },
-    belowTextContainer: {
-        position: 'absolute',
-        top: 80,
-        left: 0,
-        right: 0,
-        alignItems: 'center',
-    },
-    belowText: {
-        fontSize: 14,
-        color: 'black',
     },
     imageContainer: {
         flexDirection: 'row',
@@ -192,7 +181,7 @@ const PublicacionStyles = StyleSheet.create({
         paddingVertical: 15,
         paddingHorizontal: 25,
         borderRadius: 25,
-        marginTop: 0, // Margen superior para separarlo del contenedor de entrada de texto
+        marginTop: 20, // Margen superior para separarlo del contenedor de entrada de texto
     },
     buttonsText: {
         fontSize: 14,

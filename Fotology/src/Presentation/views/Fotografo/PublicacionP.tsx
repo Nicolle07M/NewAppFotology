@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, TouchableOpacity, Image, ScrollView, Alert, TextInput } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
-import { MaterialIcons } from '@expo/vector-icons'; // Importa el icono de MaterialIcons
 import PublicacionStyles from './GlobalStyles/PublicacionStyles';
 
 export default function PublicacionP({ navigation }) {
-  const [selectedImages, setSelectedImages] = useState<string[]>([]);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [description, setDescription] = useState<string>('');
 
   const handleTextClick = () => {
@@ -30,8 +29,7 @@ export default function PublicacionP({ navigation }) {
     });
 
     if (!result.canceled && result.assets && result.assets.length > 0) {
-      const newImages = result.assets.map((asset: { uri: string }) => asset.uri);
-      setSelectedImages(prevImages => [...prevImages, ...newImages]);
+      setSelectedImage(result.assets[0].uri);
     }
   };
 
@@ -44,24 +42,23 @@ export default function PublicacionP({ navigation }) {
     });
 
     if (!result.canceled && result.assets && result.assets.length > 0) {
-      const newImages = result.assets.map((asset: { uri: string }) => asset.uri);
-      setSelectedImages(prevImages => [...prevImages, ...newImages]);
+      setSelectedImage(result.assets[0].uri);
     }
   };
 
-  const handleDeleteImage = (index: number) => {
-    setSelectedImages(prevImages => prevImages.filter((_, i) => i !== index));
+  const handleDeleteImage = () => {
+    setSelectedImage(null);
   };
 
   const handleButtonPress = () => {
-    if (selectedImages.length === 0 || description.trim() === '') {
+    if (!selectedImage || description.trim() === '') {
       Alert.alert(
         'Datos incompletos',
         'Por favor, completa el formulario antes de guardar.',
         [{ text: 'OK', onPress: () => console.log('Mensaje mostrado') }]
       );
     } else {
-      navigation.navigate('PaisajesScreen', { images: selectedImages });
+      navigation.navigate('PaisajesScreen', { newImage: selectedImage });
     }
   };
 
@@ -80,32 +77,29 @@ export default function PublicacionP({ navigation }) {
             <View style={PublicacionStyles.additionalTextContainer}>
               <Text style={PublicacionStyles.additionalText}>Formulario</Text>
             </View>
-            <View style={PublicacionStyles.fileUploadContainer}>
-              <Text style={PublicacionStyles.uploadText}>Carga tu archivo</Text>
-              <View style={PublicacionStyles.innerSquare}>
-                <Text style={PublicacionStyles.squareText}>Archivo</Text>
-                <View style={PublicacionStyles.additionalSquare}>
-                  <Text style={PublicacionStyles.additionalSquareText}>Selecciona el archivo:</Text>
-                  <TouchableOpacity style={PublicacionStyles.button} onPress={handleTextClick}>
-                    <Text style={PublicacionStyles.buttonText}>Buscar</Text>
-                  </TouchableOpacity>
-                </View>
-                <View style={PublicacionStyles.belowTextContainer}>
-                  <TouchableOpacity onPress={handleTextClick}>
-                    <Text style={PublicacionStyles.belowText}>¿Estás seguro de cargar este archivo?</Text>
-                  </TouchableOpacity>
+            {!selectedImage && (
+              <View style={PublicacionStyles.fileUploadContainer}>
+                <Text style={PublicacionStyles.uploadText}>Carga tu archivo</Text>
+                <View style={PublicacionStyles.innerSquare}>
+                  <Text style={PublicacionStyles.squareText}>Archivo</Text>
+                  <View style={PublicacionStyles.additionalSquare}>
+                    <Text style={PublicacionStyles.additionalSquareText}>Selecciona el archivo:</Text>
+                    <TouchableOpacity style={PublicacionStyles.button} onPress={handleTextClick}>
+                      <Text style={PublicacionStyles.buttonText}>Buscar</Text>
+                    </TouchableOpacity>
+                  </View>
                 </View>
               </View>
-            </View>
-            {selectedImages.map((image, index) => (
-              <View key={index} style={PublicacionStyles.imageContainer}>
+            )}
+            {selectedImage && (
+              <View style={PublicacionStyles.imageContainer}>
                 <Text style={PublicacionStyles.imageLoadedText}>Imagen cargada:</Text>
-                <Image source={{ uri: image }} style={PublicacionStyles.image} />
-                <TouchableOpacity style={PublicacionStyles.deleteButton} onPress={() => handleDeleteImage(index)}>
-                  <Text style={PublicacionStyles.deleteButtonText}>Eliminar</Text>
+                <Image source={{ uri: selectedImage }} style={PublicacionStyles.image} />
+                <TouchableOpacity style={PublicacionStyles.deleteButton} onPress={handleDeleteImage}>
+                  <Text style={PublicacionStyles.deleteButtonText}>Cambiar</Text>
                 </TouchableOpacity>
               </View>
-            ))}
+            )}
             <View style={PublicacionStyles.additionalTextContainer}>
               <Text style={PublicacionStyles.imageDescription}>Descripción de la imagen</Text>
               <TextInput

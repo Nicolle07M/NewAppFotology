@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Text, View, SafeAreaView, TouchableOpacity, Image, Alert } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -7,7 +7,14 @@ import VistaStyles from './GlobalStyles/VistaStyles';
 export default function Paisajes() {
   const navigation = useNavigation();
   const route = useRoute();
-  const { images } = route.params || { images: [] }; 
+  const newImage = route.params?.newImage;
+  const [images, setImages] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (newImage) {
+      setImages((prevImages) => [...prevImages, newImage]);
+    }
+  }, [newImage]);
 
   const [showOptions, setShowOptions] = useState<boolean>(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -34,11 +41,7 @@ export default function Paisajes() {
         {
           text: 'Eliminar',
           onPress: () => {
-            console.log('Eliminar');
-            // Aquí puedes añadir la lógica para eliminar la imagen de la lista
-            const newImages = images.filter((_, i) => i !== index);
-            // Actualizar el estado u otras acciones necesarias
-            console.log('Imagen eliminada:', index);
+            setImages((prevImages) => prevImages.filter((_, i) => i !== index));
           },
           style: 'destructive',
         },
