@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Dimensions, View, Text, ImageBackground, ScrollView, TouchableOpacity, Image, Alert } from 'react-native';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import PortafolioStyles from './GlobalStyles/PortafolioStyles';
 
 const windowWidth = Dimensions.get('window').width;
@@ -11,9 +12,9 @@ type RootStackParamList = {
   PaisajesScreen: undefined;
   RetratosScreen: undefined;
   ModaScreen: undefined;
-  AlimentosScreen: undefined; 
+  AlimentosScreen: undefined;
   ViajesScreen: undefined;
-  EventosScreen: undefined; // Asegúrate de que esta pantalla esté registrada en tu navegador
+  EventosScreen: undefined; 
 };
 
 type PortafolioScreenRouteProp = RouteProp<RootStackParamList, 'PortafolioScreen'>;
@@ -24,19 +25,48 @@ export default function PortafolioScreen() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
   useEffect(() => {
+    const loadCategories = async () => {
+      try {
+        const storedCategories = await AsyncStorage.getItem('selectedCategories');
+        if (storedCategories) {
+          setSelectedCategories(JSON.parse(storedCategories));
+        }
+      } catch (error) {
+        console.error('Error loading categories:', error);
+      }
+    };
+
+    loadCategories();
+  }, []);
+
+  useEffect(() => {
     if (route.params?.selectedCategory) {
       const category = route.params.selectedCategory;
       setSelectedCategories(prevCategories => {
         if (!prevCategories.includes(category)) {
-          return [...prevCategories, category];
+          const updatedCategories = [...prevCategories, category];
+          saveCategories(updatedCategories);
+          return updatedCategories;
         }
         return prevCategories;
       });
     }
   }, [route.params?.selectedCategory]);
 
+  const saveCategories = async (categories: string[]) => {
+    try {
+      await AsyncStorage.setItem('selectedCategories', JSON.stringify(categories));
+    } catch (error) {
+      console.error('Error saving categories:', error);
+    }
+  };
+
   const removeCategory = (category: string) => {
-    setSelectedCategories(prevCategories => prevCategories.filter(cat => cat !== category));
+    setSelectedCategories(prevCategories => {
+      const updatedCategories = prevCategories.filter(cat => cat !== category);
+      saveCategories(updatedCategories);
+      return updatedCategories;
+    });
   };
 
   const confirmRemoveCategory = (category: string) => {
@@ -52,12 +82,11 @@ export default function PortafolioScreen() {
 
   const categoryImages: { [key: string]: any } = {
     'Paisajes': require('../../../../assets/paisajes.jpg'),
-    'Retratos': require('../../../../assets/retrato.jpg'),
-    'Moda': require('../../../../assets/moda.jpg'),
-    'Alimentos': require('../../../../assets/alimentos.jpg'),
-    'Eventos': require('../../../../assets/eventos.jpg'),
+    'Retratos': require('../../../../assets/retra.jpg'),
+    'Moda': require('../../../../assets/mod.jpg'),
+    'Alimentos': require('../../../../assets/comida.jpg'),
+    'Eventos': require('../../../../assets/event.jpg'),
     'Viajes': require('../../../../assets/viaje.jpg'),
-    'default': require('../../../../assets/viajes.jpg'),
   };
 
   const renderSelectedCategories = () => {
