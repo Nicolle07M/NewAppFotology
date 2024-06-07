@@ -25,6 +25,11 @@ const WelcomeClienteScreen = () => {
     navigation.navigate('WelcomeClienteScreen' as never);
   };
 
+  const navigatePerfilClienteScreen = () => {
+    navigation.navigate('PerfilClienteScreen' as never);
+  };
+
+
   const handleLoginPress = () => {
     navigation.navigate('HomeScreen' as never);
   };
@@ -58,6 +63,10 @@ const WelcomeClienteScreen = () => {
 
             <TouchableOpacity onPress={navigateToContactoClienteScreen}>
               <Text style={styles.headerButton}>Contacto</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={navigatePerfilClienteScreen}>
+              <Text style={styles.headerButton}>Perfil</Text>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={handleLoginPress}>
