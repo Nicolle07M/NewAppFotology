@@ -2,23 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, ImageBackground, Image, ToastAndroid } from 'react-native';
 import styles from './LoginStyles';
 import { FontAwesome } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native'; // Importa el hook useNavigation de React Navigation
 import HomeViewModel from './viewModel';
-import { StackNavigationProp, StackScreenProps } from '@react-navigation/stack';
+import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from '../../../../App';
 import CustomTextInput from '../../components/CustomTextInputRegister';
 
 interface Props extends StackScreenProps<RootStackParamList, 'LoginFormScreen'> {};
 
-export const LoginFormScreen = ({ navigation, route }: Props) => {
+export const LoginFormScreen = ({ route }: Props) => { // Elimina la prop navigation, ya que no la necesitas aquí
   const { email, password, errorMessage, fotografo, onChange, login } = HomeViewModel();
+  const navigation = useNavigation(); // Utiliza useNavigation para obtener el objeto de navegación
 
   useEffect(() => {
     if (errorMessage !== '') {
       ToastAndroid.show(errorMessage, ToastAndroid.LONG);
     }
   }, [errorMessage]);
-
 
   useEffect(() => {
     console.log('Effect triggered with fotografo: ', fotografo);
@@ -27,7 +27,6 @@ export const LoginFormScreen = ({ navigation, route }: Props) => {
       navigation.replace('WelcomeScreen');
     }
   }, [fotografo]);
-
 
   return (
     <View style={styles.container}>
@@ -67,7 +66,10 @@ export const LoginFormScreen = ({ navigation, route }: Props) => {
             />
           </View>
           <TouchableOpacity style={styles.buttonContainer} onPress={() => { 
+            console.log('Correo electrónico ingresado:', email);
+            console.log('Contraseña ingresada:', password);
             login();
+            navigation.navigate('WelcomeScreen');
           }}>
             <Text style={styles.buttonText}>Iniciar Sesión</Text>
           </TouchableOpacity>

@@ -1,102 +1,92 @@
-import React, { useState } from 'react';
-import { RegisterAuthUseCase } from '../../../Domain/useCases/auth/RegisterAuth';
-import { ApiFotology } from '../../../Data/sources/remote/api/ApiFotology';
-import * as ImagePicker from "expo-image-picker";
+import { useState } from 'react';
+import { Alert } from 'react-native';
 
-const RegisterViewModel = () => {
+const useViewModel = () => {
+  // Estados para almacenar los valores de los campos del formulario
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [adress, setAdress] = useState('');
+  const [image, setImage] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const [values, setValues] = useState({
-    username: '',
-    email: '',
-    adress: '',
-    password: '',
-    image: '',
-    confirmPassword: '',
-  });
 
-  const [file, setFile] = useState<ImagePicker.ImagePickerAsset>();
-
-  const pickImage = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
-      allowsEditing: true,
-      quality: 1,
-    });
-
-    if (!result.cancelled) {
-      onChange('image', result.assets[0].uri);
-      setFile(result.assets[0]);
-    }
-  };
-  
-  const takePhoto = async () => {
-    let result = await ImagePicker.launchCameraAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
-      allowsEditing: true,
-      quality: 1,
-    });
-
-    if (!result.cancelled) {
-      onChange('image', result.assets[0].uri);
-      setFile(result.assets[0]);
+  // Función para manejar los cambios en los campos del formulario
+  const onChange = (property, value) => {
+    switch (property) {
+      case 'username':
+        setUsername(value);
+        break;
+      case 'email':
+        setEmail(value);
+        break;
+      case 'adress':
+        setAdress(value);
+        break;
+      case 'password':
+        setPassword(value);
+        break;
+      case 'confirmPassword':
+        setConfirmPassword(value);
+        break;
+      default:
+        break;
     }
   };
 
-  const onChange = (property: string, value: any) => {
-    setValues({ ...values, [property]: value });
+  // Función para validar los campos del formulario
+  const validateInputs = () => {
+    if (!username) return "Nombre de usuario es requerido.";
+    if (!email) return "Correo electrónico es requerido.";
+    if (!adress) return "Dirección es requerida.";
+    if (!password) return "Contraseña es requerida.";
+    if (password !== confirmPassword) return "Las contraseñas no coinciden.";
+    return '';
   };
 
-  const register = async () => {
-    if (isValidForm()) {
-      const response = await RegisterAuthUseCase(values);
-      console.log('Result' + JSON.stringify(response));
-    }
-  };
-
-  const isValidForm = (): boolean => {
-    if (values.username === '') {
-      setErrorMessage('El nombre es requerido');
-      return false;
+  // Función para manejar el registro de usuario
+  const register = () => {
+    const validationError = validateInputs();
+    if (validationError) {
+      setErrorMessage(validationError); // Establece el mensaje de error si hay problemas de validación
+      return;
     }
 
-    if (values.email === '') {
-      setErrorMessage('El correo es requerido');
-      return false;
-    }
+    // Imprime los datos en la terminal
+    console.log('Registro exitoso:');
+    console.log(`Nombre de usuario: ${username}`);
+    console.log(`Correo electrónico: ${email}`);
+    console.log(`Dirección: ${adress}`);
+    console.log(`Contraseña: ${password}`); // En un entorno real, no deberías imprimir la contraseña
 
-    if (values.adress === '') {
-      setErrorMessage('La dirección es requerida');
-      return false;
-    }
-
-    if (values.password === '') {
-      setErrorMessage('La contraseña es requerida');
-      return false;
-    }
-
-    if (values.confirmPassword === '') {
-      setErrorMessage('La confirmación de contraseña es requerida');
-      return false;
-    }
-
-    if (values.password !== values.confirmPassword) {
-      setErrorMessage('Las contraseñas no coinciden');
-      return false;
-    }
-
-    // Limpiar el mensaje de error si el formulario es válido
+    // Limpia el mensaje de error si el registro es exitoso
     setErrorMessage('');
-    return true;
+    Alert.alert('Registro exitoso', 'Te has registrado correctamente'); // Muestra una alerta indicando éxito
+  };
+
+  // Función para seleccionar una imagen (lógica no implementada)
+  const pickImage = async () => {
+    // Lógica para seleccionar una imagen
+  };
+
+  // Función para tomar una foto (lógica no implementada)
+  const takePhoto = async () => {
+    // Lógica para tomar una foto
   };
 
   return {
-    ...values,
+    username,
+    email,
+    adress,
+    image,
+    password,
+    confirmPassword,
     onChange,
     register,
+    errorMessage,
     pickImage,
     takePhoto,
-    errorMessage,
   };
 };
 
-export default RegisterViewModel;
+export default useViewModel;

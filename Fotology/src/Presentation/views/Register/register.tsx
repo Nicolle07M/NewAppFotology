@@ -4,14 +4,13 @@ import styles from './RegisterStyle';
 import CustomTextInput from '../../components/CustomTextInputRegister';
 import useViewModel from './viewModel';
 import ModalPickImage from '../../components/ModalPickImage';
-import { RegisterAuthUseCase } from '../../../Domain/useCases/auth/RegisterAuth';
 import * as ImagePicker from "expo-image-picker";
 import { useNavigation } from '@react-navigation/native';
 
 const RegisterScreen = () => {
   const { username, email, adress, image, password, confirmPassword, onChange, register, errorMessage, pickImage, takePhoto } = useViewModel();
   const [modalVisible, setModalVisible] = useState(false);
-  const navigation = useNavigation(); // Use useNavigation to get the navigation instance
+  const navigation = useNavigation();
 
   useEffect(() => {
     if (errorMessage !== '') {
@@ -20,7 +19,7 @@ const RegisterScreen = () => {
   }, [errorMessage]);
 
   const navigateToLogin = () => {
-    navigation.navigate('LoginFormScreen'); // Use the correct navigation method
+    navigation.navigate('LoginFormScreen');
   };
 
   return (
