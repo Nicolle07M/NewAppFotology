@@ -52,6 +52,10 @@ const VistaStyles = StyleSheet.create({
   },
   imageItem: {
     marginBottom: 20,
+    borderWidth: 1,
+    borderColor: 'gray',
+    borderRadius: 8,
+    margin: 8,
   },
   imageWrapper: {
     position: 'relative',

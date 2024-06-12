@@ -33,6 +33,7 @@ import PublicacionMScreen from './src/Presentation/views/Fotografo/PublicacionM'
 import PublicacionAScreen from './src/Presentation/views/Fotografo/PublicacionA';
 import PublicacionVScreen from './src/Presentation/views/Fotografo/PublicacionV';
 import PublicacionEScreen from './src/Presentation/views/Fotografo/PublicacionE';
+import CargaScreen from './src/Presentation/views/Fotografo/Carga';
 
 //categorias
 import EventoScreen from './src/Presentation/views/categoriasfotografo/eventos';
@@ -71,6 +72,7 @@ export type RootStackParamList = {
   PublicacionVScreen: undefined;
   PublicacionEScreen: undefined;
   PerfilClienteScreen: undefined;
+  CargaScreen: undefined;
 
 //categoria
 EventoScreen: undefined;
@@ -117,9 +119,8 @@ const App = () => {
         <Stack.Screen name="MadeScreen" component={MadeScreen}/>
         <Stack.Screen name="AlexisScreen" component={AlexisScreen}/>
         <Stack.Screen name="PerfilClienteScreen" component={PerfilClienteScreen}/>
-
         <Stack.Screen name="EventoScreen" component={EventoScreen}/>
-
+        <Stack.Screen name="CargaScreen" component={CargaScreen}/>
         
       </Stack.Navigator>
     </NavigationContainer>

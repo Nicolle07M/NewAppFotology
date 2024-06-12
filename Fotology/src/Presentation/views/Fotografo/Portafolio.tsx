@@ -3,6 +3,7 @@ import { Dimensions, View, Text, ImageBackground, ScrollView, TouchableOpacity, 
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import PortafolioStyles from './GlobalStyles/PortafolioStyles';
+import crypto from 'crypto-js';
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -18,6 +19,46 @@ type RootStackParamList = {
 };
 
 type PortafolioScreenRouteProp = RouteProp<RootStackParamList, 'PortafolioScreen'>;
+
+interface CloudinaryImage {
+  url: string;
+  public_id: string;
+  description: string;
+}
+
+const cloudName = 'dcl4z0moc';
+const apiKey = '791631971468291';
+const apiSecret = 's1pq8zeydd8ttPmdCWt2lBrIZpg';
+const cloudinaryURL = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`;
+
+const deleteImageFromCloudinary = async (publicId: string) => {
+  try {
+    const url = `https://api.cloudinary.com/v1_1/${cloudName}/image/destroy`;
+    const timestamp = Math.floor(Date.now() / 1000); // Obtiene el timestamp actual
+    const signature = crypto.SHA1(`public_id=${publicId}&timestamp=${timestamp}${apiSecret}`).toString(); // Calcula la firma
+
+    const formData = new FormData();
+    formData.append('public_id', publicId);
+    formData.append('api_key', apiKey);
+    formData.append('timestamp', String(timestamp));
+    formData.append('signature', signature);
+
+    const response = await fetch(url, {
+      method: 'POST',
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error.message);
+    }
+
+    return data;
+  } catch (error) {
+    throw new Error(`Error al eliminar la imagen de Cloudinary: ${error}`);
+  }
+};
 
 export default function PortafolioScreen() {
   const navigation = useNavigation();
@@ -61,7 +102,7 @@ export default function PortafolioScreen() {
     }
   };
 
-  const removeCategory = (category: string) => {
+  const removeCategory = async (category: string) => {
     setSelectedCategories(prevCategories => {
       const updatedCategories = prevCategories.filter(cat => cat !== category);
       saveCategories(updatedCategories);
@@ -75,7 +116,29 @@ export default function PortafolioScreen() {
       `¿Está seguro de que desea eliminar la categoría ${category}?`,
       [
         { text: "Cancelar", style: "cancel" },
-        { text: "Eliminar", onPress: () => removeCategory(category) },
+        { 
+          text: "Eliminar", 
+          onPress: async () => {
+            try {
+              // Obtener las imágenes de la categoría desde AsyncStorage
+              const storedImages = await AsyncStorage.getItem(`${category}_cloudinaryImages`);
+              if (storedImages) {
+                const images: CloudinaryImage[] = JSON.parse(storedImages);
+                // Eliminar cada imagen de Cloudinary
+                await Promise.all(images.map(async (image) => {
+                  await deleteImageFromCloudinary(image.public_id);
+                }));
+                // Eliminar las imágenes de AsyncStorage
+                await AsyncStorage.removeItem(`${category}_cloudinaryImages`);
+              }
+              // Eliminar la categoría de selectedCategories
+              await removeCategory(category);
+            } catch (error) {
+              console.error('Error al eliminar las imágenes de Cloudinary:', error);
+              Alert.alert('Error', 'Hubo un problema al eliminar las imágenes. Inténtalo de nuevo.');
+            }
+          },
+        },
       ]
     );
   };
@@ -193,4 +256,3 @@ export default function PortafolioScreen() {
     </ScrollView>
   );
 }
-

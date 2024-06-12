@@ -1,12 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, TouchableOpacity, Image, ScrollView, Alert, TextInput } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import PublicacionStyles from './GlobalStyles/PublicacionStyles';
+import PublicacionPScreen from './PublicacionP';
 
-export default function PublicacionP({ navigation }) {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+export default function PublicacionP({ navigation, route }) {
+  const [selectedImages, setSelectedImages] = useState<Array<string>>([]);
   const [description, setDescription] = useState<string>('');
+
+  useEffect(() => {
+    if (route.params?.newImages) {
+      setSelectedImages([...selectedImages, ...route.params.newImages]);
+      setDescription(route.params.description || '');
+    }
+  }, [route.params?.newImages]);
 
   const handleTextClick = () => {
     Alert.alert(
@@ -28,8 +36,8 @@ export default function PublicacionP({ navigation }) {
       quality: 1,
     });
 
-    if (!result.canceled && result.assets && result.assets.length > 0) {
-      setSelectedImage(result.assets[0].uri);
+    if (!result.cancelled && result.assets && result.assets.length > 0) {
+      setSelectedImages([...selectedImages, result.assets[0].uri]);
     }
   };
 
@@ -41,24 +49,26 @@ export default function PublicacionP({ navigation }) {
       quality: 1,
     });
 
-    if (!result.canceled && result.assets && result.assets.length > 0) {
-      setSelectedImage(result.assets[0].uri);
+    if (!result.cancelled && result.assets && result.assets.length > 0) {
+      setSelectedImages([...selectedImages, result.assets[0].uri]);
     }
   };
 
-  const handleDeleteImage = () => {
-    setSelectedImage(null);
+  const handleDeleteImage = (index: number) => {
+    const newImages = [...selectedImages];
+    newImages.splice(index, 1);
+    setSelectedImages(newImages);
   };
 
   const handleButtonPress = () => {
-    if (!selectedImage || description.trim() === '') {
+    if (selectedImages.length === 0 || description.trim().length < 8) {
       Alert.alert(
-        'Datos incompletos',
-        'Por favor, completa el formulario antes de guardar.',
+        'Información insuficiente',
+        'Agrega al menos una imagen y una descripción de al menos 8 caracteres.',
         [{ text: 'OK', onPress: () => console.log('Mensaje mostrado') }]
       );
     } else {
-      navigation.navigate('PaisajesScreen', { newImage: selectedImage });
+      navigation.navigate('PaisajesScreen', { newImages: selectedImages, description: description });
     }
   };
 
@@ -77,7 +87,7 @@ export default function PublicacionP({ navigation }) {
             <View style={PublicacionStyles.additionalTextContainer}>
               <Text style={PublicacionStyles.additionalText}>Formulario</Text>
             </View>
-            {!selectedImage && (
+            {!selectedImages.length > 0 && (
               <View style={PublicacionStyles.fileUploadContainer}>
                 <Text style={PublicacionStyles.uploadText}>Carga tu archivo</Text>
                 <View style={PublicacionStyles.innerSquare}>
@@ -91,15 +101,15 @@ export default function PublicacionP({ navigation }) {
                 </View>
               </View>
             )}
-            {selectedImage && (
-              <View style={PublicacionStyles.imageContainer}>
+            {selectedImages.map((image, index) => (
+              <View key={index} style={PublicacionStyles.imageContainer}>
                 <Text style={PublicacionStyles.imageLoadedText}>Imagen cargada:</Text>
-                <Image source={{ uri: selectedImage }} style={PublicacionStyles.image} />
-                <TouchableOpacity style={PublicacionStyles.deleteButton} onPress={handleDeleteImage}>
-                  <Text style={PublicacionStyles.deleteButtonText}>Cambiar</Text>
+                <Image source={{ uri: image }} style={PublicacionStyles.image} />
+                <TouchableOpacity style={PublicacionStyles.deleteButton} onPress={() => handleDeleteImage(index)}>
+                  <Text style={PublicacionStyles.deleteButtonText}>Eliminar</Text>
                 </TouchableOpacity>
               </View>
-            )}
+            ))}
             <View style={PublicacionStyles.additionalTextContainer}>
               <Text style={PublicacionStyles.imageDescription}>Descripción de la imagen</Text>
               <TextInput
